@@ -1,5 +1,5 @@
 
-setwd("C:/temp/R")
+#setwd("U:/Programmieren/R_Shirin/R_Shirin")
 #setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
 
 
