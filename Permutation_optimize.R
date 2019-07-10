@@ -6,6 +6,7 @@
 
 
 
+
 main <- function(new_draws){
   print(Sys.time())
   lotto = read_file_csv2("data_lotto_date.csv")
