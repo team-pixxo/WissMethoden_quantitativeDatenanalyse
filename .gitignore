@@ -1,3 +1,4 @@
 outputdir
 .RData
 .Rhistory
+.DS_Store

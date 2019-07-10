@@ -1,6 +1,6 @@
 
 #setwd("C:/temp/R")
-#setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
+setwd("/Users/shirin/Desktop/github_FOM/WissMethoden_quantitativeDatenanalyse")
 # suoper schnell
 # speedboost
 
@@ -63,7 +63,7 @@ test_lotto <- function(){
 
 
 
-m=main(150000)
+m=main(1000)
 
 
 
