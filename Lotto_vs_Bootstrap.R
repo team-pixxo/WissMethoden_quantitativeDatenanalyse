@@ -1,10 +1,10 @@
 #Bootstrap | Permutation Vergleich
-setwd("/Users/shisha/Dropbox/FOM/Seminararbeit")
+setwd("/Users/shisha/Desktop/WissMethoden_quantitativeDatenanalyse")
 
 library(mosaic)
 
 data_lotto_total <- read.csv2("data_lotto_date.csv")
-
+data_lotto_total
 Orig_Fibo1 <- read.csv2("1_Sort_by_Fibo.csv")
 rbind(Orig_Fibo1)
 Orig_Fibo2 <- read.csv2("2_Sort_by_Fibo.csv")
@@ -61,12 +61,21 @@ colnames(Permutation_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoc
 Permutation_Fibo_21_34 <- read.csv2("Permutation_Quota_Fibo_21_34.csv")
 colnames(Permutation_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
 
-Lotto_Fibo_1_2 <- read.csv2("Lotto_Quota_Fibo_1_2.csv")
+Lotto_Fibo_1_2 <- read.csv2("Lotto_Quota_Fibo_1_2.csv", header = FALSE)
+
+colnames(Lotto_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
 Lotto_Fibo_21_34 <- read.csv2("Lotto_Quota_Fibo_21_34.csv")
 
-wert = Lotto_Fibo_21_34[,1]
 
-gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_1_2)
+m1 <- mean(Bootstrap_Fibo_1_2$Ziehungsanzahl)
+m2 <- Lotto_Fibo_1_2[,2]
+q <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
+q <- as.data.frame(q)
+q1 <- q[1,1]
+q2 <-q[2,1]
+gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_1_2) %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1,q2,m2))
+
+
 gf_bar(~Bootstrap_Fibo_1_2[,5], data = Bootstrap_Fibo_1_2)
 gf_barh(~Anteil, data = Bootstrap_Fibo_1_2)
 
