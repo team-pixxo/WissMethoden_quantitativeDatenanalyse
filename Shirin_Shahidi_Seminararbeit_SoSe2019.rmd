@@ -19,7 +19,7 @@ output:
 lang: de
 editor_options:
   chunk_output_type: console
-bibliography: Meine_Bibliothek.bib
+bibliography: WM-QDA_Seminararbeit.bib
 csl: harvard.fh.sb.csl
 ---
 
@@ -44,9 +44,11 @@ library(citr)
 
 # 1. Einleitung
 
-"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung."(Joseph Joubert)[@noauthor_joseph_nodate]
-"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." (Albert Einstein)[@noauthor_zufallzitate_nodate]
+<p>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." - Albert Einstein. [@zitate.net_zufallzitate_2019] </p>
+Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten errechnen, nicht jedoch küftige Ziehungen vorhersagen.
+Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden.[@ute_sproesser_et_al._daten_2014: 33]
 
+Wie Aug
 
 
 
@@ -155,6 +157,9 @@ Gehen Sie hier genauer auf die untersuchten Hypothesen und Modelle ein. Geben Si
 Für die Diskussion setzen Sie das Ergebnis in Kontext zu bereits publizierter Literatur! (hier ist das Lesen und die Angabe (CAVE: richtig zitieren) von Literatur notwendig) Mind. 3 Literaturquellen
 
 # 5. Schlussfolgerungen
+
+
+<p>"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung." - Joseph Joubert </p>
 
 Fassen Sie hier kurz die zentralen Ergebnisse für Ihre Forschungsthematik zusammen. Gehen Sie auch auf die Grenzen Ihrer Analyse ein.
 
