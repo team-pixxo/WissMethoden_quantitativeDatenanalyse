@@ -1,5 +1,5 @@
 # BOOTSTRAP
-
+setwd("/Users/shirin/Desktop/Semi")
 # sort_by_fibo ist eine Funktion, welche beim Aufruf zwei Übergabeparameter erwartet. Diese beiden parameter werden in die Variablen table und search_for
 # gespeichert.
 main <- function(){
@@ -71,8 +71,6 @@ read_file_csv2 <- function(filename){
 #print(t)
 #m = matrix( c(t), nrow=1, ncol=6,)
 #print(m)
-library(dplyr)
-library(mosaic)
 #Tage neu ziehen und an Tabelle anhängen
 
 create_new_date <- function(spalte,table,ausgang){
@@ -106,7 +104,7 @@ main()
 
 
 # Dateipfad festlegen
-setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
+#setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
 #setwd("H:/R")
 
 # CSV Datei auswählen
@@ -169,7 +167,7 @@ check <- function(zeile2, zelle){
 n = sort_by_fibo(data_lotto, search_list)
 
 # Dateipfad festlegen
-setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
+#setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
 
 #Gesamt-Lottoziehung einlesen
 data_lotto_total <- read.csv2("bootstrap_data_lotto.csv")
@@ -177,20 +175,17 @@ datalength <- nrow(data_lotto_total)
 
 #Listen einlesen
 Fibo1 <- read.csv2("1_Bootstrap_Sort_by_Fibo.csv")
-rbind(Fibo1)
+Fibo1 <- rbind(Fibo1)
 Fibo2 <- read.csv2("2_Bootstrap_Sort_by_Fibo.csv")
-rbind(Fibo2)
+Fibo2 <- rbind(Fibo2)
 Fibo21 <- read.csv2("21_Bootstrap_Sort_by_Fibo.csv")
-rbind(Fibo21)
+Fibo21 <- rbind(Fibo21)
 Fibo34 <- read.csv2("34_Bootstrap_Sort_by_Fibo.csv")
-rbind(Fibo34)
+Fibo34 <- rbind(Fibo34)
 colnames(Fibo1) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
 colnames(Fibo2) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
 colnames(Fibo21) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
 colnames(Fibo34) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
-
-
-
 
 #Anteile von am häufigsten gemeinsam gezogenen Fibozahlen bestimmen.
 quota <- function(data1,data2,quelle,filename1) {
@@ -210,10 +205,11 @@ quota <- function(data1,data2,quelle,filename1) {
   quota <- (length)/(total_row)
   total_data <- data.frame(quota)
   leng <- data.frame(length)
-  print(quota)
+  #print(quota)
   quota <- c(total_data,leng, Mit, Sam, And)
   write.table(quota, file = filename1, sep = ";", 
-              col.names = c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage"),row.names = FALSE, append=TRUE)
+              col.names = FALSE,row.names = FALSE, append=TRUE)
+  #colnames("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
 }
 
 filename1 = "Bootstrap_Quota_Fibo_1_2.csv"
