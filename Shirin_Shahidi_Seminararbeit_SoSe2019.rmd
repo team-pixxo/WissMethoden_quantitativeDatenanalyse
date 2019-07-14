@@ -1,0 +1,165 @@
+---
+title: "Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?"
+author: "Shirin Shahidi, Matrikelnummer 455612"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    fig_caption: yes
+    latex_engine: xelatex
+    fig_height: 3
+    fig_width: 5
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+  documentclass: article
+  classoption: a4paper
+  word_document:
+    toc: yes
+lang: de
+editor_options:
+  chunk_output_type: console
+bibliography: Meine_Bibliothek.bib
+csl: harvard.fh.sb.csl
+---
+
+
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+
+knitr::opts_chunk$set(fig.path = 'Abbildung/', echo = FALSE, warning = FALSE, message = FALSE, fig.align ="left")
+
+require(mosaic) # Das Paket mosaic wird geladen
+
+
+```
+
+```{r Library, echo=FALSE, include=FALSE}
+library(mosaic)
+library(dplyr)
+#install.packages("citr")
+library(citr)
+```
+
+# 1. Einleitung
+
+"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung."(Joseph Joubert)[@noauthor_joseph_nodate]
+"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." (Albert Einstein)[@noauthor_zufallzitate_nodate]
+
+
+
+
+
+
+
+
+```{r,include=FALSE}
+#Hintergrund/ Problematik etc. Führen Sie ins Thema ein und gehen Sie dann auf Ihre  Forschungsfrage ein.
+```
+
+
+
+## 1.1. Forschungsfrage
+
+- Was ist die Forschungsfragestellung (= Forschungsfrage)?
+- Welche Hypothese(n)/ welches Modell untersuchen Sie? (Die Nullhypothese wird nicht genannt)
+    - Hypothese 1
+    - Hypothese 2 ...
+
+Geben Sie hierzu mind. 2-3 Literaturquellen an.
+
+## 1.2. Ziel der Studie/ Analyse 
+
+## Stand der Forschung
+Darf ein extra Gliederungspunkt sein, kann aber auch in die Einleitung integriert werden!
+
+# 2. Methodik 
+## 2.1. Studiendesign
+
+Gehen Sie kurz auf das Design der Studie ein.
+
+## 2.2. Datenerhebung
+
+Gehen Sie kurz auf die Datenerhebung der Studie ein.
+
+## 2.3. angewandte statistische Methoden
+
+
+```{r, include=TRUE}
+1+2
+# Daten einlesen
+#setwd("D:/Tanja/FOM_Vorbereitung/1. Quantitative Methoden/Seminararbeit")
+ 
+#tips <- read.csv2("tips.csv")
+ 
+```
+
+
+# 3. Ergebnisse    
+
+Gehen Sie hier näher auf die *verwendeten* Variablen ein. In R markdown Dateien können Sie einfach den R Code in Chunks einfügen (sogenannte "Code Chunks"). Entweder über das Menü `Insert -> R` oder über die Tastenkombination `strg+alt+i`. 
+
+
+Hier stellen und beschreiben Sie die Ergebnisse Ihrer kleinen Studie. Ihre Ergebnisse stellen Sie graphisch und/ oder tabellarisch dar.
+Ganz allgemein wird im Resultateteil NICHT interpretiert, sondern die Ergebnisse ausschließlich beschrieben.
+
+Der Ergebnisteil kann zur besseren Orientierung und zum besseren Lesen weitere Gliederungspunkte enthalten (z.B. bei Hypothesenwechsel, für jedes Ergebnis o.ä.).
+
+* die Abbildungen werden durchnummeriert  (Abbildung 1 bis Abbildung xx) ebenso die Tabellen.
+* Jede Abbildung erhält eine Bildunterschrift und jede Tabelle eine Beschreibung (über der Tabelle).
+  - die Bildunterschrift dürfen Sie mit R markdown machen oder aber in word! Eine Vorlage für eine Bildunterschrift ist im Template enthalten.
+
+Beispiel für Ergebisbeschreibung und einer Figure caption  = Bildunterschrift:
+
+
+<br>
+```{r fig.cap =  "Die Kelchblattlängen der untersuchten Spezies der Schwertlilien unterscheiden sich signifikant. Dargestellt sind die Kelchblattlängen der drei Spezies der Schwertlilien (iris versicolor, iris setosa und iris virginica). Sie Kelchblattlängen zeigen unterschiedliche Längen, wobei iris setosa die kürzesten und Iris virginica die längsten Kelchblätter zeigt.p= x.xxx", fig.height=4, fig.width=4 } 
+
+#boxplot (Sepal.Length ~Species , data = iris)
+```
+
+
+
+Die Ergebnisse graphisch und tabellarisch dargestellt. Eine tabellarische Darstellung der Ergebnisse ist im Teil der deskriptiven Statistik oft sinnvoll.
+Sie entscheiden hier was eine sinnvolle Darstellung ist!
+ 
+</br>
+Beschreiben Sie das zentrale Ergebnis und Auffälligkeiten.
+
+
+**Folgendes sollte im Ergebnisteil enthalten/ ver- oder beararbeitet sein: **
+  1. Kennzahlen
+  2. explorative / deskriptive Statistik
+  3. Inferenzstatistik
+
+## deskriptive Statistik/ explorative Statistik  
+## Kennzahlen  
+
+Beschreiben Sie Ihre Stichprobe und Ihre Variablen. 
+Das ist hilfreich zum Verständnis und Nachvollziehbarkeit Ihrer Studie, der Datenerhebung und der Hypothesentestung.  
+
+## Inferenzstatistik
+
+Gehen Sie hier genauer auf die untersuchten Hypothesen und Modelle ein. Geben Sie zur Methodik 1-3 Literaturquellen an.  
+
+```{r fig.cap="Hier steht Ihre Bildunterschrift zur Abbildung im gleichen Chunk. Damit die Bildunterschrift passend zur Abb ausgegeben wird, ist nur eine Abb. und eine Bildunterschrift pro Chunk möglich."}
+# Exemplarisches Beispiel
+#reg <- lm(tip ~ total_bill, data=tips)
+#plotModel(reg)
+
+```
+
+
+# 4. Diskussion
+Für die Diskussion setzen Sie das Ergebnis in Kontext zu bereits publizierter Literatur! (hier ist das Lesen und die Angabe (CAVE: richtig zitieren) von Literatur notwendig) Mind. 3 Literaturquellen
+
+# 5. Schlussfolgerungen
+
+Fassen Sie hier kurz die zentralen Ergebnisse für Ihre Forschungsthematik zusammen. Gehen Sie auch auf die Grenzen Ihrer Analyse ein.
+
+# Literaturverzeichnis
+
+Hier stehen die im Text verwendeten Quellen:
+
+- Nachname Autor1, Anfangsbuchstabe Vorname Autor1, Nachname Autor2, Anfangsbuchstabe Vorname Autor2 1 & Nachname Autor3, Anfangsbuchstabe Vorname Autor3, ... (Jahr der Veröffentlichung). Titel des Beitrags. Journal, Volume, Issue, Seitenzahlen
