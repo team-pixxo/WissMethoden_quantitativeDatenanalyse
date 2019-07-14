@@ -44,11 +44,12 @@ library(citr)
 
 # 1. Einleitung
 
-<p>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." - Albert Einstein. [@zitate.net_zufallzitate_2019] </p>
+<p>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." - Albert Einstein [@zitate.net_zufallzitate_2019, o.S.]. </p>
 Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten errechnen, nicht jedoch küftige Ziehungen vorhersagen.
-Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden.[@ute_sproesser_et_al._daten_2014: 33]
+Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden. [vgl.@ute_sproesser_et_al._daten_2014, S.33]
 
-Wie Aug
+<p>"Etwas hat Gestalt, weil es auf Zahlen beruht[...]" [@jonak_essays_2018, S.136].</p>
+Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie und bestimmte Proportionen wie etwa den Goldenen-Schnitt. Diese Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion führt.[vgl.@oerter_mensch_2014, S.252]   
 
 
 
