@@ -51,6 +51,10 @@ Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits verg
 <p>"Etwas hat Gestalt, weil es auf Zahlen beruht[...]" [@jonak_essays_2018, S.136].</p>
 Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie und bestimmte Proportionen wie etwa den Goldenen-Schnitt. Diese Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion führt.[vgl.@oerter_mensch_2014, S.252]   
 
+Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man sich dabei auf die Proportion des Goldenen Schnittes, so wird dieser gemäß aktuellem Forschungsstand durch die Formel $\frac{\sqrt{5} + 1}{2}\sim1,618$ errechnet[vgl.@kohn_mathematik_2019, S. 160]. Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt, veröffentlichte 1202 das Werk *Liber Abbaci*.[vgl.@hannah_false_2007, o.S.] In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich die Vermehrung von Hasen in Zahlen beschreibt.[vgl.@fibonacci_introduction:_1987, S.18]
+
+Der Goldene Schnitt wird
+
 
 
 
