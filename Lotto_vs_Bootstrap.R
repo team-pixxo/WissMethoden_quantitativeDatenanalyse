@@ -67,8 +67,10 @@ colnames(Lotto_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Zi
 Lotto_Fibo_21_34 <- read.csv2("Lotto_Quota_Fibo_21_34.csv")
 
 
-m1 <- mean(Bootstrap_Fibo_1_2$Ziehungsanzahl)
+m1 <- mean(Permutation_Fibo_1_2$Ziehungsanzahl)
+m1
 m2 <- Lotto_Fibo_1_2[,2]
+m2
 q <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
 q <- as.data.frame(q)
 q1 <- q[1,1]
@@ -111,3 +113,8 @@ p_blue1 <- 1 - p_yellow1
 p_blue2 <- 1 - p_yellow2 
 
 p_blue1
+
+x1 <- c(m2,m1)
+chisq.test(x1)
+
+table(m1)
