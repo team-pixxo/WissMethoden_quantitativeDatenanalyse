@@ -49,7 +49,7 @@ Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits verg
 
 <p>"Etwas hat Gestalt, weil es auf Zahlen beruht[...]" [@jonak_essays_2018, S.136].<br> Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie und bestimmte Proportionen wie etwa den Goldenen-Schnitt. Diese Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion führt[vgl.@oerter_mensch_2014, S.252].</p>   
 
-<p>Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man sich dabei auf die Proportion des Goldenen Schnittes, so wird dieser gemäß aktuellem Forschungsstand durch die Formel $\frac{\sqrt{5} + 1}{2}\sim1,618$ errechnet[vgl.@kohn_mathematik_2019, S. 160]. Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt, veröffentlichte 1202 das Werk *Liber Abbaci*[vgl.@hannah_false_2007, o.S.]. In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich die Vermehrung von Hasen in Zahlen beschreibt[vgl.@fibonacci_introduction:_1987, S.18]. Im Lotto 6 aus 49 sind die ersten acht Fibonacci-Zahlen (1,2,3,5,8,13,21,34) enthalten[vgl.@kohn_mathematik_2019, S.159]. Dividiert man zwei aufeinander folgende Fibonacci-Zahlen, so konvergieren diese gegen den Goldene-Schnitt[vgl.@knebl_algorithmen_2019, S.29].</p> 
+<p>Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man sich auf die Proportion des Goldenen Schnittes, so wird dieser gemäß aktuellem Forschungsstand durch die Formel $\frac{\sqrt{5} + 1}{2}\sim1,618$ errechnet [vgl.@kohn_mathematik_2019, S. 160]. Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt, veröffentlichte 1202 das Werk *Liber Abbaci*[vgl.@hannah_false_2007, o.S.]. In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich die Vermehrung von Hasen in Zahlen beschreibt[vgl.@fibonacci_introduction:_1987, S.18]. Im Lotto 6 aus 49 sind die ersten acht Fibonacci-Zahlen (1,2,3,5,8,13,21,34) enthalten[vgl.@kohn_mathematik_2019, S.159]. Dividiert man zwei aufeinander folgende Fibonacci-Zahlen, so konvergieren diese gegen den Goldene-Schnitt[vgl.@knebl_algorithmen_2019, S.29].</p> 
 <p>Um zur Forschungsfrage hinführen zu können, wird im Folgenden auf die beliebteste Lotterie namens Lotto 6 aus 49 unter den Einwohnern Deutschlands eingegangen[vgl.@lotto.de_lotto_2019, o.S.]. Spielberechtigt sind dabei erwachsene Personen ab 18 Jahren, da gemäß Jugendschutzgesetz § 6 Spielhallen, Glücksspiele Minderjährigen das Glücksspiel mit Chance auf hohe Geldbeträge untersagt ist[vgl.@juschg_juschg_2019, o.S.]. Ziel eines Lottospieles ist es 6 zufällig gezogene Gewinnzahlen aus 1-49 vorgegeben Ziffern vorherzusagen. Dabei wird ein Lotto-Schein mit 12 möglichen Tippfeldern und jeweils 49 Zahlen ausgefüllt. Pro Tippfeld werden 6 Zahlen angekreuzt. Jeder Lotto-Schein enthält eine Spielscheinnummer, deren letzte Ziffer die Superzahl darstellt. Diese Superzahl wird neben den 6 Gewinnzahlen zufällig aus den Ziffern 0-9 ermittelt. Es müssen minimal 2 Ziffern und eine Superzahl korrekt prophezeit werden um einen Gewinn zu erzielen. Der maximale Gewinn stellt 6 richtige Gewinnzahlen und die korrekte Superzahl dar. Der halbierte Spieleinsatz stellt die Gewinnsumme dar, welche sich auf 9 Gewinnklassen aufteilen lässt. Zusätzlich können die Lotterien Spiel 77 und SUPER 6 sowie die GlücksSpirale im Lotto-Schein ausgewählt werden. Ein Tippfeld im Lotto 6 aus 49 kostet 1,0€ zzgl. Bearbeitungsgebühren. Die Ziehungen finden wöchentlich mittwochs um 18:25 Uhr und samstags um 19:25 Uhr unter www.lotto.de statt[vgl.@lotto.de_lotto_2019, o.S.]. Die Wahrscheinlichkeit, zwei konkrete Zahlen im Lotto zu ziehen beträgt $1:((\frac{49}{6})*(\frac{48}{5}))\sim0.01276$[vgl.@lottozahlen.com_6_2019, o.S.].</p>
 
 ## 1.1. Forschungsfrage
@@ -69,16 +69,34 @@ Um die Methodik festlegen zu können, wird auf das Studiendesign, sowie die Date
 Das Studiendesign wird definiert durch die Art der Datenerhebung und Ziehung der Stichprobe. Die vorliegende Studie basiert auf den Sekundärforschungen der Westdeutsche Lotterie GmbH & Co. oHG, sowie den Datenerhebungen unter www.lottozahlenonline.de durch Gustav Zygmund. [vgl.@kus_marktforschung:_2012, S.15]
 
 ### 2.1.1 Datenerhebung
-Da es sich um die Beschreibung der Veränderungen der Lotto-Ziehungen im Zeitablauf von 1955 bis 2019 handelt, wurden die in der Studie verwendeten Sekundärdaten in Form von Längsschnitt-Untersuchungen als Beobachtung erhoben. Da das Forschungsproblem auf Basis von Sekundärdaten bearbeitbar ist, wird in dieser Studie auf die Erhebung von Primärdaten verzichtet.Die bereits vorhandenen Daten werden für die Studie neu aufbereitet und analysiert. [vgl.@kus_marktforschung:_2012, S.16] 
+Da es sich um die Beschreibung der Veränderungen der Lotto-Ziehungen im Zeitablauf von 1955 bis 2019 handelt, wurden die in der Studie verwendeten Sekundärdaten in Form von Längsschnitt-Untersuchungen als Beobachtung erhoben. Da das Forschungsproblem auf Basis von Sekundärdaten bearbeitbar ist, wird in dieser Studie auf die Erhebung von Primärdaten verzichtet. Die bereits vorhandenen Daten werden für die Studie neu aufbereitet und analysiert. [vgl.@kus_marktforschung:_2012, S.16] 
 
 ### 2.1.2 Stichprobe
-Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 aus 49 von 1955 bis zum Zeitpunkt der Studienanalyse tabellarisch dar. Werden mögliche Ungenauigkeiten wie etwa Tipp- oder Eingabefehler in den bereits vorhandenen Sekundärdaten vernachlässigt, kann von einer Totalerhebung der Daten ausgegangen werden. Dies führt dazu, dass Stichprobenfehler die Aussagekraft nicht einschränken können. [vgl.@kus_marktforschung:_2012, S.43 f.]
+Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 aus 49 von 1955 bis zum Zeitpunkt der Studienanalyse tabellarisch dar. Werden potenzielle Ungenauigkeiten wie etwa Tipp- oder Eingabefehler in den bereits vorhandenen Sekundärdaten vernachlässigt, kann von einer Totalerhebung der Daten ausgegangen werden. Dies führt dazu, dass Stichprobenfehler die Aussagekraft nicht einschränken können.[vgl.@kus_marktforschung:_2012, S.43 f.]
 
 ## 2.2 Angewandte statistische Methoden
-Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt nach Durchführung des Chi-Quadrat Tests.[vgl.@hellbruck_angewandte_2009, S.98-99]
+Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt mittels der Zweiseitigen Fragestellung [vgl.@hellbruck_angewandte_2009, S.73-76]. Um den Datensatz auf Linearität zu überprüfen wird anschließend eine lineare Regression durchgeführt [vgl.@hellbruck_angewandte_2009, S.250]. Für die Ergebnisse der statistischen Methoden wird die Programmiersprache R verwendet. Diese ermöglicht den Einsatz moderner Verfahren der Datenanalyse und ist reproduzierbar, automatisierbar, quelloffen, kostenlos und grafisch abbildbar. [vgl.@sauer_moderne_2018, S.16 f.] Für den Datensatz wurden die Ergebnisse der Lotto-Ziehungen aus den Quellen Westdeutsche Lotterie GmbH & Co. oH
 
 # 3. Ergebnisse 
-D
+Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
+
+## 3.1 Kennzahlen der Stichprobe
+
+```{r}
+
+```
+
+
+## 3.2 explorative Statistik
+## 3.3 deskriptive Statistik
+## 3.4 Inferenzstatistik 
+
+
+
+
+
+
+
 ```{r}
 
 ```
