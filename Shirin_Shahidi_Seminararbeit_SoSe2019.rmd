@@ -220,7 +220,7 @@ Fibo_34 <- quota(Fibo34,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo1,data_lotto
 Fibo_34
 colnames(Fibo_34) <- c("34&5","34&1","34&13","34&3","34&8","34&2","34&21")
 ```
-<p>   </p>
+
 ```{r Fibonacci-Zahlen Verteilung nach Rang,echo=TRUE, include=TRUE}
 Fibo_1 #Fibonacci Zahl 1
 Fibo_2 #Fibonacci Zahl 2
@@ -234,7 +234,7 @@ Fibo_34 #Fibonacci Zahl 34
 
 Aus den Beobachtungen geht hervor, dass die Fibonacci-Zahlen 1, 2, 21 und 34 am häufigsten mit ihren goldenen Schnitt Zahlen gezogen wurden. Daraus ergibt sich die erste Hypothese: Die Fibonacci-Zahlen 1,2,21 und 34 werden im Lotto 6 aus 49 am häufigsten mit ihrer goldenen Schnitt Zahl gezogen. 
 
-Die Verteilung der Wochentage im Lotto lässt sich anhand Abbildung 1 veranschaulichen. Betrachtet man die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 hinsichtlich der Wochentage ergibt sich Abbildung 2.Aus diesen Beobachtungen lässt sich die Hyothese ableiten, dass die Fibonacci Zahlen 1,2,21 und 34 samstags am häufigsten mit ihren Goldenen-Schnitt Zahlen gezogen werden.
+Die Verteilung der Wochentage im Lotto lässt sich anhand Abbildung 1 veranschaulichen. Betrachtet man die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 hinsichtlich der Wochentage ergibt sich Abbildung 2.Aus diesen Beobachtungen lässt sich die Hyothese ableiten, dass die Fibonacci Zahlen 1,2,21 und 34 samstags am häufigsten mit ihren Goldenen-Schnitt Zahlen gezogen werden.\linebreak\linebreak\linebreak
 
 ```{r fig.align="left",fig.cap="Die Lotto-Ziehungen von 1955 bis 2019 fanden am häufigsten samstags statt.",default= NULL,fig.height=4, fig.width=8}
 gf_bar(~ Wochentag, data=data_lotto_orig, ncol=2, title="Lotto-Ziehungen")
@@ -261,9 +261,9 @@ plot2 <- gf_bar(~ Wochentag, data = Fibo21_34, title = "Fibonacci 21 & 34")
 ```{r fig.align="left", fig.cap="Die Fibonacci Zahlen 1,2,21 und 34 werden samstags am häufigsten mit ihrer Goldenen-Schnitt Zahlen gezogen.", default= NULL,fig.height=4, fig.width=8}
 grid.arrange(plot1,plot2,ncol=2)
 ```
-newline
-Die relativen Häufigkeitsverteilungen ergebn sich anhand folgender R-Befehle:  
-
+ 
+\newpage
+Die relativen Häufigkeitsverteilungen können tabellarisch festgehalten werden.ergebn sich anhand folgender R-Befehle:  
 ```{r relative Häufigkeiten, echo=TRUE, include=TRUE}
 #relative Häufigkeit Ziehungen Fibonacci-Zahlenpaar 1&2 in Prozent
 (59/4295)*100
@@ -271,12 +271,26 @@ Die relativen Häufigkeitsverteilungen ergebn sich anhand folgender R-Befehle:
 (63/4295)*100
 #absolute Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags
 Fibo1_2sa <- Fibo1_2%>%filter(Wochentag=="Samstag")
+nrow(Fibo1_2sa)
 #absolute Anzahl Ziehungen samstags
 Lotto_sa <- data_lotto_orig %>% filter(Wochentag=="Samstag")
+nrow(Lotto_sa)
+(nrow(Lotto_sa)/nrow(data_lotto_orig))*100
 #relative Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags in Prozent
 (nrow(Fibo1_2sa)/nrow(Lotto_sa))*100
+
+
 ```
 
+
+| Ereignis                                  | absolute Häufigkeit (Ziehungsanzahl) | relative Häufigkeit (in %) |
+| :---------------------------------------: | :----------------------------------: | :------------------------: |
+| Fibonacci Zahlen 1&2                      | 59                                   | 1.37369                    |
+| Fibonacci Zahlen 21&34                    | 63                                   | 1.466822                   | 
+| Samstagziehungen Gesamt                   | 2805                                 | 65.3085                    | 
+| Samstagziehungen Fibonacci Zahlen 1&2     | 40                                   | 1.426025                   | 
+
+Table: Häufigkeitsverteilung Fibonacci Zahlen 
 
 
 \newpage 
