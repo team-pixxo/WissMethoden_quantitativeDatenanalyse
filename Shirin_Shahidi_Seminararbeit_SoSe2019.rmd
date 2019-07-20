@@ -82,7 +82,7 @@ Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genann
 
 ## 3.1 Kennzahlen der Stichprobe
 Um einen Überblick über die Kennzahlen der Stichprobe zu erhalten, wird die Bibliothek "mosaic" geladen und der R-Befehl "inspect" ausgeführt:
-```{r fig.cap =  "Die Kelchblattlängen der untersuchten Spezies der Schwertlilien unterscheiden sich signifikant. Dargestellt sind die Kelchblattlängen der drei Spezies der Schwertlilien (iris versicolor, iris setosa und iris virginica). Sie Kelchblattlängen zeigen unterschiedliche Längen, wobei iris setosa die kürzesten und Iris virginica die längsten Kelchblätter zeigt.p= x.xxx", echo=FALSE, include=TRUE}
+```{r Kennzahlen, echo=FALSE, include=TRUE}
 
 # Dateipfad festlegen
 setwd("/Users/shisha/Desktop/WissMethoden_quantitativeDatenanalyse")
@@ -105,11 +105,11 @@ Die Stichprobe des Datensatzes Lotto 6 aus 49 von 1955 bis 2019 enthält 6 numer
 ```{r, echo=FALSE, include=TRUE}
 tail(data_lotto_orig)
 ```
- 
+\newpage 
 ## 3.2 explorative Statistik
-<p>Anhand der explorativen Statistik sollen Häufigkeitsverteilungen der Fibonacci-Zahlen betrachtet werden. Hierzu wird der Datensatz nach Fibonacci-Zahlen mittels R-Skript "_01_Sort_by_Fibo.R" sortiert und gefiltert. Die daraus gewonnen Daten werden auf Fibonacci-Zahlenpaare im Goldenen-Schnitt Verhältnis und deren Häufigkeitsverteilung überprüft und in eine Rangfolge gebracht:</p>
+<p>Anhand der explorativen Statistik sollen Häufigkeitsverteilungen der Fibonacci-Zahlen betrachtet werden. Hierzu wird der Datensatz nach Fibonacci-Zahlen mittels R-Skript ("_01_Sort_by_Fibo.R") sortiert und gefiltert. Die daraus gewonnen Daten werden auf Fibonacci-Zahlenpaare im Goldenen-Schnitt Verhältnis und deren Häufigkeitsverteilung überprüft und in eine Rangfolge gebracht. Dadurch zeigt sich, welche Fibonacci-Zahlen mit welcher Fibonacci-Zahl am häufigsten gemeinsam in einer Ziehung auftreten. Die Rangfolge steigt von links (seltenste Beobachtung) nach rechts (häufigste Beobachtung) an:</p>
 
-```{r Explorative Statistik,echo=FALSE, include=FALSE}
+```{r Häufigkeitsverteilung Fibonacci Zahlen - Vorbereitung,echo=FALSE, include=FALSE}
 #Sortierte Daten einlesen
 Fibo1 <- read.csv2("1_Sort_by_Fibo.csv")
 rbind(Fibo1)
@@ -198,46 +198,89 @@ colnames(Fibo_2) <- c("2&13","2&5","2&21","2&3","2&8","2&34","2&1")
 
 Fibo_3 <- quota(Fibo3,Fibo1,Fibo2,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
 Fibo_3
-colnames(Fibo_3) <- c("3&13","3&8","3&21","3&34","3&2","3&5","3&1")
+colnames(Fibo_3) <- c("3&8","3&34","3&5","3&2","3&13","3&1","3&21")
 
 Fibo_5 <- quota(Fibo5,Fibo2,Fibo3,Fibo1,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
 Fibo_5
-colnames(Fibo_5) <- c("2&13","5&8","2&21","5&34","5&2","5&1","5&3")
+colnames(Fibo_5) <- c("5&34","5&3","2&2","5&1","5&21","5&8","5&13")
 
 Fibo_8 <- quota(Fibo8,Fibo2,Fibo3,Fibo5,Fibo1,Fibo13, Fibo21, Fibo34,data_lotto_orig)
 Fibo_8
-colnames(Fibo_8) <- c("8&13","8&21","8&34","8&2","8&1","8&5","8&3")
-
+colnames(Fibo_8) <- c("8&13","8&21","8&1","8&3","8&5","8&2","8&34")
 
 Fibo_13 <- quota(Fibo13,Fibo2,Fibo3,Fibo5,Fibo8,Fibo1, Fibo21, Fibo34,data_lotto_orig)
 Fibo_13
-colnames(Fibo_13) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
+colnames(Fibo_13) <- c("13&8","13&2","13&1","13&34","13&3","13&21","13&5")
 
 Fibo_21 <- quota(Fibo21,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo1, Fibo34,data_lotto_orig)
 Fibo_21
-colnames(Fibo_21) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
-
+colnames(Fibo_21) <- c("21&8","21&2","21&5","21&13","21&1","21&3","21&34")
+ 
 Fibo_34 <- quota(Fibo34,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo1,data_lotto_orig)
 Fibo_34
+colnames(Fibo_34) <- c("34&5","34&1","34&13","34&3","34&8","34&2","34&21")
+```
+<p>   </p>
+```{r Fibonacci-Zahlen Verteilung nach Rang,echo=TRUE, include=TRUE}
+Fibo_1 #Fibonacci Zahl 1
+Fibo_2 #Fibonacci Zahl 2
+Fibo_3 #Fibonacci Zahl 3
+Fibo_5 #Fibonacci Zahl 5
+Fibo_8 #Fibonaci Zahl 8
+Fibo_13 #Fibonacci Zahl 13
+Fibo_21 #Fibonaci Zahl 21
+Fibo_34 #Fibonacci Zahl 34
+```
+
+Aus den Beobachtungen geht hervor, dass die Fibonacci-Zahlen 1, 2, 21 und 34 am häufigsten mit ihren goldenen Schnitt Zahlen gezogen wurden. Daraus ergibt sich die erste Hypothese: Die Fibonacci-Zahlen 1,2,21 und 34 werden im Lotto 6 aus 49 am häufigsten mit ihrer goldenen Schnitt Zahl gezogen. 
+
+Die Verteilung der Wochentage im Lotto lässt sich anhand Abbildung 1 veranschaulichen. Betrachtet man die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 hinsichtlich der Wochentage ergibt sich Abbildung 2.Aus diesen Beobachtungen lässt sich die Hyothese ableiten, dass die Fibonacci Zahlen 1,2,21 und 34 samstags am häufigsten mit ihren Goldenen-Schnitt Zahlen gezogen werden.
+
+```{r fig.align="left",fig.cap="Die Lotto-Ziehungen von 1955 bis 2019 fanden am häufigsten samstags statt.",default= NULL,fig.height=4, fig.width=8}
+gf_bar(~ Wochentag, data=data_lotto_orig, ncol=2, title="Lotto-Ziehungen")
+```
+
+```{r Häufigkeit Wochentage, echo=FALSE, include=FALSE}
+library(gridExtra)
+library(grid)
+library(ggplot2)
+library(lattice)
+library
+
+Fibo1_2 <- rbind(Fibo1,Fibo2)
+Fibo1_2 <- Fibo1_2[(which(duplicated(Fibo1_2))),]
+nrow(Fibo1_2)
+plot1 <- gf_bar(~ Wochentag, data = Fibo1_2, title = "Fibonacci 1 & 2")
+
+Fibo21_34 <- rbind(Fibo21,Fibo34)
+Fibo21_34 <- Fibo21_34[(which(duplicated(Fibo21_34))),]
+nrow(Fibo21_34)
+plot2 <- gf_bar(~ Wochentag, data = Fibo21_34, title = "Fibonacci 21 & 34")
+```
+
+```{r fig.align="left", fig.cap="Die Fibonacci Zahlen 1,2,21 und 34 werden samstags am häufigsten mit ihrer Goldenen-Schnitt Zahlen gezogen.", default= NULL,fig.height=4, fig.width=8}
+grid.arrange(plot1,plot2,ncol=2)
+```
+newline
+Die relativen Häufigkeitsverteilungen ergebn sich anhand folgender R-Befehle:  
+
+```{r relative Häufigkeiten, echo=TRUE, include=TRUE}
+#relative Häufigkeit Ziehungen Fibonacci-Zahlenpaar 1&2 in Prozent
+(59/4295)*100
+#relative Häufigkeit Ziehungen Fibonacci-Zahlenpaar 21&34 in Prozent
+(63/4295)*100
+#absolute Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags
+Fibo1_2sa <- Fibo1_2%>%filter(Wochentag=="Samstag")
+#absolute Anzahl Ziehungen samstags
+Lotto_sa <- data_lotto_orig %>% filter(Wochentag=="Samstag")
+#relative Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags in Prozent
+(nrow(Fibo1_2sa)/nrow(Lotto_sa))*100
 ```
 
 
-Es zeigt sich, dass die Fibonacci Zahl1 im Lotto-Datensatz, sowie die Fibonacci Zahl
 
-```{r}
+\newpage 
 
-```
-
-```{r fig.cap = "Die Fibonacci Zahl 1 wird im Lotto-Datensatz unter allen Fibonacci Zahlen am häufigsten mit ihrer Goldenen-Schnitt Zahl 2 gezpgen."}
-
-```
-
-
-```{r Fibonacci-Zahl 1, }
-#
-colnames(Fibo_1) <- c("1&13","1&34","1&8","1&5","1&21","1&3","1&2")
-Fibo_1
-```
 
 
 ## 3.3 deskriptive Statistik
