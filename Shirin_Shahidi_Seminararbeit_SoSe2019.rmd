@@ -211,10 +211,11 @@ colnames(Fibo_8) <- c("8&13","8&21","8&34","8&2","8&1","8&5","8&3")
 
 Fibo_13 <- quota(Fibo13,Fibo2,Fibo3,Fibo5,Fibo8,Fibo1, Fibo21, Fibo34,data_lotto_orig)
 Fibo_13
-colnames(Fibo_8) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
+colnames(Fibo_13) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
 
 Fibo_21 <- quota(Fibo21,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo1, Fibo34,data_lotto_orig)
 Fibo_21
+colnames(Fibo_21) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
 
 Fibo_34 <- quota(Fibo34,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo1,data_lotto_orig)
 Fibo_34
