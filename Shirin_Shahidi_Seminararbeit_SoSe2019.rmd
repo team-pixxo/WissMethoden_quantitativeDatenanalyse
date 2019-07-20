@@ -78,18 +78,172 @@ Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 a
 Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt mittels der Zweiseitigen Fragestellung [vgl.@hellbruck_angewandte_2009, S.73-76]. Um den Datensatz auf Linearität zu überprüfen wird anschließend eine lineare Regression durchgeführt [vgl.@hellbruck_angewandte_2009, S.250]. Für die Ergebnisse der statistischen Methoden wird die Programmiersprache R verwendet. Diese ermöglicht den Einsatz moderner Verfahren der Datenanalyse und ist reproduzierbar, automatisierbar, quelloffen, kostenlos und grafisch abbildbar. [vgl.@sauer_moderne_2018, S.16 f.] Für den Datensatz wurden die Ergebnisse der Lotto-Ziehungen aus den Quellen Westdeutsche Lotterie GmbH & Co. oH
 
 # 3. Ergebnisse 
-Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
+Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (sogenannten Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
 
 ## 3.1 Kennzahlen der Stichprobe
+Um einen Überblick über die Kennzahlen der Stichprobe zu erhalten, wird die Bibliothek "mosaic" geladen und der R-Befehl "inspect" ausgeführt:
+```{r fig.cap =  "Die Kelchblattlängen der untersuchten Spezies der Schwertlilien unterscheiden sich signifikant. Dargestellt sind die Kelchblattlängen der drei Spezies der Schwertlilien (iris versicolor, iris setosa und iris virginica). Sie Kelchblattlängen zeigen unterschiedliche Längen, wobei iris setosa die kürzesten und Iris virginica die längsten Kelchblätter zeigt.p= x.xxx", echo=FALSE, include=TRUE}
+
+# Dateipfad festlegen
+setwd("/Users/shisha/Desktop/WissMethoden_quantitativeDatenanalyse")
+
+#Bibliotheken laden
+library("mosaic")
+library(dplyr)
+library(knitr)
+
+# CSV-Datei laden & Spaltennamen vergeben
+data_lotto_orig <- read.csv2("data_lotto_date.csv")
+colnames(data_lotto_orig) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+
+# Kennzahlen ausspielen lassen
+inspect(data_lotto_orig)
+```
+
+Die Stichprobe des Datensatzes Lotto 6 aus 49 von 1955 bis 2019 enthält 6 numerische und eine kategoriale Variable. Insgesamt enthält die Stichprobe 4295 Beobachtungen. Die numerischen Variablen stellen die Gewinnzahlen kategorisiert nach Ziehungsrunde dar. Das Minimum liegt bei der Ziffer 1 und das Maximum bei Ziffer 49. Die kategoriale Variable nennt den Wochentag, an dem die Beobachtungen aufgezeichnet wurden. Die Lagemaße und Streumaße sind unterschiedlich ausgeprägt, wie anhand der Werte von Quantil 1 und 3 sowie der Mittelwerte und dem Median zu erkennen ist. Die Standardabweichung fällt ebenfalls unterschiedlich aus. Die Variablennamen werden wie folgt ausgegeben: `r names(data_lotto_orig)`. Insgesamt sind keine fehlenden Angaben vorhanden. Einen Überblick über die letzten 6 Beobachtungen des Datensatzes verschafft der Befehl "tail":
+
+```{r, echo=FALSE, include=TRUE}
+tail(data_lotto_orig)
+```
+ 
+## 3.2 explorative Statistik
+<p>Anhand der explorativen Statistik sollen Häufigkeitsverteilungen der Fibonacci-Zahlen betrachtet werden. Hierzu wird der Datensatz nach Fibonacci-Zahlen mittels R-Skript "_01_Sort_by_Fibo.R" sortiert und gefiltert. Die daraus gewonnen Daten werden auf Fibonacci-Zahlenpaare im Goldenen-Schnitt Verhältnis und deren Häufigkeitsverteilung überprüft und in eine Rangfolge gebracht:</p>
+
+```{r Explorative Statistik,echo=FALSE, include=FALSE}
+#Sortierte Daten einlesen
+Fibo1 <- read.csv2("1_Sort_by_Fibo.csv")
+rbind(Fibo1)
+Fibo2 <- read.csv2("2_Sort_by_Fibo.csv")
+rbind(Fibo2)
+Fibo3 <- read.csv2("3_Sort_by_Fibo.csv")
+rbind(Fibo3)
+Fibo5 <- read.csv2("5_Sort_by_Fibo.csv")
+rbind(Fibo5)
+Fibo8 <- read.csv2("8_Sort_by_Fibo.csv")
+rbind(Fibo8)
+Fibo13 <- read.csv2("13_Sort_by_Fibo.csv")
+rbind(Fibo13)
+Fibo21 <- read.csv2("21_Sort_by_Fibo.csv")
+rbind(Fibo21)
+Fibo34 <- read.csv2("34_Sort_by_Fibo.csv")
+rbind(Fibo34)
+
+#Spaltenüberschriften zuweisen
+colnames(Fibo1) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo2) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo3) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo5) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo8) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo13) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo21) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo34) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+
+datalength <- nrow(data_lotto_orig)
+
+#Anteile von am häufigsten gemeinsam gezogenen Fibozahlen bestimmen in Form einer Funktion
+quota <- function(data1,data2,data3,data4,data5,data6,data7,data8,quelle) {
+  #Fibo x mit y [1]
+  total_row <- nrow(quelle)
+  test1 <- rbind(data1,data2)
+  result1 <- which(duplicated(test1))
+  length1 <- length(result1)
+  quota1 <- (length1)/(total_row)
+  #Fibo x mit y [2]
+  test2 <- rbind(data1,data3)
+  result2 <- which(duplicated(test2))
+  length2 <- length(result2)
+  quota2 <- (length2)/(total_row)
+  #Fibo x mit y [3]
+  test3 <- rbind(data1,data4)
+  result3 <- which(duplicated(test3))
+  length3 <- length(result3)
+  quota3 <- (length3)/(total_row)
+  #Fibo x mit y [4]
+  test4 <- rbind(data1,data5)
+  result4 <- which(duplicated(test4))
+  length4 <- length(result4)
+  quota4 <- (length4)/(total_row)
+  #Fibo x mit y [5]
+  test5 <- rbind(data1,data6)
+  result5 <- which(duplicated(test5))
+  length5 <- length(result5)
+  quota5 <- (length5)/(total_row)
+  #Fibo x mit y [6]
+  test6 <- rbind(data1,data7)
+  result6 <- which(duplicated(test6))
+  length6 <- length(result6)
+  quota6 <- (length6)/(total_row)
+  #Fibo x mit y [7]
+  test7 <- rbind(data1,data8)
+  result7 <- which(duplicated(test7))
+  length7 <- length(result7)
+  quota7 <- (length7)/(total_row)
+  total_data <- data.frame(quota1,quota2,quota3,quota4,quota5,quota6,quota7)
+  colnames(total_data) <- c("data1+2","data1+3","data1+4","data1+5","data1+6","data1+7","data1+8")
+  leng <- data.frame(length1,length2,length3,length4, length5, length6, length7)
+  colnames(leng) <- c("data1+2","data1+3","data1+4","data1+5","data1+6","data1+7","data1+8")
+  #Fibo <<- sort(total_data)
+  print(sort(total_data))
+  print(sort(leng))
+}
+
+#Inhalte an Funktion übermitteln
+Fibo_1 <- quota(Fibo1,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_1
+colnames(Fibo_1) <- c("1&13","1&34","1&8","1&5","1&21","1&3","1&2")
+
+Fibo_2 <- quota(Fibo2,Fibo1,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_2
+colnames(Fibo_2) <- c("2&13","2&5","2&21","2&3","2&8","2&34","2&1")
+
+Fibo_3 <- quota(Fibo3,Fibo1,Fibo2,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_3
+colnames(Fibo_3) <- c("3&13","3&8","3&21","3&34","3&2","3&5","3&1")
+
+Fibo_5 <- quota(Fibo5,Fibo2,Fibo3,Fibo1,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_5
+colnames(Fibo_5) <- c("2&13","5&8","2&21","5&34","5&2","5&1","5&3")
+
+Fibo_8 <- quota(Fibo8,Fibo2,Fibo3,Fibo5,Fibo1,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_8
+colnames(Fibo_8) <- c("8&13","8&21","8&34","8&2","8&1","8&5","8&3")
+
+
+Fibo_13 <- quota(Fibo13,Fibo2,Fibo3,Fibo5,Fibo8,Fibo1, Fibo21, Fibo34,data_lotto_orig)
+Fibo_13
+colnames(Fibo_8) <- c("13&8","13&21","13&34","13&2","13&1","13&5","13&3")
+
+Fibo_21 <- quota(Fibo21,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo1, Fibo34,data_lotto_orig)
+Fibo_21
+
+Fibo_34 <- quota(Fibo34,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo1,data_lotto_orig)
+Fibo_34
+```
+
+
+Es zeigt sich, dass die Fibonacci Zahl1 im Lotto-Datensatz, sowie die Fibonacci Zahl
 
 ```{r}
 
 ```
 
+```{r fig.cap = "Die Fibonacci Zahl 1 wird im Lotto-Datensatz unter allen Fibonacci Zahlen am häufigsten mit ihrer Goldenen-Schnitt Zahl 2 gezpgen."}
 
-## 3.2 explorative Statistik
+```
+
+
+```{r Fibonacci-Zahl 1, }
+#
+colnames(Fibo_1) <- c("1&13","1&34","1&8","1&5","1&21","1&3","1&2")
+Fibo_1
+```
+
+
 ## 3.3 deskriptive Statistik
 ## 3.4 Inferenzstatistik 
+### 3.4.1 Bootstrap
+### 3.4.2 Permutation
+### 3.4.3 Lineare Regression
 
 
 
@@ -97,9 +251,8 @@ Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genann
 
 
 
-```{r}
 
-```
+
 
 Gehen Sie hier näher auf die *verwendeten* Variablen ein. In R markdown Dateien können Sie einfach den R Code in Chunks einfügen (sogenannte "Code Chunks"). Entweder über das Menü `Insert -> R` oder über die Tastenkombination `strg+alt+i`. 
 
@@ -136,15 +289,12 @@ Beschreiben Sie das zentrale Ergebnis und Auffälligkeiten.
   2. explorative / deskriptive Statistik
   3. Inferenzstatistik
   
-## 3.1 Kennzahlen der Stichprobe
-## 3.2 explorative Statistik
-## 3.3 deskriptive Statistik
-## 3.4 Inferenzstatistik 
+ 
 
 Beschreiben Sie Ihre Stichprobe und Ihre Variablen. 
 Das ist hilfreich zum Verständnis und Nachvollziehbarkeit Ihrer Studie, der Datenerhebung und der Hypothesentestung.  
 
-## Inferenzstatistik
+
 
 Gehen Sie hier genauer auf die untersuchten Hypothesen und Modelle ein. Geben Sie zur Methodik 1-3 Literaturquellen an.  
 
