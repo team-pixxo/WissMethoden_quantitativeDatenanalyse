@@ -9,12 +9,12 @@
 \contentsline {subsection}{2.2 Angewandte statistische Methoden}{3}{section*.9}% 
 \contentsline {section}{3. Ergebnisse}{4}{section*.10}% 
 \contentsline {subsection}{3.1 Kennzahlen der Stichprobe}{4}{section*.11}% 
-\contentsline {subsection}{3.2 explorative Statistik}{5}{section*.12}% 
-\contentsline {subsection}{3.3 deskriptive Statistik}{8}{section*.13}% 
-\contentsline {subsection}{3.4 Inferenzstatistik}{8}{section*.14}% 
-\contentsline {subsubsection}{3.4.1 Bootstrap}{8}{section*.15}% 
-\contentsline {subsubsection}{3.4.2 Permutation}{8}{section*.16}% 
-\contentsline {subsubsection}{3.4.3 Lineare Regression}{8}{section*.17}% 
-\contentsline {section}{4. Diskussion}{8}{section*.18}% 
-\contentsline {section}{5. Schlussfolgerungen}{8}{section*.19}% 
-\contentsline {section}{Literaturverzeichnis}{8}{section*.20}% 
+\contentsline {subsection}{3.2 explorative Statistik}{4}{section*.12}% 
+\contentsline {subsection}{3.3 deskriptive Statistik}{6}{section*.13}% 
+\contentsline {subsection}{3.4 Inferenzstatistik}{10}{section*.14}% 
+\contentsline {subsubsection}{3.4.1 Bootstrap}{10}{section*.15}% 
+\contentsline {subsubsection}{3.4.2 Permutation}{10}{section*.16}% 
+\contentsline {subsubsection}{3.4.3 Lineare Regression}{10}{section*.17}% 
+\contentsline {section}{4. Diskussion}{11}{section*.18}% 
+\contentsline {section}{5. Schlussfolgerungen}{11}{section*.19}% 
+\contentsline {section}{Literaturverzeichnis}{11}{section*.20}% 
