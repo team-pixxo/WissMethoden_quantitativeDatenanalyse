@@ -497,17 +497,12 @@ grid.arrange(kor1, kor2, kor3, kor4, kor5)
 
 Die Korrelationskoeffizienten zeigen keinen Zusammenhang der Gewinnzahlen wie anhand Tabelle 6 veranschaulicht wird [vgl. @sauer_moderne_2018, S.112]. 
 
-```{r}
+```{r Cor, echo=FALSE, include = FALSE}
 cor1 <- cor(GewZahl_2~ GewZahl_1, data = Fibo1_2)
 cor2 <- cor(GewZahl_3~ GewZahl_2, data = Fibo1_2)
 cor3 <- cor(GewZahl_4~ GewZahl_3, data = Fibo1_2)
 cor4 <- cor(GewZahl_5~ GewZahl_4, data = Fibo1_2)
 cor5 <- cor(GewZahl_6~ GewZahl_5, data = Fibo1_2)
-cor1
-cor2
-cor3
-cor4
-cor5
 ```
 
 ```{r Table7, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left", }
@@ -527,10 +522,85 @@ cat(table7)
 ```
 
 ## 3.4 Inferenzstatistik 
-Da sich die bisherige Datenanlyse auf eine einzige Stichprobe bezieht, kann keine allgemein gültige Aussage für das Verhalten der Fibonacci-Zahlen im Goldenen Schnitt Verhältnis im Lotto 6 aus 49 getroffen werden. 
-
+Da sich die bisherige Datenanlyse auf eine einzige Stichprobe bezieht, ist fraglich, wie aussagekräftig die Stichprobe für das Verhalten der Fibonacci-Zahlen im Goldenen Schnitt Verhältnis im Lotto 6 aus 49 ist. [vgl.@sauer_moderne_2018, S.268]
+Mittels der simualtionsbasierten Inferenz und dem Resampling ist es möglich, die Genauigkeit des geschätzten Wertes mittels Bootstrapping und einem Konfidenzintervall zu quantifizieren.[vgl.@sauer_moderne_2018, S.310]
+Zum Testen der Hypothesen wird die Nullhypothese durch den hypothetischen Wert (siehe Einleitung) sowie durch das Resamplingverfahren mittels Permutation abgebildet. [vgl.@siebertz_statistische_2017, S.384]
+Mittels linearen Regression soll anschließen überprüft werden, ob Werte mittels einer Geraden prophezeit werden können.[vgl.@sauer_moderne_2018, S.322]  
 
 ### 3.4.1 Bootstrap
+Um die Hypothese prüfen zu können wird im ersten Schritt aus der bereits vorhanden Stichprobe eine Stichprobenverteilung vom Umfang n = 10.000 Stichproben erstellt. Hierzu wird mittels R-Skript "_03_Bootstrap_Lotto_Gesamt.R" die vorhandene Stichprobe mit 4295 Ziehungen mit Zurücklegen zufällig neu gezogen. Die neu gezogene Stichprobe wird danach auf die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 untersucht. Dieser Vorgang wird 10.000 mal wiederholt. Dabei werden auch die Wochentage berücksichtigt. In Form von Balkendiagrammen werden die Verteilungshäufigkeiten grafisch dargestellt.
+
+```{r Bootstrap, include=FALSE, echo=FALSE}
+
+# Quotenverteilung der Originalstichprobe
+
+Lotto_Fibo_1_2 <- read.csv2("Lotto_Quota_Fibo_1_2.csv", header = FALSE)
+colnames(Lotto_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
+Lotto_Fibo_21_34 <- read.csv2("Lotto_Quota_Fibo_21_34.csv",header = FALSE)
+colnames(Lotto_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
+
+# Quotenverteilung der Bootstrap-Stichproben
+
+Bootstrap_Fibo_1_2 <- read.csv2("Bootstrap_Quota_Fibo_1_2.csv")
+colnames(Bootstrap_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+Bootstrap_Fibo_21_34 <- read.csv2("Bootstrap_Quota_Fibo_21_34.csv")
+colnames(Bootstrap_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2 <- Lotto_Fibo_1_2[,2]
+draw1_2
+q1_2 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
+q1_2 <- as.data.frame(q1_2)
+q1_2a <- q1_2[1,1]
+q1_2b <-q1_2[2,1]
+q1_2
+Bootsvertlg_1_2 <- gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_1_2,title = "Bootstrap Verteilung Fibonacci 1&2") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2a,q1_2b,draw1_2))
+Bootsvertlg_1_2
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR hinsichtlich samstagsziehung anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2a <- Lotto_Fibo_1_2[,4]
+draw1_2a
+q1_2a <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
+q1_2a <- as.data.frame(q1_2a)
+q1_2a
+q1_2c <- q1_2a[1,1]
+q1_2d <-q1_2a[2,1]
+Bootsvertlg_1_2sa <- gf_bar(~Ziehungen_Samstag, data = Bootstrap_Fibo_1_2, title = "Bootstrap Verteilung Fibonacci 1&2 - Samstagsziehungen") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2c,q1_2d,draw1_2a))
+Bootsvertlg_1_2sa
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR anzeigen lassen.
+Lotto_Fibo_21_34
+draw21_34 <- Lotto_Fibo_21_34[,2]
+draw21_34
+q21_34 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_21_34)
+q21_34 <- as.data.frame(q21_34)
+q21_34a <- q21_34[1,1]
+q21_34b <-q21_34[2,1]
+Bootsvertlg_21_34 <- gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_21_34) %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q21_34a,q21_34b,draw21_34))
+Bootsvertlg_21_34
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR hinsichtlich samstagsziehung anzeigen lassen.
+Lotto_Fibo_21_34
+draw1_2b <- Lotto_Fibo_21_34[,4]
+draw1_2b
+q1_2b <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Bootstrap_Fibo_21_34)
+q1_2b <- as.data.frame(q1_2b)
+q1_2b
+q1_2e <- q1_2a[1,1]
+q1_2f <-q1_2a[2,1]
+Bootsvertlg_1_2sa <- gf_bar(~Ziehungen_Samstag, data = Bootstrap_Fibo_1_2, title = "Bootstrap Verteilung Fibonacci 1&2 - Samstagsziehungen") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2f,q1_2e,draw1_2b))
+Bootsvertlg_1_2sa
+```
+
+```{r Bootstrap_1_2, fig.cap="In 25% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1&2 40 mal gezogen und in 75% der Stichprobenverteilungen 68 mal (schwarze Linien) Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie) Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar Die Hypothese, dass die Fibonacci-Zahlen 1&2 am häufgsten mit ihren goldenen Schnitt Zahlen gezogen werden kann hiermit verworfen werden.", echo=FALSE}
+plot(Bootsvertlg_1_2)
+```
+
+
+
+
 ### 3.4.2 Permutation
 ### 3.4.3 Lineare Regression
 

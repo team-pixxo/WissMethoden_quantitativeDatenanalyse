@@ -13,8 +13,8 @@
 \contentsline {subsection}{3.3 deskriptive Statistik}{6}{section*.13}% 
 \contentsline {subsection}{3.4 Inferenzstatistik}{10}{section*.14}% 
 \contentsline {subsubsection}{3.4.1 Bootstrap}{10}{section*.15}% 
-\contentsline {subsubsection}{3.4.2 Permutation}{10}{section*.16}% 
-\contentsline {subsubsection}{3.4.3 Lineare Regression}{10}{section*.17}% 
+\contentsline {subsubsection}{3.4.2 Permutation}{11}{section*.16}% 
+\contentsline {subsubsection}{3.4.3 Lineare Regression}{11}{section*.17}% 
 \contentsline {section}{4. Diskussion}{11}{section*.18}% 
 \contentsline {section}{5. Schlussfolgerungen}{11}{section*.19}% 
 \contentsline {section}{Literaturverzeichnis}{11}{section*.20}% 
