@@ -1,0 +1,1070 @@
+\documentclass[ngerman,]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{eurosym}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?},
+            pdfauthor={Shirin Shahidi, Matrikelnummer 455612},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=ngerman]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{german}
+\fi
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter
+zwei Fibonacci-Zahlen im Lotto 6 aus 49?}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Shirin Shahidi, Matrikelnummer 455612}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-07-23}
+
+\usepackage{float}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\newpage
+
+\section{1. Einleitung}\label{einleitung}
+
+\begin{quote}
+``Das, wobei unsere Berechnungen versagen, nennen wir Zufall.'' - Albert
+Einstein (zitate.net, 2019, o.S.).
+\end{quote}
+
+Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten
+errechnen, nicht jedoch künftige Ziehungen vorhersagen. Tendenzen, dass
+spezifische Ereignisse eintreten, können auf Basis bereits vergangener
+Ziehungen statistisch ermittelt werden (vgl. Ute Sproesser et al., 2014,
+S.33).
+
+\begin{quote}
+``Etwas hat Gestalt, weil es auf Zahlen beruht{[}\ldots{}{]}'' (Jonak,
+2018, S.136).
+\end{quote}
+
+Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie
+und bestimmte Proportionen wie etwa den Goldenen-Schnitt. Diese
+Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich
+beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion
+führt(vgl. Oerter, 2014, S.252).
+
+Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der
+Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen
+bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man
+sich auf die Proportion des Goldenen Schnittes, so wird dieser gemäß
+aktuellem Forschungsstand durch die Formel
+\(\frac{\sqrt{5} + 1}{2}\sim1,618\) errechnet (vgl. Kohn, 2019, S.160).
+Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt,
+veröffentlichte 1202 das Werk \emph{Liber Abbaci}(vgl. Hannah, 2007,
+o.S.). In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich
+die Vermehrung von Hasen in Zahlen beschreibt(vgl. Fibonacci, 1987,
+S.18). Im Lotto 6 aus 49 sind die ersten acht Fibonacci-Zahlen
+(1,2,3,5,8,13,21,34) enthalten(vgl. Kohn, 2019, S.159). Dividiert man
+zwei aufeinander folgende Fibonacci-Zahlen, so konvergieren diese gegen
+den Goldene-Schnitt(vgl. Knebl \& Springer Fachmedien Wiesbaden GmbH,
+2019, S.29).
+
+Um zur Forschungsfrage hinführen zu können, wird im Folgenden auf die
+beliebteste Lotterie namens Lotto 6 aus 49 unter den Einwohnern
+Deutschlands eingegangen(vgl. Lotto.de, 2019, o.S.). Spielberechtigt
+sind dabei erwachsene Personen ab 18 Jahren, da gemäß Jugendschutzgesetz
+§ 6 Spielhallen, Glücksspiele Minderjährigen das Glücksspiel mit Chance
+auf hohe Geldbeträge untersagt ist(vgl. JuSchG, 2019, o.S.). Ziel eines
+Lottospieles ist es 6 zufällig gezogene Gewinnzahlen aus 1-49 vorgegeben
+Ziffern vorherzusagen. Dabei wird ein Lotto-Schein mit 12 möglichen
+Tippfeldern und jeweils 49 Zahlen ausgefüllt. Pro Tippfeld werden 6
+Zahlen angekreuzt. Jeder Lotto-Schein enthält eine Spielscheinnummer,
+deren letzte Ziffer die Superzahl darstellt. Diese Superzahl wird neben
+den 6 Gewinnzahlen zufällig aus den Ziffern 0-9 ermittelt. Es müssen
+minimal 2 Ziffern und eine Superzahl korrekt prophezeit werden um einen
+Gewinn zu erzielen. Der maximale Gewinn stellt 6 richtige Gewinnzahlen
+und die korrekte Superzahl dar. Der halbierte Spieleinsatz stellt die
+Gewinnsumme dar, welche sich auf 9 Gewinnklassen aufteilen lässt.
+Zusätzlich können die Lotterien Spiel 77 und SUPER 6 sowie die
+GlücksSpirale im Lotto-Schein ausgewählt werden. Ein Tippfeld im Lotto 6
+aus 49 kostet 1,0\euro{} zzgl. Bearbeitungsgebühren. Die Ziehungen
+finden wöchentlich mittwochs um 18:25 Uhr und samstags um 19:25 Uhr
+unter www.lotto.de statt(vgl. Lotto.de, 2019, o.S.). Die
+Wahrscheinlichkeit, zwei konkrete Zahlen im Lotto zu ziehen beträgt
+\(1:((\frac{49}{6})*(\frac{48}{5}))\sim0.01276\)(vgl. Lottozahlen.com,
+2019, o.S.).
+
+\subsection{1.1. Forschungsfrage}\label{forschungsfrage}
+
+Betrachtet man die bereits genannten Fibonacci Zahlen im Lotto 6 aus 49
+und die Konvergenz gegen den Goldenen Schnitt, lässt sich die
+Forschungsfrage wie folgt ableiten:
+
+\emph{Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit
+unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?}
+
+In einer ersten Hypothese soll geprüft werden, ob eine Fibonacci Zahl
+unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mit ihrer
+Goldenen-Schnitt Zahl gezogen wird. Im Anschluss daran soll geprüft
+werden, ob eine Fibonacci Zahl unter allen Fibonacci-Zahlen im Lotto 6
+aus 49 am häufigsten mittwochs mit ihrer Goldenen-Schnitt Zahl gezogen
+wird. Dieser Tag wird mit den Samstagsziehungen und den davon
+abweichenden Wochentagen verglichen. Die Hypothesen lassen sich wie
+folgt formulieren:
+
+\emph{H1: Fibonacci-Zahlen 1,2,21 und 34 werden unter allen
+Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mit ihren
+Goldenen-Schnitt Zahlen gezogen}
+
+In Form eines Punktschätzers kann H1 wie folgt mathematisch formuliert
+werden:
+
+\emph{H1: p1 \textgreater{} 0.01276}
+
+\emph{H2: Fibonacci-Zahlen 1,2,21, und 34 werden unter allen
+Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten samstags mit ihrer
+Goldenen-Schnitt Zahl gezogen.}
+
+\emph{H1: p2 \textgreater{} 0.01276}
+
+\subsection{1.2. Ziel der Studie/
+Analyse}\label{ziel-der-studie-analyse}
+
+Das Untersuchungsziel der Studie ist deskriptiv ausgerichtet mit der
+Anforderung an exakte Ergebnisse und eine repräsentative Stichprobe
+sowie der Beschreibung der Grundgesamtheit mit ihren wesentlichen
+Merkmalen.(vgl. Kuß, 2012, S.15) Ziel der Studie soll sein,
+herauszufinden, ob Fibonacci-Zahlenpaare, die dividiert den
+Goldenen-Schnitt ergeben im Lotto 6 aus 49 häufiger zusammen gezogen
+werden als Fibonacci-Zahlenpaare ohne den Goldenen-Schnitt Proportionen.
+Hierzu sollen nur die Gewinnzahlen ohne Superzahl in Betracht gezogen
+wereden, da die Superzahlziehung eine abweichende Wahrscheinlichkeit von
+\(\frac{1}{10}\) aufweist. Es werden die Häufigkeiten der
+Fibonacci-Zahlen, sowie jeglicher Fibonaccipaar-Ziehungen unter allen
+Lotto-Ziehungen von 1955 bis Ende Juni 2019 betrachtet. Sollte sich
+herausstellen, dass Zahlenpaare aus dieser Auswahl am häufigsten
+zusammen auftreten, so werden diese mit Hilfe der Inferenzstatistik
+genauer betrachtet um einen Einfluss des Goldenen-Schnittes auf diese
+Zahlenpaare ausfindig machen zu können.
+
+\section{2. Methodik}\label{methodik}
+
+Um die Methodik festlegen zu können, wird auf das Studiendesign, sowie
+die Datenerhebung und die angewandten statistsichen Methoden genauer
+Bezug genommen (vgl. Kuß, 2012, S.13).
+
+\subsection{2.1. Studiendesign}\label{studiendesign}
+
+Das Studiendesign wird definiert durch die Art der Datenerhebung und
+Ziehung der Stichprobe. Die vorliegende Studie basiert auf den
+Sekundärforschungen der Westdeutsche Lotterie GmbH \& Co. oHG, sowie den
+Datenerhebungen unter www.lottozahlenonline.de durch Gustav Zygmund.
+(vgl. Kuß, 2012, S.15)
+
+\subsubsection{2.1.1 Datenerhebung}\label{datenerhebung}
+
+Da es sich um die Beschreibung der Veränderungen der Lotto-Ziehungen im
+Zeitablauf von 1955 bis 2019 handelt, wurden die in der Studie
+verwendeten Sekundärdaten in Form von Längsschnitt-Untersuchungen als
+Beobachtung erhoben. Da das Forschungsproblem auf Basis von
+Sekundärdaten bearbeitbar ist, wird in dieser Studie auf die Erhebung
+von Primärdaten verzichtet. Die bereits vorhandenen Daten werden für die
+Studie neu aufbereitet und analysiert. (vgl. Kuß, 2012, S.16)
+
+\subsubsection{2.1.2 Stichprobe}\label{stichprobe}
+
+Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des
+Lottos 6 aus 49 von 1955 bis zum Zeitpunkt der Studienanalyse
+tabellarisch dar. Werden potenzielle Ungenauigkeiten wie etwa Tipp- oder
+Eingabefehler in den bereits vorhandenen Sekundärdaten vernachlässigt,
+kann von einer Totalerhebung der Daten ausgegangen werden. Dies führt
+dazu, dass Stichprobenfehler die Aussagekraft nicht einschränken
+können.(vgl. Kuß, 2012, S.43 f.)
+
+\subsection{2.2 Angewandte statistische
+Methoden}\label{angewandte-statistische-methoden}
+
+Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu
+überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten
+durchgeführt. Da es sich um Häufigkeitsbeobachtungen der
+Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren
+angewandt, um Annahmen über entsprechende
+Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können
+(vgl. Kuß, 2012, S.193 f.). Eine Annahme oder Ablehnung der Hypothesen
+erfolgt mittels der Zweiseitigen Fragestellung (vgl. Hellbrück, 2009,
+S.73--76). Um den Datensatz auf Linearität zu überprüfen wird
+anschließend eine lineare Regression durchgeführt (vgl. Hellbrück, 2009,
+S.250). Für die Ergebnisse der statistischen Methoden wird die
+Programmiersprache R verwendet. Diese ermöglicht den Einsatz moderner
+Verfahren der Datenanalyse und ist reproduzierbar, automatisierbar,
+quelloffen, kostenlos und grafisch abbildbar. (vgl. Sauer, 2018, S.16
+f.) Für den Datensatz wurden die Ergebnisse der Lotto-Ziehungen aus den
+Quellen Westdeutsche Lotterie GmbH \& Co. oH.
+
+\section{3. Ergebnisse}\label{ergebnisse}
+
+Um zu den Ergebnissen der Studie hinführen zu können werden die bereits
+genannten statistischen Methoden im Folgenden anhand von
+R-Syntax-Abschnitten (sogenannten Chunks) erklärt, sowie grafisch
+veranschaulicht (vgl. Sauer, 2018, S.26).
+
+\subsection{3.1 Kennzahlen der
+Stichprobe}\label{kennzahlen-der-stichprobe}
+
+Um einen Überblick über die Kennzahlen der Stichprobe zu erhalten, wird
+die Bibliothek ``mosaic'' geladen und der R-Befehl ``inspect''
+ausgeführt:
+
+\begin{verbatim}
+## 
+## categorical variables:  
+##        name  class levels    n missing
+## 1 Wochentag factor      6 4295       0
+##                                    distribution
+## 1 Samstag (65.3%), Mittwoch (22.6%) ...        
+## 
+## quantitative variables:  
+##        name   class min Q1 median Q3 max     mean       sd    n missing
+## 1 GewZahl_1 integer   1 12     25 37  49 24.64331 14.31717 4295       0
+## 2 GewZahl_2 integer   1 12     24 37  49 24.64983 14.25556 4295       0
+## 3 GewZahl_3 integer   1 13     25 37  49 25.11665 13.86886 4295       0
+## 4 GewZahl_4 integer   1 13     25 37  49 25.06682 13.98750 4295       0
+## 5 GewZahl_5 integer   1 13     26 38  49 25.45285 14.06999 4295       0
+## 6 GewZahl_6 integer   1 13     26 38  49 25.46123 14.44079 4295       0
+\end{verbatim}
+
+Die Stichprobe des Datensatzes Lotto 6 aus 49 von 1955 bis 2019 enthält
+6 numerisch diskrete und eine kategoriale Variable. Insgesamt enthält
+die Stichprobe 4295 Beobachtungen. Die numerischen Variablen stellen die
+Gewinnzahlen kategorisiert nach Ziehungsrunde dar. Das Minimum liegt bei
+der Ziffer 1 und das Maximum bei Ziffer 49. Die kategoriale Variable
+nennt den Wochentag, an dem die Beobachtungen aufgezeichnet wurden. Die
+Lagemaße und Streumaße sind unterschiedlich ausgeprägt, wie anhand der
+Werte von Quantil 1 und 3 sowie der Mittelwerte und dem Median zu
+erkennen ist. Die Standardabweichung fällt ebenfalls unterschiedlich
+aus. Die Variablennamen werden wie folgt ausgegeben: GewZahl\_1,
+GewZahl\_2, GewZahl\_3, GewZahl\_4, GewZahl\_5, GewZahl\_6, Wochentag.
+Insgesamt sind keine fehlenden Angaben vorhanden. Einen Überblick über
+die letzten 6 Beobachtungen des Datensatzes verschafft der Befehl
+``tail'':
+
+\begin{verbatim}
+##      GewZahl_1 GewZahl_2 GewZahl_3 GewZahl_4 GewZahl_5 GewZahl_6 Wochentag
+## 4290         3        11        15        18        33        45   Samstag
+## 4291         3        13        25        27        32        48  Mittwoch
+## 4292         5         6        14        16        31        48   Samstag
+## 4293         3        22        24        25        43        45  Mittwoch
+## 4294         5        14        32        37        46        47   Samstag
+## 4295        10        15        31        34        35        45  Mittwoch
+\end{verbatim}
+
+\subsection{3.2 explorative Statistik}\label{explorative-statistik}
+
+Anhand der explorativen Statistik sollen Häufigkeitsverteilungen der
+Fibonacci-Zahlen betrachtet werden. Hierzu wird der Datensatz nach
+Fibonacci-Zahlen mittels R-Skript (``\_01\_Sort\_by\_Fibo.R``) sortiert
+und gefiltert. Die daraus gewonnen Daten werden auf
+Fibonacci-Zahlenpaare im Goldenen-Schnitt Verhältnis und deren
+Häufigkeitsverteilung überprüft und nach Häufigkeit der Ziehung
+betrachtet. Dadurch zeigt sich, welche Fibonacci-Zahlen mit welchen
+Fibonacci-Zahlen am häufigsten gemeinsam in einer Ziehung auftreten
+(siehe Tabelle 1).
+
+\begin{longtable}[]{@{}lllllllll@{}}
+\caption{Die Tabelle zeigt zeilenweise, welche Fibonacci-Zahlen im Lotto
+6 aus 49 seit 1955 bis 2019 mit welchen Fibonacci-Zahlen wie häufig (in
+Ziehungen) gemeinsam gezogen wurden. Die häufigsten Beobachtungen wurden
+fett markiert. Es wird ersichtlich, dass die 1, 2, 21 und 34 am
+häufigsten mit ihren goldenen Schnitt Zahlen gezogen
+wurden.}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 1\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 2\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 3\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 5\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 8\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 13\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 21\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 34\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 1\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 2\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 3\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 5\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 8\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 13\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 21\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\raggedright\strut
+Fibonacci Zahl 34\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 1\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{59}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+47\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+44\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+45\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 2\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{59}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+55\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+53\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+42\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+58\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 3\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+55\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+52\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+48\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{57}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+49\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 5\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+53\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+52\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+55\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{57}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+45\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 8\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+47\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+48\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+55\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+38\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+41\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{57}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 13\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+44\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+42\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{57}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+38\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+47\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 21\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+54\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+41\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+56\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{63}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+Fibonacci Zahl 34\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+45\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+58\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+49\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+45\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+57\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+47\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\textbf{63}\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\raggedright\strut
+\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Aus Tabelle 1 ergibt sich die erste Hypothese: Die Fibonacci-Zahlen 1,
+2, 21 und 34 werden unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am
+häufigsten mit ihren goldenen Schnitt Zahlen gezogen.
+
+Die Verteilung der Wochentage im Lotto lässt sich anhand Abbildung 1
+veranschaulichen. Betrachtet man die Häufigkeitsverteilung der
+Fibonacci-Zahlenpaare 1\&2 sowie 21\&34 hinsichtlich der Wochentage
+ergibt sich Abbildung 2.
+
+\begin{figure}
+
+\includegraphics{Abbildung/unnamed-chunk-2-1} \hfill{}
+
+\caption{Die Lotto-Ziehungen von 1955 bis 2019 fanden am häufigsten samstags statt.}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{figure}
+
+\includegraphics{Abbildung/unnamed-chunk-3-1} \hfill{}
+
+\caption{Die Fibonacci Zahlen 1, 2, 21 und 34 werden samstags am häufigsten mit ihren Goldenen-Schnitt Zahlen gezogen.}\label{fig:unnamed-chunk-3}
+\end{figure}
+
+Die Häufigkeitsverteilungen können tabellarisch festgehalten werden.
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Die Samstagsziehungen machen ca. 65\% der Lottoziehungen aus.
+Das Fibonacci Zahlenpaar 21\&34 wird um 4 zusätzliche Ziehungen häufiger
+als das Zahlenpaar 1\&2 gezogen. Samstags wird das Zahlenpaar 1\&2 um 2
+Ziehugen häufiger als das Zahlenpaar 21\&34 gezogen.
+Fibonacci-Zahlenpaare im Goldenen-Schnitt werden mit \textless{}1,5\%
+relativ selten im Lotto 6 aus 49 gezogen.}\tabularnewline
+\toprule
+Ereignis & absolute Häufigkeit (Ziehungsanzahl) & relative Häufigkeit
+(in \%)\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Ereignis & absolute Häufigkeit (Ziehungsanzahl) & relative Häufigkeit
+(in \%)\tabularnewline
+\midrule
+\endhead
+Samstagziehungen Gesamt & 2805 & 65.3085 \%\tabularnewline
+Fibonacci Zahlenpaar 1\&2 & 59 & 1.37369 \%\tabularnewline
+Fibonacci Zahlenpaar 21\&34 & 63 & 1.466822 \%\tabularnewline
+Samstagziehungen Fibonacci Zahlenpaar 1\&2 & 40 & 1.426025
+\%\tabularnewline
+Samstagziehungen Fibonacci Zahlenpaar 21\&34 & 38 & 1.354724
+\%\tabularnewline
+\bottomrule
+\end{longtable}
+
+Aus diesen Beobachtungen lässt sich die Hyothese ableiten, dass die
+Fibonacci Zahlen 1,2,21 und 34 samstags am häufigsten mit ihren
+Goldenen-Schnitt Zahlen gezogen werden.
+
+\subsection{3.3 deskriptive Statistik}\label{deskriptive-statistik}
+
+Die deskriptive Statistik beschäftig sich mit den Lage- und
+Streuparametern des Datensatzes. Die Lagemaße spiegeln die Verteiung der
+Daten wieder, wohingegen die Streuungsmaße die Unterschiedlichkeiten in
+den Daten wiedergeben. (vgl. Sauer, 2018, S.104--105) Die Lagemaße der
+Fibonacci Zahlenpaare 1\&2 werden durch folgenden Boxplot gekennzeichnet
+(siehe Abbildung 3).
+
+\newpage
+
+\begin{figure}
+
+\includegraphics{Abbildung/a-1} \hfill{}
+
+\caption{Betrachtet man die Reihenfolge der gezogenen Zahlen bei den Ziehungen der Fbonacci Zahlen 1\&2, so lässt sich veranschaulichen, dass die Werte je nach Ziehungsrunde variieren. Die unteren 25\% enthalten dabei immer (bis auf die dritte Gewinnzahl) die Ziffern 1 und 2.}\label{fig:a}
+\end{figure}
+
+Die Mittelwerte, der Gewinnzahlen der Fibonacci Zahlenpaare 1\&2 werden
+in Tabelle 3 dargestellt.
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Die Gewinnzahlen der Fibonacci-Ziehungspaare 1\&2 unterscheiden
+sich in ihren Mittelwerten. Gewinnzahl 3 weist den größten Mittelwert
+mit 22.08475 auf, Gewinnzahl 6 den niedrigsten mit
+15.69492.}\tabularnewline
+\toprule
+Gewinnzahl & Mittelwert\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Gewinnzahl & Mittelwert\tabularnewline
+\midrule
+\endhead
+Gewinnzahl 1 & 19.20339\tabularnewline
+Gewinnzahl 2 & 16.89831\tabularnewline
+Gewinnzahl 3 & 22.08475\tabularnewline
+Gewinnzahl 4 & 17.83051\tabularnewline
+Gewinnzahl 5 & 17.94915\tabularnewline
+Gewinnzahl 6 & 15.69492\tabularnewline
+\bottomrule
+\end{longtable}
+
+Die Lagemaße der Fibonacci-Zahlen 21\&34 werden durch die Abbildung 4
+dargestellt.
+
+\begin{figure}
+
+\includegraphics{Abbildung/c-1} \hfill{}
+
+\caption{Betrachtet man die Reihenfolge der gezogenen Zahlen bei den Ziehungen der Fbonacci Zahlen 1\&2, so lässt sich veranschaulichen, dass die Werte je nach Ziehungsrunde variieren. Die unteren 25\% enthalten dabei immer (bis auf die dritte Gewinnzahl) die Ziffern 1 und 2.}\label{fig:c}
+\end{figure}
+
+Die Mittelwerte, der Gewinnzahlen der Fibonacci Zahlenpaare 21\&34
+werden in Tabelle 4 dargestellt.
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Die Gewinnzahlen der Fibonacci-Ziehungspaare 21\&34
+unterscheiden sich in ihren Mittelwerten. Gewinnzahl 5 weist den größten
+Mittelwert mit 29.77778 auf, Gewinnzahl 3 den niedrigsten mit
+24.01587.}\tabularnewline
+\toprule
+Gewinnzahl & Mittelwert\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Gewinnzahl & Mittelwert\tabularnewline
+\midrule
+\endhead
+Gewinnzahl 1 & 24.95238\tabularnewline
+Gewinnzahl 2 & 25.55556\tabularnewline
+Gewinnzahl 3 & 24.01587\tabularnewline
+Gewinnzahl 4 & 27.39683\tabularnewline
+Gewinnzahl 5 & 29.77778\tabularnewline
+Gewinnzahl 6 & 26.42857\tabularnewline
+\bottomrule
+\end{longtable}
+
+Zur Bestimmung des Modus der Gewinnzahlen aus den Fibonacci-Zahlenpaaren
+1\&2 kann folgende Tabelle dargestellt werden.(siehe Tabelle 5)
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Die Modi der Gewinnzahlen der Fibonacci-Ziehungspaare 1\&2
+unterscheiden sich in ihren Ziehungshäufigkeiten. Es wird ersichtlich,
+dass die Ziffern 1 und 2 in jeder Ziehung am häufigsten
+auftreten.}\tabularnewline
+\toprule
+Gewinnzahl & Am häufigsten gezogene Zahl & Anzahl der
+Ziehungen\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Gewinnzahl & Am häufigsten gezogene Zahl & Anzahl der
+Ziehungen\tabularnewline
+\midrule
+\endhead
+Gewinnzahl 1 & 2 & 12x\tabularnewline
+Gewinnzahl 2 & 1\&2 & je 11x\tabularnewline
+Gewinnzahl 3 & 1\&2 & je 7x\tabularnewline
+Gewinnzahl 4 & 2 & 11x\tabularnewline
+Gewinnzahl 5 & 1 & 13x\tabularnewline
+Gewinnzahl 6 & 1 & 11x\tabularnewline
+\bottomrule
+\end{longtable}
+
+Zur Bestimmung des Modus der Gewinnzahlen aus den Fibonacci-Zahlenpaaren
+21\&34 kann folgende Tabelle dargestellt werden.(siehe Tabelle 6)
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Die Modi der Gewinnzahlen der Fibonacci-Ziehungspaare 1\&2
+unterscheiden sich in ihren Ziehungshäufigkeiten. Es wird ersichtlich,
+dass die Ziffern 1 und 2 in jeder Ziehung am häufigsten
+auftreten.}\tabularnewline
+\toprule
+Gewinnzahl & Am häufigsten gezogene Zahl & Anzahl der
+Ziehungen\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Gewinnzahl & Am häufigsten gezogene Zahl & Anzahl der
+Ziehungen\tabularnewline
+\midrule
+\endhead
+Gewinnzahl 1 & 21 & 15x\tabularnewline
+Gewinnzahl 2 & 34 & 12x\tabularnewline
+Gewinnzahl 3 & 21 & 11x\tabularnewline
+Gewinnzahl 4 & 34 & 11x\tabularnewline
+Gewinnzahl 5 & 34 & 9x\tabularnewline
+Gewinnzahl 6 & 34 & 14x\tabularnewline
+\bottomrule
+\end{longtable}
+
+Um zu prüfen, ob die Gewinnzahlen der Fibonacci-Zahlenpaare 1\&2
+korrelieren wird vorab eine grafische Übersicht mittels des R-Befehls
+``gf\_point'' angewandt um Tendeznen des Zusammenhangs zu erkennen.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Korrelation_1-1} \hfill{}
+
+\caption{Abbildung X zeigt, dass die Gewinnzahlen nicht von ihren vorheringen Gewinnzahlen abhängen. Somit besteht kein Zusammenhang zwischen den einzelnen Gewinnzahlen.}\label{fig:Korrelation_1}
+\end{figure}
+
+Die Korrelationskoeffizienten zeigen keinen Zusammenhang der
+Gewinnzahlen wie anhand Tabelle 6 veranschaulicht wird (vgl. Sauer,
+2018, S.112).
+
+\begin{longtable}[]{@{}lll@{}}
+\caption{Die Korrelationskoeffizienten der Gewinnzahlen liegen nahe bei
+Null. Es kann kein Zusammenhang unter den Gewinnzahlen festgehalten
+werden.}\tabularnewline
+\toprule
+Unabhängige Variable & Abhängige Variable &
+Korrelationskoeffizient\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Unabhängige Variable & Abhängige Variable &
+Korrelationskoeffizient\tabularnewline
+\midrule
+\endhead
+Gewinnzahl 1 & Gewinnzahl 2 & -0.21260081\tabularnewline
+Gewinnzahl 2 & Gewinnzahl 3 & -0.03212074\tabularnewline
+Gewinnzahl 3 & Gewinnzahl 4 & -0.2106801\tabularnewline
+Gewinnzahl 4 & Gewinnzahl 5 & -0.07762\tabularnewline
+Gewinnzahl 5 & Gewinnzahl 6 & -0.05135401\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\subsection{3.4 Inferenzstatistik}\label{inferenzstatistik}
+
+Da sich die bisherige Datenanlyse auf eine einzige Stichprobe bezieht,
+ist fraglich, wie aussagekräftig die Stichprobe für das Verhalten der
+Fibonacci-Zahlen im Goldenen Schnitt Verhältnis im Lotto 6 aus 49 ist.
+(vgl. Sauer, 2018, S.268) Mittels der simualtionsbasierten Inferenz und
+dem Resampling ist es möglich, die Genauigkeit des geschätzten Wertes
+mittels Bootstrapping und einem Konfidenzintervall zu
+quantifizieren.(vgl. Sauer, 2018, S.310) Zum Testen der Hypothesen wird
+die Nullhypothese durch den hypothetischen Wert (siehe Einleitung) sowie
+durch das Resamplingverfahren mittels Permutation abgebildet. (vgl.
+Siebertz, Bebber \& Hochkirchen, 2017, S.384) Mittels linearen
+Regression soll anschließen überprüft werden, ob Werte mittels einer
+Geraden prophezeit werden können.(vgl. Sauer, 2018, S.322)
+
+\subsubsection{3.4.1 Bootstrap}\label{bootstrap}
+
+Um die Hypothese prüfen zu können wird im ersten Schritt aus der bereits
+vorhanden Stichprobe eine Stichprobenverteilung vom Umfang n = 10.000
+Stichproben erstellt. Hierzu wird mittels R-Skript
+``\_03\_Bootstrap\_Lotto\_Gesamt.R" die vorhandene Stichprobe mit 4295
+Ziehungen mit Zurücklegen zufällig neu gezogen. Die neu gezogene
+Stichprobe wird danach auf die Häufigkeitsverteilung der
+Fibonacci-Zahlenpaare 1\&2 sowie 21\&34 untersucht. Dieser Vorgang wird
+10.000 mal wiederholt. Dabei werden auch die Wochentage berücksichtigt.
+In Form von Balkendiagrammen werden die Verteilungshäufigkeiten grafisch
+dargestellt.
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand
+Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Bootstrap_1_2-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1 und 2 40 mal gezogen und in 75\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Bootstrap_1_2}
+\end{figure}
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand
+Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Bootstrap_21_34-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 37 mal gezogen und in 75\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Bootstrap_21_34}
+\end{figure}
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann
+anhand Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Bootstrap_1_2sa-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\&2 samstags 24 mal und in 75\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Bootstrap_1_2sa}
+\end{figure}
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags
+kann anhand Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Bootstrap_21_34sa-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Bootstrap_21_34sa}
+\end{figure}
+
+Aus den Grafiken geht hervor, dass sowohl H1 als auch H2 verworfen
+werden können.
+
+\subsubsection{3.4.2 Permutation}\label{permutation}
+
+Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden
+zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen
+gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne
+Zurücklegen gezogen. Der hypothetische Wert wird ebenso in einem zweiten
+Schritt zu Hypothesentestung verwendet.
+
+Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand
+Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Permut_1_2-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\&2 40 mal gezogen und in 75\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Permut_1_2}
+\end{figure}
+
+Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 kann
+anhand Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Permut_21_34-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21\&34 37 mal gezogen und in 75\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Permut_21_34}
+\end{figure}
+
+Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags
+kann anhand Abbildung XY visualisiert werden.
+
+\begin{figure}
+
+\includegraphics{Abbildung/Permut_1_2sa-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\&2 samstags 24 mal und in 75\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Permut_1_2sa}
+\end{figure}
+
+Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags
+kann anhand Abbildung XY visualisiert werden.
+
+\begin{center}
+\includegraphics{R_studio.png}
+\begin{figure}
+
+\includegraphics{Abbildung/Permut_21_34sa-1} \hfill{}
+
+\caption{In 25\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\% angenommen.}\label{fig:Permut_21_34sa}
+\end{figure}
+\end{center}
+
+\subsubsection{3.4.3 Lineare Regression}\label{lineare-regression}
+
+Gehen Sie hier näher auf die \emph{verwendeten} Variablen ein. In R
+markdown Dateien können Sie einfach den R Code in Chunks einfügen
+(sogenannte ``Code Chunks''). Entweder über das Menü
+\texttt{Insert\ -\textgreater{}\ R} oder über die Tastenkombination
+\texttt{strg+alt+i}.
+
+Hier stellen und beschreiben Sie die Ergebnisse Ihrer kleinen Studie.
+Ihre Ergebnisse stellen Sie graphisch und/ oder tabellarisch dar. Ganz
+allgemein wird im Resultateteil NICHT interpretiert, sondern die
+Ergebnisse ausschließlich beschrieben.
+
+Der Ergebnisteil kann zur besseren Orientierung und zum besseren Lesen
+weitere Gliederungspunkte enthalten (z.B. bei Hypothesenwechsel, für
+jedes Ergebnis o.ä.).
+
+\begin{itemize}
+\tightlist
+\item
+  die Abbildungen werden durchnummeriert (Abbildung 1 bis Abbildung xx)
+  ebenso die Tabellen.
+\item
+  Jede Abbildung erhält eine Bildunterschrift und jede Tabelle eine
+  Beschreibung (über der Tabelle).
+\item
+  die Bildunterschrift dürfen Sie mit R markdown machen oder aber in
+  word! Eine Vorlage für eine Bildunterschrift ist im Template
+  enthalten.
+\end{itemize}
+
+Beispiel für Ergebisbeschreibung und einer Figure caption =
+Bildunterschrift:
+
+Die Ergebnisse graphisch und tabellarisch dargestellt. Eine
+tabellarische Darstellung der Ergebnisse ist im Teil der deskriptiven
+Statistik oft sinnvoll. Sie entscheiden hier was eine sinnvolle
+Darstellung ist!
+
+ Beschreiben Sie das zentrale Ergebnis und Auffälligkeiten.
+
+\textbf{Folgendes sollte im Ergebnisteil enthalten/ ver- oder
+beararbeitet sein: } 1. Kennzahlen 2. explorative / deskriptive
+Statistik 3. Inferenzstatistik
+
+Beschreiben Sie Ihre Stichprobe und Ihre Variablen. Das ist hilfreich
+zum Verständnis und Nachvollziehbarkeit Ihrer Studie, der Datenerhebung
+und der Hypothesentestung.
+
+Gehen Sie hier genauer auf die untersuchten Hypothesen und Modelle ein.
+Geben Sie zur Methodik 1-3 Literaturquellen an.
+
+\section{4. Diskussion}\label{diskussion}
+
+Für die Diskussion setzen Sie das Ergebnis in Kontext zu bereits
+publizierter Literatur! (hier ist das Lesen und die Angabe (CAVE:
+richtig zitieren) von Literatur notwendig) Mind. 3 Literaturquellen
+
+\section{5. Schlussfolgerungen}\label{schlussfolgerungen}
+
+``Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer
+Entdeckung.'' - Joseph Joubert
+
+Fassen Sie hier kurz die zentralen Ergebnisse für Ihre
+Forschungsthematik zusammen. Gehen Sie auch auf die Grenzen Ihrer
+Analyse ein.
+
+\section{Literaturverzeichnis}\label{literaturverzeichnis}
+
+Hier stehen die im Text verwendeten Quellen:
+
+\begin{itemize}
+\tightlist
+\item
+  Nachname Autor1, Anfangsbuchstabe Vorname Autor1, Nachname Autor2,
+  Anfangsbuchstabe Vorname Autor2 1 \& Nachname Autor3, Anfangsbuchstabe
+  Vorname Autor3, \ldots{} (Jahr der Veröffentlichung). Titel des
+  Beitrags. Journal, Volume, Issue, Seitenzahlen
+\end{itemize}
+
+\hypertarget{refs}{}
+\hypertarget{ref-fibonacci_introduction:_1987}{}
+Fibonacci, L.P. (1987) INTRODUCTION: A Brief Biography of Leonardo
+Pisano (Fibonacci) {[}1170-post 1240{]}. In: LEONARDO PISANO Fibonacci
+(Hrsg.). \emph{The Book of Squares}. {[}Online{]}. San Diego, Academic
+Press. S. xv--xx. Available from:
+doi:\href{https://doi.org/10.1016/B978-0-08-088650-3.50005-0}{10.1016/B978-0-08-088650-3.50005-0}
+{[}Zugegriffen: 15 Juli 2019{]}.
+
+\hypertarget{ref-hannah_false_2007}{}
+Hannah, J. (2007) False position in Leonardo of Pisa's Liber Abbaci.
+\emph{Historia Mathematica}. {[}Online{]} 34 (3), 306--332. Available
+from:
+doi:\href{https://doi.org/10.1016/j.hm.2006.10.004}{10.1016/j.hm.2006.10.004}
+{[}Zugegriffen: 15 Juli 2019{]}.
+
+\hypertarget{ref-hellbruck_angewandte_2009}{}
+Hellbrück, R.P. (2009) OCLC: 458747755. \emph{Angewandte Statistik mit
+R: eine Einführung für Ökonomen und Sozialwissenschaftler}. Lehrbuch. 1.
+Aufl. Wiesbaden, Gabler.
+
+\hypertarget{ref-jonak_essays_2018}{}
+Jonak, U. (2018) \emph{Essays zur Architektur}. {[}Online{]}. Wiesbaden,
+Springer Fachmedien Wiesbaden. Available from:
+doi:\href{https://doi.org/10.1007/978-3-658-19129-0}{10.1007/978-3-658-19129-0}
+{[}Zugegriffen: 8 Juli 2019{]}.
+
+\hypertarget{ref-juschg_juschg_2019}{}
+JuSchG (2019) \emph{JuSchG - Jugendschutzgesetz}. {[}Online{]}. 2019.
+Available from:
+\url{https://www.gesetze-im-internet.de/juschg/BJNR273000002.html}
+{[}Zugegriffen: 16 Juli 2019{]}.
+
+\hypertarget{ref-knebl_algorithmen_2019}{}
+Knebl, H. \& Springer Fachmedien Wiesbaden GmbH (2019) OCLC: 1098316960.
+\emph{Algorithmen und Datenstrukturen Grundlagen und probabilistische
+Methoden für den Entwurf und die Analyse}.
+
+\hypertarget{ref-kohn_mathematik_2019}{}
+Kohn, W. (2019) OCLC: 1102475595. \emph{MATHEMATIK FR
+WIRTSCHAFTSINFORMATIKER: grundlagen und anwendungen.} S.l., SPRINGER.
+
+\hypertarget{ref-kus_marktforschung:_2012}{}
+Kuß, A. (2012) OCLC: 795116334. \emph{Marktforschung: Grundlagen der
+Datenerhebung und Datenanalyse}. Springer-Gabler-Lehrbuch. 4., überarb.
+Aufl. Wiesbaden, Springer Gabler.
+
+\hypertarget{ref-lotto.de_lotto_2019}{}
+Lotto.de (2019) \emph{LOTTO 6aus49 Spielregeln LOTTO.de}. {[}Online{]}.
+2019. Available from:
+\url{https://www.lotto.de/lotto-6aus49/spielregeln} {[}Zugegriffen: 16
+Juli 2019{]}.
+
+\hypertarget{ref-lottozahlen.com_6_2019}{}
+Lottozahlen.com (2019) \emph{6 aus 49 Wahrscheinlichkeit einfach
+erklärt. Lottozahlen}. {[}Online{]}. 2019. Available from:
+\url{https://www.lottozahlen.com/lotto-nachrichten/6-aus-49-wahrscheinlichkeit-einfach-erklaert}
+{[}Zugegriffen: 16 Juli 2019{]}.
+
+\hypertarget{ref-oerter_mensch_2014}{}
+Oerter, R. (2014) OCLC: 887522626. \emph{Der Mensch, das wundersame
+Wesen: was Evolution, Kultur und Ontogenese aus uns machen}. Wiesbaden,
+Springer Spektrum.
+
+\hypertarget{ref-sauer_moderne_2018}{}
+Sauer, S. (2018) \emph{Moderne Datenanalyse mit R: Daten einlesen,
+aufbereiten, visualisieren und modellieren}. FOM-Edition. 1. Auflage
+2019. Wiesbaden, Springer Fachmedien Wiesbaden GmbH.
+
+\hypertarget{ref-siebertz_statistische_2017}{}
+Siebertz, K., Bebber, D. van \& Hochkirchen, T. (2017) OCLC: 1007269389.
+\emph{Statistische Versuchsplanung: Design of Experiments (DoE)}.
+VDI-Buch. 2. Auflage. Berlin, Springer Vieweg.
+
+\hypertarget{ref-ute_sproesser_et_al._daten_2014}{}
+Ute Sproesser et al. (2014) \emph{Daten, Zufall und der Rest der Welt:
+didaktische Perspektiven zur anwendungsbezogenen Mathematik}. Research.
+Silvia Wessolowski \& Claudia Wörn (Hrsg.). Wiesbaden, Springer
+Spektrum.
+
+\hypertarget{ref-zitate.net_zufallzitate_2019}{}
+zitate.net (2019) \emph{Zufallzitate Top 20 Zitate und Sprüche über
+Zufälle ... Zitate.net}. {[}Online{]}. 2019. Available from:
+\url{http://zitate.net/zufall-zitate} {[}Zugegriffen: 14 Juli 2019{]}.
+
+
+\end{document}

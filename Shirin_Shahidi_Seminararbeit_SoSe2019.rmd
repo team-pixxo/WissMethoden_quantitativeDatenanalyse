@@ -21,6 +21,7 @@ editor_options:
   chunk_output_type: console
 bibliography: WM-QDA_Seminararbeit.bib
 csl: harvard.fh.sb.csl
+header-includes: \usepackage{float}
 ---
 
 
@@ -61,9 +62,9 @@ Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits verg
 Die Hypothesen lassen sich wie folgt formulieren:</p>
 <p>*H1: Fibonacci-Zahlen 1,2,21 und 34 werden unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mit ihren Goldenen-Schnitt Zahlen gezogen*</p>
 In Form eines Punktschätzers kann H1 wie folgt mathematisch formuliert werden:
-<p> *H1: p1 > π* </p>
+<p> *H1: p1 > 0.01276* </p>
 <p>*H2: Fibonacci-Zahlen 1,2,21, und 34 werden unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten samstags mit ihrer Goldenen-Schnitt Zahl gezogen.*</p>
-<p> *H1: p2 > π* </p>
+<p> *H1: p2 > 0.01276* </p>
 
 ## 1.2. Ziel der Studie/ Analyse 
 Das Untersuchungsziel der Studie ist deskriptiv ausgerichtet mit der Anforderung an exakte Ergebnisse und eine repräsentative Stichprobe sowie der Beschreibung der Grundgesamtheit mit ihren wesentlichen Merkmalen.[vgl.@kus_marktforschung:_2012, S.15] Ziel der Studie soll sein, herauszufinden, ob Fibonacci-Zahlenpaare, die dividiert den Goldenen-Schnitt ergeben im Lotto 6 aus 49 häufiger zusammen gezogen werden als Fibonacci-Zahlenpaare ohne den Goldenen-Schnitt Proportionen. Hierzu sollen nur die Gewinnzahlen ohne Superzahl in Betracht gezogen wereden, da die Superzahlziehung eine abweichende Wahrscheinlichkeit von $\frac{1}{10}$ aufweist. Es werden die Häufigkeiten der Fibonacci-Zahlen, sowie jeglicher Fibonaccipaar-Ziehungen unter allen Lotto-Ziehungen von 1955 bis Ende Juni 2019 betrachtet. Sollte sich herausstellen, dass Zahlenpaare aus dieser Auswahl am häufigsten zusammen auftreten, so werden diese mit Hilfe der Inferenzstatistik genauer betrachtet um einen Einfluss des Goldenen-Schnittes auf diese Zahlenpaare ausfindig machen zu können.
@@ -90,7 +91,7 @@ Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genann
 ## 3.1 Kennzahlen der Stichprobe
 Um einen Überblick über die Kennzahlen der Stichprobe zu erhalten, wird die Bibliothek "mosaic" geladen und der R-Befehl "inspect" ausgeführt:
 ```{r Kennzahlen, echo=FALSE, include=TRUE}
-
+#install.packages('tinytex')
 # Dateipfad festlegen
 setwd("/Users/shisha/Desktop/WissMethoden_quantitativeDatenanalyse")
 
@@ -613,22 +614,22 @@ mean(Bootstrap_Fibo_21_34$Ziehungen_Samstag)
 
 Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
 
-```{r Bootstrap_1_2, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1 und 2 40 mal gezogen und in 75\\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Bootstrap_1_2, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1 und 2 40 mal gezogen und in 75\\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Bootsvertlg_1_2, title = "Bootsverteilung der Fibonacci Zahlenpaare 1 und 2")
 ```
 
 Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
-```{r Bootstrap_21_34, fig.cap ="In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 37 mal gezogen und in 75\\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Bootstrap_21_34, fig.cap ="In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 37 mal gezogen und in 75\\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Bootsvertlg_21_34,title = "Bootsverteilung der Fibonacci Zahlenpaare 21 und 34")
 ```
 
 Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Bootstrap_1_2sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 samstags 24 mal und in 75\\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Bootstrap_1_2sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 samstags 24 mal und in 75\\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Bootsvertlg_1_2sa,title = "Bootsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
 Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Bootstrap_21_34sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Bootstrap_21_34sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Bootsvertlg_21_34sa,title = "Bootsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
@@ -636,7 +637,7 @@ Aus den Grafiken geht hervor, dass sowohl H1 als auch H2 verworfen werden könne
 
 
 ### 3.4.2 Permutation
-Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen . Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen. Der hypothetische Wert wird ebenso in einem zweiten Schritt zu Hypothesentestung verwendet.
+Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen. Der hypothetische Wert wird ebenso in einem zweiten Schritt zu Hypothesentestung verwendet.
 
 
 ```{r Permutation, include=FALSE, echo=FALSE}
@@ -710,22 +711,23 @@ mean(Permutation_Fibo_21_34$Ziehungen_Samstag)
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_1_2, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 40 mal gezogen und in 75\\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Permut_1_2, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 40 mal gezogen und in 75\\% der Stichprobenverteilungen 68 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Permutvtlg_1_2, title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
-```{r Permut_21_34, fig.cap ="In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21\\&34 37 mal gezogen und in 75\\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Permut_21_34, fig.cap ="In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21\\&34 37 mal gezogen und in 75\\% der Stichprobenverteilungen 64 mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_21_34,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Permut_1_2sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 samstags 24 mal und in 75\\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+```{r Permut_1_2sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 samstags 24 mal und in 75\\% der Stichprobenverteilungen 47 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_1_2sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Permut_21_34sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95% angenommen.", echo=FALSE}
+
+```{r Permut_21_34sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 mal und in 75\\% der Stichprobenverteilungen 44 mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar. Die Nullhypothese wird zum Signifikanzniveau von 95\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
 ```
 
@@ -733,8 +735,63 @@ plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpa
 
 ### 3.4.3 Lineare Regression
 
+Anhand der linearen Regression kann erklärt werden, ob die Gewinnzahlen durch andere   
+
+```{r lineare Regression}
+# Residuenanalyse [Hier erkennbar, dass Ausgabe der Linearen Regression feherhaft, da kein
+#linearer Zusammenhang] 
+
+# Zusammenhang der Gewinnzahlen 2&1
+Regress1 <- lm(GewZahl_2 ~ GewZahl_1, data = Fibo1_2)
+Regress1co <- lm(GewZahl_2 ~ GewZahl_1 + GewZahl_3 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo1_2)
+Regress1coges <- lm(GewZahl_2 ~ GewZahl_1 + GewZahl_3 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = data_lotto_orig)
+
+summary(Regress1)
+summary(Regress1co)
+summary(Regress1coges)
+
+par(mfrow = c(2,2))
+Regress1PLot <- ggplot(data = Regress1, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress1PLot
+
+# Zusammenhang der Gewinnzahlen 3&2
+Regress2 <- lm(GewZahl_3 ~ GewZahl_2, data = Fibo1_2)
+Regress2co <- lm(GewZahl_3 ~ GewZahl_2 + GewZahl_1 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo1_2)
+
+summary(Regress2)
+summary(Regress2co)
+
+par(mfrow = c(2,2))
+Regress2PLot <- ggplot(data = Regress2, mapping = aes(x = GewZahl_2, y = GewZahl_3)) + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress2PLot
+
+# Zusammenhang der Gewinnzahlen 4&3
+Regress3 <- lm(GewZahl_4 ~ GewZahl_3, data = Fibo1_2)
+summary(Regress3)
+par(mfrow = c(2,2))
+Regress3PLot <- ggplot(data = Regress3, mapping = aes(x = GewZahl_3, y = GewZahl_4)) + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress3PLot
 
 
+# Zusammenhang der Gewinnzahlen 5&4
+Regress4 <- lm(GewZahl_5 ~ GewZahl_4, data = Fibo1_2)
+summary(Regress4)
+par(mfrow = c(2,2))
+Regress4PLot <- ggplot(data = Regress4, mapping = aes(x = GewZahl_4, y = GewZahl_5)) + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress4PLot
+
+# Zusammenhang der Gewinnzahlen 6&5
+Regress5 <- lm(GewZahl_6 ~ GewZahl_5, data = Fibo1_2)
+summary(Regress5)
+par(mfrow = c(2,2))
+Regress5PLot <- ggplot(data = Regress5, mapping = aes(x = GewZahl_5, y = GewZahl_6)) + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress5PLot
+
+grid.arrange(Regress1PLot,Regress2PLot,Regress3PLot,Regress4PLot,Regress5PLot)
+
+
+# p-Wert > alpha -> hoch (kein Zusammenhang), R2 sehr klein (schlechtes Modell) --> es erfolgt durch GewZahl2 keine Erklärung von GewZahl1
+```
 
 
 
