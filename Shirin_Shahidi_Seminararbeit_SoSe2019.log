@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.8)  23 JUL 2019 21:16
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.7.8)  24 JUL 2019 16:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -794,111 +794,111 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 [1
 
 ] [2] [3] [4]
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 359--361
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 364--366
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 361--363
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 366--368
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 363--365
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 368--370
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 365--367
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 370--372
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 367--369
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 372--374
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 369--371
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 374--376
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 371--373
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 376--378
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 373--375
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 378--380
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 381--383
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 386--388
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 383--385
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 388--390
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 385--387
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 390--392
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 387--389
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 392--394
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 389--391
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 394--396
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 391--393
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 396--398
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 393--395
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 398--400
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 
-Overfull \hbox (9.4837pt too wide) in paragraph at lines 395--397
+Overfull \hbox (9.4837pt too wide) in paragraph at lines 400--402
 []|\TU/lmr/m/n/10 Fibonacci 
  []
 
 File: Abbildung/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use Abbildung/unnamed-chunk-2-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
+Underfull \hbox (badness 10000) in paragraph at lines 571--572
 
  []
 
 File: Abbildung/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Abbildung/unnamed-chunk-3-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 573--574
+Underfull \hbox (badness 10000) in paragraph at lines 578--579
 
  []
 
 
-Overfull \hbox (36.86504pt too wide) in alignment at lines 580--591
+Overfull \hbox (36.86504pt too wide) in alignment at lines 585--596
  [] [] [] 
  []
 
 
-Overfull \hbox (36.86504pt too wide) in alignment at lines 591--596
+Overfull \hbox (36.86504pt too wide) in alignment at lines 596--601
  [] [] [] 
  []
 
 
-Overfull \hbox (36.86504pt too wide) in alignment at lines 596--605
+Overfull \hbox (36.86504pt too wide) in alignment at lines 601--610
  [] [] [] 
  []
 
@@ -906,34 +906,34 @@ Overfull \hbox (36.86504pt too wide) in alignment at lines 596--605
 File: Abbildung/a-1.pdf Graphic file (type pdf)
 <use Abbildung/a-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 624--625
+Underfull \hbox (badness 10000) in paragraph at lines 629--630
 
  []
 
 File: Abbildung/c-1.pdf Graphic file (type pdf)
 <use Abbildung/c-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 659--660
+Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--696
+Underfull \hbox (badness 10000) in paragraph at lines 701--701
 []\TU/lmr/m/n/10 Tabelle 5: Die Modi der Gewinnzahlen der Fibonacci-
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 696--696
+Underfull \hbox (badness 1701) in paragraph at lines 701--701
 \TU/lmr/m/n/10 Ziehungspaare 1&2 unterscheiden sich in ihren Ziehungshäu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 723--723
+Underfull \hbox (badness 10000) in paragraph at lines 728--728
 []\TU/lmr/m/n/10 Tabelle 6: Die Modi der Gewinnzahlen der Fibonacci-
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 723--723
+Underfull \hbox (badness 1701) in paragraph at lines 728--728
 \TU/lmr/m/n/10 Ziehungspaare 1&2 unterscheiden sich in ihren Ziehungshäu-
  []
 
@@ -944,7 +944,7 @@ Overfull \vbox (301.80441pt too high) has occurred while \output is active []
 File: Abbildung/Korrelation_1-1.pdf Graphic file (type pdf)
 <use Abbildung/Korrelation_1-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 749--750
+Underfull \hbox (badness 10000) in paragraph at lines 754--755
 
  []
 
@@ -967,21 +967,69 @@ File: Abbildung/Permut_21_34-1.pdf Graphic file (type pdf)
 <use Abbildung/Permut_21_34-1.pdf>
 File: Abbildung/Permut_1_2sa-1.pdf Graphic file (type pdf)
 <use Abbildung/Permut_1_2sa-1.pdf>
+File: Abbildung/Permut_21_34sa-1.pdf Graphic file (type pdf)
+<use Abbildung/Permut_21_34sa-1.pdf>
+[12] [13]
+File: Abbildung/ergebnis_linear-1.pdf Graphic file (type pdf)
+<use Abbildung/ergebnis_linear-1.pdf>
 
-LaTeX Warning: File `R_studio.png' not found on input line 895.
+Underfull \hbox (badness 10000) in paragraph at lines 918--919
 
-! Unable to load picture or PDF file 'R_studio.png'.
-<to be read again> 
-                   }
-l.895 \includegraphics{R_studio.png}
-                                     
+ []
+
+
+LaTeX Warning: Float too large for page by 33.05974pt on input line 921.
+
+File: Abbildung/ergebnis_linear_2-1.pdf Graphic file (type pdf)
+<use Abbildung/ergebnis_linear_2-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
+
+ []
+
+
+Overfull \hbox (4.8937pt too wide) in paragraph at lines 1102--1104
+[]|\TU/lmr/m/n/10 0.009601|  
+ []
+
+
+Overfull \vbox (246.20502pt too high) has occurred while \output is active []
+
+[14] [15]
+Overfull \hbox (1.69926pt too wide) in paragraph at lines 1262--1266
+[]\TU/lmr/m/n/10 JuSchG (2019) \TU/lmr/m/it/10 JuSchG - Jugendschutzgesetz\TU/l
+mr/m/n/10 . [Online]. 2019. Available from: []$[][][][][] [] [] [] [][][] [] []
+[][][][][][][][][][][][][][][][][][][][] []
+ []
+
+
+Overfull \vbox (271.70006pt too high) has occurred while \output is active []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 1305--1309
+[]$[][][][] [] [] [] [][][] [] [][][][][][][][] [] [][][] [] [][] [] [][][][][]
+[][][][][][][][][][][][] [] [][][][][][][][][][][][][][][][][] [] [][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] []
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1344.
+[17]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1344.
+(./Shirin_Shahidi_Seminararbeit_SoSe2019.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1344.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1344.
+
+Package rerunfilecheck Info: File `Shirin_Shahidi_Seminararbeit_SoSe2019.out' h
+as not changed.
+(rerunfilecheck)             Checksum: 419CA9D76B77248459B591DB16850A6B.
+ ) 
 Here is how much of TeX's memory you used:
- 24116 strings out of 492916
- 453544 string characters out of 6133346
- 602293 words of memory out of 5000000
- 27902 multiletter control sequences out of 15000+600000
+ 24108 strings out of 492916
+ 453997 string characters out of 6133346
+ 604679 words of memory out of 5000000
+ 27917 multiletter control sequences out of 15000+600000
  545033 words of font info for 51 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 46i,6n,68p,834b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,6n,68p,863b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Shirin_Shahidi_Seminararbeit_SoSe2019.pdf (11 pages).
+Output written on Shirin_Shahidi_Seminararbeit_SoSe2019.pdf (17 pages).
