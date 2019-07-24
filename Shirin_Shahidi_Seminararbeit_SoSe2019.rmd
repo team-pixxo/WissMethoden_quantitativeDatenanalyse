@@ -3,14 +3,14 @@ title: "Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter
 author: "Shirin Shahidi, Matrikelnummer 455612"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    df_print: paged
-    toc: yes
   pdf_document:
     fig_caption: true
     latex_engine: xelatex
     fig_height: 3
     fig_width: 5
+    toc: yes
+  html_document:
+    df_print: paged
     toc: yes
   documentclass: article
   classoption: a4paper
@@ -21,7 +21,15 @@ editor_options:
   chunk_output_type: console
 bibliography: WM-QDA_Seminararbeit.bib
 csl: harvard.fh.sb.csl
-header-includes: \usepackage{float}
+header-includes:
+ \usepackage{booktabs}
+ \usepackage{longtable}
+ \usepackage{array}
+ \usepackage{multirow}
+ \usepackage[table]{xcolor}
+ \usepackage{wrapfig}
+ \usepackage{float}
+ \floatplacement{figure}{H}
 ---
 
 
@@ -42,6 +50,11 @@ library(dplyr)
 #install.packages("citr")
 library(citr)
 ```
+\newpage
+\listoffigures
+\newpage
+\listoftables
+
 \newpage
 # 1. Einleitung
 >"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." - Albert Einstein [@zitate.net_zufallzitate_2019, o.S.].
@@ -69,10 +82,12 @@ In Form eines Punktschätzers kann H1 wie folgt mathematisch formuliert werden:
 ## 1.2. Ziel der Studie/ Analyse 
 Das Untersuchungsziel der Studie ist deskriptiv ausgerichtet mit der Anforderung an exakte Ergebnisse und eine repräsentative Stichprobe sowie der Beschreibung der Grundgesamtheit mit ihren wesentlichen Merkmalen.[vgl.@kus_marktforschung:_2012, S.15] Ziel der Studie soll sein, herauszufinden, ob Fibonacci-Zahlenpaare, die dividiert den Goldenen Schnitt ergeben im Lotto 6 aus 49 häufiger zusammen gezogen werden als Fibonacci-Zahlenpaare ohne den Goldenen Schnitt Proportionen. Hierzu sollen nur die Gewinnzahlen ohne Superzahl in Betracht gezogen wereden, da die Superzahlziehung eine abweichende Wahrscheinlichkeit von $\frac{1}{10}$ aufweist. Es werden die Häufigkeiten der Fibonacci-Zahlen, sowie jeglicher Fibonaccipaar-Ziehungen unter allen Lotto-Ziehungen von 1955 bis Ende Juni 2019 betrachtet. Sollte sich herausstellen, dass Zahlenpaare aus dieser Auswahl am häufigsten zusammen auftreten, so werden diese mit Hilfe der Inferenzstatistik genauer betrachtet um einen Einfluss des Goldenen Schnittes auf diese Zahlenpaare ausfindig machen zu können.
 
-# 2. Methodik
+\newpage
+
+#2. Methodik
 Um die Methodik festlegen zu können, wird auf das Studiendesign, sowie die Datenerhebung und die angewandten statistsichen Methoden genauer Bezug genommen [vgl.@kus_marktforschung:_2012, S.13].
 
-## 2.1. Studiendesign
+##2.1. Studiendesign
 Das Studiendesign wird definiert durch die Art der Datenerhebung und Ziehung der Stichprobe. Die vorliegende Studie basiert auf den Sekundärforschungen der Westdeutsche Lotterie GmbH & Co. oHG, sowie den Datenerhebungen unter www.lottozahlenonline.de durch Gustav Zygmund. [vgl.@kus_marktforschung:_2012, S.15]
 
 ### 2.1.1 Datenerhebung
@@ -84,7 +99,7 @@ Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 a
 ## 2.2 Angewandte statistische Methoden
 Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt mittels der zweiseitigen Fragestellung [vgl.@hellbruck_angewandte_2009, S.73-76]. Um den Datensatz auf Linearität zu überprüfen wird anschließend eine lineare Regression durchgeführt [vgl.@hellbruck_angewandte_2009, S.250]. Für die Ergebnisse der statistischen Methoden wird die Programmiersprache R mit den Bibliotheken mosaic, dplyr, knittr, gridExtra, grid, ggplot2, lattice und citr verwendet. Diese ermöglicht den Einsatz moderner Verfahren der Datenanalyse und ist reproduzierbar, automatisierbar, quelloffen, kostenlos und grafisch abbildbar. [vgl.@sauer_moderne_2018, S.16 f.] Für den Datensatz wurden die Ereignisse der Lotto-Ziehungen aus den Quellen  Westdeutsche Lotterie GmbH & Co. oHG sowie den Beobachtungen durch Gustav Zygmund in einem Datensatz zusammengeführt und auf die Gewinnzahlen, sowie den Wochentag reduziert. Diese Datenaufbereitung fand manuell mittles dem Office Programm Excel statt. 
 
- 
+\newpage 
 # 3. Ergebnisse 
 Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (sogenannten Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
 
@@ -239,8 +254,9 @@ Fibo_13 #Fibonacci Zahl 13
 Fibo_21 #Fibonaci Zahl 21
 Fibo_34 #Fibonacci Zahl 34
 ```
- 
-```{r Table1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left"}
+
+
+```{r Table1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left",fig.pos="H"}
 table1 <- "
 
 |                                               | Fibonacci Zahl 1 | Fibonacci Zahl 2 | Fibonacci Zahl 3 | Fibonacci Zahl 5 | Fibonacci Zahl 8 | Fibonacci Zahl 13 | Fibonacci Zahl 21 | Fibonacci Zahl 34 |
@@ -351,7 +367,7 @@ b4 <- gf_boxplot(~ GewZahl_4, data=Fibo1_2)
 b5 <- gf_boxplot(~ GewZahl_5, data=Fibo1_2)
 b6 <- gf_boxplot(~ GewZahl_6, data=Fibo1_2)
 ```
-\newpage
+
 ```{r a,fig.height=4, fig.width=8, fig.cap="Betrachtet man die Reihenfolge der gezogenen Zahlen bei den Ziehungen der Fbonacci Zahlen 1\\&2, so lässt sich veranschaulichen, dass die Werte je nach Ziehungsrunde variieren. Die unteren 25\\% enthalten dabei immer (bis auf die dritte Gewinnzahl) die Ziffern 1 und 2.", echo=FALSE,default= NULL}
 grid.arrange(b1,b2,b3,b4,b5,b6,ncol=3)
 ```
@@ -417,7 +433,7 @@ mean(~ GewZahl_6, data = Fibo21_34)
 
 ```
  
-```{r Table4, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="c",default= NULL}
+```{r Table4, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="c",default= NULL,fig.pos="H"}
 table3 <- "
 
 | Gewinnzahl   | Mittelwert |
@@ -525,7 +541,7 @@ Table: Die Korrelationskoeffizienten der Gewinnzahlen liegen nahe bei Null. Es k
 cat(table7)
 ```
 
-\newpage
+
 ## 3.4 Inferenzstatistik 
 Da sich die bisherige Datenanlyse auf eine einzige Stichprobe bezieht, ist fraglich, wie aussagekräftig die Stichprobe für das Verhalten der Fibonacci-Zahlen im Goldenen Schnitt Verhältnis im Lotto 6 aus 49 ist. [vgl.@sauer_moderne_2018, S.268]
 Mittels der simualtionsbasierten Inferenz und dem Resampling ist es möglich, die Genauigkeit des geschätzten Wertes mittels Bootstrapping und einem Konfidenzintervall zu quantifizieren.[vgl.@sauer_moderne_2018, S.310]
@@ -635,7 +651,7 @@ plot(Bootsvertlg_21_34sa,title = "Bootsverteilung der Fibonacci Zahlenpaare 21&3
 
 Aus den Grafiken geht hervor, dass sowohl H1 als auch H2 verworfen werden können.
 
-\newpage
+
 ### 3.4.2 Permutation
 Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen. Der hypothetische Wert wird ebenso in einem zweiten Schritt zu Hypothesentestung verwendet.
 
@@ -732,7 +748,7 @@ plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpa
 ```
 
 
-\newpage
+
 ### 3.4.3 Lineare Regression
 
 Anhand der linearen Regression kann erklärt werden, dass die Gewinnzahlen nicht durch die vorherige Gewinnzahl erklärt werden kann. Weder in der selektierten Liste, noch im Gesamtlotto.   
@@ -901,9 +917,10 @@ Regress5PLotco_ <- ggplot(data = Regress5co_, mapping = aes(x = GewZahl_5, y = G
 grid.arrange(Regress1PLot_,Regress1PLotco_,Regress2PLot_,Regress2PLotco_,Regress3PLot_,Regress3PLotco_,Regress4PLot_,Regress4PLotco_,Regress5PLot_,Regress5PLotco_,ncol=4, nrow=5)
 ```
 
-Es ist zu diskutieren, in wie weit die abweichenden Steigungen der Geraden in den beschriebenen Gewinnzahlen aussagekräftig sind. Hierzu werden im Folgenden zwei Tabellen mit den R-squared Werten, sowie den entsprechenden p-Werten aufgezeigt, unterteilt in die Fibonacci-Zahlenpaare 1&2 sowie 21&34.
+Es ist zu diskutieren, in wie weit die abweichenden Steigungen der Geraden in den beschriebenen Gewinnzahlen aussagekräftig sind. Hierzu werden im Folgenden zwei Tabellen mit den R-squared Werten, sowie den entsprechenden p-Werten aufgezeigt, unterteilt in die Fibonacci-Zahlenpaare 1&2 sowie 21&34.\newline\newline\newline
 
 ```{r Table8, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+
 table8 <- "
 
 | Unabhängige Variable   | Abhängige Variable | Multiple R-squared | Adjusted R-squared | p-Wert |
@@ -978,7 +995,7 @@ Table: Dargestellt sind die p-Werte der jeweiligen Stichproben und Stichprobenve
 cat(table10)
 ```
 
-Betrachtet man die Ergebnisse im Kontext zu bereits publizierter Literatur, zeigt sich, dass die Fibonacci Zahlen auch in Wettsystemen häufig Einsatz finden.[vgl.@mr_green_fibonacci_2019, o.S.] Dass die Fibonacci Zahlen mit ihrem Goldene Schnitt keinen Einfluss im Wettsystem haben, untermauert die Ergebnisse der analysierten Studie. [vgl.@pinnacle_untersuchung_2019, o.S.] Im Fibonacci-Roulette System beispielsweise können Fibonacci-Zahlen zwar zum Erfolg führen, dies unterliegt jedoch ebenso dem Zufall. [vgl.@banks_fibonacci_2014, o.S.]
+Betrachtet man die Ergebnisse im Kontext zu bereits veröffentlichten Erkenntnissen, zeigt sich, dass die Fibonacci Zahlen auch in Wettsystemen häufig Gebrauch finden.[vgl.@mr_green_fibonacci_2019, o.S.] Dass die Fibonacci Zahlen mit ihrem Goldene Schnitt keinen Einfluss im Wettsystem haben, untermauern die Ergebnisse der analysierten Studie. [vgl.@pinnacle_untersuchung_2019, o.S.] Im Fibonacci-Roulette System beispielsweise können Fibonacci-Zahlen zwar zum Erfolg führen, dies unterliegt jedoch ebenso dem Zufall. [vgl.@banks_fibonacci_2014, o.S.] Da zum jetzigen Zeitpunkt keine Studien zum bearbeiteten Themengebiet veröffentlich wurden, kann nur diskutiert werden, ob die Häufigkeit bestimmter Zahlen im Lotto 6 aus 49 einem gewissen Einfluss unterliegt. Hierzu zeigt sich, dass die Ziffern 6, 32, 49, 26, 38 und 33 im Lotto 6 aus 49 unter allen Lottozahlen am häufigsten gezogen werden. [@lottoland_gluckszahlen_2019] Im Zeitraum der Datenanalyse wurden am 29. Juni 2019 in einer Ziehung drei Fibonacci Ziffern gezogen. Eine Diskussion zur Häufigkeit aller        
 
 # 5. Schlussfolgerungen
 
@@ -987,4 +1004,5 @@ Betrachtet man die Ergebnisse im Kontext zu bereits publizierter Literatur, zeig
 Der Goldene Schnitt hat auf Basis dieser Studie keinen Einfluss auf die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49. Die Studie spiegelt demnach wieder, dass es sich im Lotto 6 aus 49 um ein Glücksspiel handelt, dessen Ereignisse trotz umfangreicher Analyse nicht prophezeit werden können. Der Goldene Schnitt vermag in der Architektur, dem Tierreich und der Natur ein Phänomen darstellen, nicht jedoch in der beliebtesten Lotterie der Deutschen.[vgl.@whitewall_goldene_2019, o.S.]
 Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Bereich des Glücksspieles - speziell der Lotterie in Deutschland. Hier können Ergebnisse nur auf das Glücksspiel Lotto 6 aus 49 übertragen werden und nicht allgemein für Lotterien in Deutschland. Auch wurden in der Studie die Superzahlen nicht berücksichtig. Diese Merkmalsausprägungen wären für künftige Studien interessant und könnten die Forschungslücke schmälern. Eine Betrachtung des Verhaltens der Fibonacci-Zahlen im Goldenen-Schnitt Verhältnis im EuroJackpot wären für künstige Datenanalysen denkbar. 
 
+\newpage
 # Literaturverzeichnis
