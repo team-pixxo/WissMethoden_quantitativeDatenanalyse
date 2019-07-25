@@ -57,7 +57,7 @@ library(citr)
 
 \newpage
 # 1. Einleitung
->"Das, wobei unsere Berechnungen versagen, nennen wir Zufall." [@roschk_zufallzitate_2019, zitiert nach Albert Einstein]
+>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall."
 
 <p>Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten errechnen, nicht jedoch künftige Ziehungen vorhersagen.
 Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden [vgl.@ute_sproesser_et_al._daten_2014, S.33].</p>
@@ -765,23 +765,23 @@ p21_34b_sa <- c(Permutation_Fibo_21_34$Ziehungen_Samstag)
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_1_2, fig.cap =  "Der p-Wert der Teststatistik mit 59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1&2 stellt unter H0 einen Wert von 0.2954 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_1_2, fig.cap =  "Der p-Wert der Teststatistik mit 59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 stellt unter H0 einen Wert von 0.2954 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
 plot(Permutvtlg_1_2, title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
-```{r Permut_21_34, fig.cap ="Der p-Wert der Teststatistik mit 63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21&34 stellt unter H0 einen Wert von 0.143 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_21_34, fig.cap ="Der p-Wert der Teststatistik mit 63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 stellt unter H0 einen Wert von 0.143 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_21_34,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Permut_1_2sa, fig.cap =  "Der p-Wert der Teststatistik mit 40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1&2 an Samstagen stellt unter H0 einen Wert von 0.3761 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_1_2sa, fig.cap =  "Der p-Wert der Teststatistik mit 40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen stellt unter H0 einen Wert von 0.3761 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_1_2sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_21_34sa, fig.cap =  "Der p-Wert der Teststatistik mit 38 Häufigkeitsbeobachtungen der Fibonaccizahlen 1&2 an Samstagen stellt unter H0 einen Wert von 0.3688 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_21_34sa, fig.cap =  "Der p-Wert der Teststatistik mit 38 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen stellt unter H0 einen Wert von 0.3688 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
 plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
 ```
 
@@ -791,7 +791,7 @@ plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpa
 
 Anhand der linearen Regression kann erklärt werden, dass die Gewinnzahlen nicht durch die vorherige Gewinnzahl erklärt werden kann. Weder in der selektierten Liste, noch im Gesamtlotto.   
 
-```{r lineare Regression Fibo 1&2, echo = FALSE, include = FALSE}
+```{r lineare_Regression_Fibo_1&2, echo = FALSE, include = FALSE}
 # Residuenanalyse [Hier erkennbar, dass Ausgabe der Linearen Regression feherhaft, da kein
 #linearer Zusammenhang] 
 
@@ -985,7 +985,7 @@ table9 <- "
 |Gewinnzahl 4|Gewinnzahl 5|0.0002615|-0.01613| 0.8999
 |Gewinnzahl 5|Gewinnzahl 6|0.008628|-0.007624 |0.469
 
-Table: Dargestellt sind die Bestimmtheitsmaße und p-Werte der Fibonacci-Zahlenpaare 21&34. Die Bestimmtheitsmaße (multiple als auch adjusted) weisen niedrige Werte auf, sodass nur schwache Effekte zwischen den Gewinnzahlen erkennbar sind. Hohe p-Werte bestätigen diese Tatsache. Die Gewinnzahlen in den Ziehungen mit den Fibonaccizahlenpaaren 1 und 2 lassen sich somit nicht durch ihre vorherigen Gewinnzahlen erklären. Kritisch zu betrachten ist jedoch Gewinnzahl 3 und 4. Hier ist ein relativ hohes Bestimmtheitsmaß zu erkennen und ein relativ niedriger p-Wert. Auf Basis der bisherigen Analysen, kann jedoch davon ausgegangen werden, dass es sich hierbei trotz der Werte um einen schwachen Effekt handelt.   
+Table: Dargestellt sind die Bestimmtheitsmaße und p-Werte der Fibonacci-Zahlenpaare 21\\&34. Die Bestimmtheitsmaße (multiple als auch adjusted) weisen niedrige Werte auf, sodass nur schwache Effekte zwischen den Gewinnzahlen erkennbar sind. Hohe p-Werte bestätigen diese Tatsache. Die Gewinnzahlen in den Ziehungen mit den Fibonaccizahlenpaaren 1 und 2 lassen sich somit nicht durch ihre vorherigen Gewinnzahlen erklären. Kritisch zu betrachten ist jedoch Gewinnzahl 3 und 4. Hier ist ein relativ hohes Bestimmtheitsmaß zu erkennen und ein relativ niedriger p-Wert. Auf Basis der bisherigen Analysen, kann jedoch davon ausgegangen werden, dass es sich hierbei trotz der Werte um einen schwachen Effekt handelt.   
 "
 cat(table9)
 ```
@@ -1025,10 +1025,10 @@ table10 <- "
 
 | Fibonacci-Zahlenpaare | p-Wert (p) | Signifikanzniveau (α) | Hypothesenprüfung |
 | :-------------------- | :--------- | :-------------------- | :---------------- |
-|1&2|0.2954|0,05|p>α (H0 wird angenommen)
-|1&2, samstags|0.3761|0,05|p>α (H0 wird angenommen)
-|21&34| 0.143|0,05|p>α (H0 wird angenommen)
-|21&34, samstags|0.36887|0,05|p>α (H0 wird angenommen)
+|1\\&2|0.2954|0,05|p>α (H0 wird angenommen)
+|1\\&2, samstags|0.3761|0,05|p>α (H0 wird angenommen)
+|21\\&34| 0.143|0,05|p>α (H0 wird angenommen)
+|21\\&34, samstags|0.36887|0,05|p>α (H0 wird angenommen)
 
 Table: Dargestellt sind die p-Werte der Teststatistik, welche in jedem betrachteten Ereignis größer als das Signifikanznievau sind. H0 wird sowohl bei der ersten Hypothese, als auch bei der zweiten Hypothese angenommen.    
 "
@@ -1047,7 +1047,7 @@ Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Berei
 \newpage
 
 # Anhang I: R-Skript Nr. 1 - Fibonacci Sortierung 
-```{r Anhang 1, echo = TRUE, include = FALSE}
+```{r Anhang_1, echo = TRUE, include = FALSE}
 "
 
 
