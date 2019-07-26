@@ -22,12 +22,7 @@ editor_options:
 bibliography: WM-QDA_Seminararbeit.bib
 csl: harvard.fh.sb.csl
 header-includes:
- \usepackage{booktabs}
- \usepackage{longtable}
- \usepackage{array}
- \usepackage{multirow}
- \usepackage[table]{xcolor}
- \usepackage{wrapfig}
+ \usepackage{pdfpages}
  \usepackage{float}
  \floatplacement{figure}{H}
 ---
@@ -52,12 +47,13 @@ library(citr)
 ```
 \newpage
 \listoffigures
+
 \newpage
 \listoftables
 
 \newpage
 # 1. Einleitung
->"Das, wobei unsere Berechnungen versagen, nennen wir Zufall."
+>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall."[@roschk_zufallzitate_2019, zitiert nach Albert Einstein]
 
 <p>Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten errechnen, nicht jedoch künftige Ziehungen vorhersagen.
 Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden [vgl.@ute_sproesser_et_al._daten_2014, S.33].</p>
@@ -67,7 +63,7 @@ Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits verg
 <p>Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie und bestimmte Proportionen wie etwa den Goldenen Schnitt. Diese Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion führt. [vgl.@oerter_mensch_2014, S.252]</p>   
 
 <p>Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man sich auf die Proportion des Goldenen Schnittes, so wird dieser gemäß aktuellem Forschungsstand durch die Formel $\frac{\sqrt{5} + 1}{2}\approx1,618$ errechnet [vgl.@kohn_mathematik_2019, S. 160]. Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt, veröffentlichte 1202 das Werk *Liber Abbaci*[vgl.@hannah_false_2007]. In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich die Vermehrung von Hasen in Zahlen beschreibt[vgl.@fibonacci_introduction:_1987, S.18]. Im Lotto 6 aus 49 sind die ersten acht Fibonacci-Zahlen (1,2,3,5,8,13,21,34) enthalten[vgl.@kohn_mathematik_2019, S.159]. Dividiert man zwei aufeinander folgende Fibonacci-Zahlen, so konvergieren diese gegen den Goldene Schnitt[vgl.@knebl_algorithmen_2019, S.29].</p> 
-<p>Um zur Forschungsfrage hinführen zu können, wird im Folgenden auf die beliebteste Lotterie namens Lotto 6 aus 49 unter den Einwohnern Deutschlands eingegangen[vgl.@lotto.de_lotto_2019]. Spielberechtigt sind dabei erwachsene Personen ab 18 Jahren, da gemäß Jugendschutzgesetz § 6 Spielhallen, Glücksspiele Minderjährigen das Glücksspiel mit Chance auf hohe Geldbeträge untersagt ist[vgl.@juschg_juschg_2019]. Ziel eines Lottospieles ist es 6 zufällig gezogene Gewinnzahlen aus 1-49 vorgegeben Ziffern vorherzusagen. Dabei wird ein Lotto-Schein mit 12 möglichen Tippfeldern und jeweils 49 Zahlen ausgefüllt. Pro Tippfeld werden 6 Zahlen angekreuzt. Jeder Lotto-Schein enthält eine Spielscheinnummer, deren letzte Ziffer die Superzahl darstellt. Diese Superzahl wird neben den 6 Gewinnzahlen zufällig aus den Ziffern 0-9 ermittelt. Es müssen minimal 2 Ziffern und eine Superzahl korrekt prophezeit werden um einen Gewinn zu erzielen. Der maximale Gewinn stellt 6 richtige Gewinnzahlen und die korrekte Superzahl dar. Der halbierte Spieleinsatz stellt die Gewinnsumme dar, welche sich auf 9 Gewinnklassen aufteilen lässt. Zusätzlich können die Lotterien Spiel 77 und SUPER 6 sowie die GlücksSpirale im Lotto-Schein ausgewählt werden. Ein Tippfeld im Lotto 6 aus 49 kostet 1,0€ zzgl. Bearbeitungsgebühren. Die Ziehungen finden wöchentlich mittwochs um 18:25 Uhr und samstags um 19:25 Uhr unter www.lotto.de statt[vgl.@lotto.de_lotto_2019]. Die Wahrscheinlichkeit, zwei konkrete Zahlen im Lotto zu ziehen beträgt $1:((\frac{49}{6})*(\frac{48}{5}))\approx0.01276$[vgl.@lottozahlen.com_6_2019].</p>
+<p>Um zur Forschungsfrage hinführen zu können, wird im Folgenden auf die beliebteste Lotterie namens Lotto 6 aus 49 unter den Einwohnern Deutschlands eingegangen [vgl.@toto-lotto_lotto_2019]. Spielberechtigt sind dabei erwachsene Personen ab 18 Jahren, da gemäß Jugendschutzgesetz § 6 Spielhallen, Glücksspiele Minderjährigen das Glücksspiel mit Chance auf hohe Geldbeträge untersagt ist [vgl.@bundesamt_fur_justiz_juschg_2019]. Ziel eines Lottospieles ist es 6 zufällig gezogene Gewinnzahlen aus 1-49 vorgegeben Ziffern vorherzusagen. Dabei wird ein Lotto-Schein mit 12 möglichen Tippfeldern und jeweils 49 Zahlen ausgefüllt. Pro Tippfeld werden 6 Zahlen angekreuzt. Jeder Lotto-Schein enthält eine Spielscheinnummer, deren letzte Ziffer die Superzahl darstellt. Diese Superzahl wird neben den 6 Gewinnzahlen zufällig aus den Ziffern 0-9 ermittelt. Es müssen minimal 2 Ziffern und eine Superzahl korrekt prophezeit werden um einen Gewinn zu erzielen. Der maximale Gewinn stellt 6 richtige Gewinnzahlen und die korrekte Superzahl dar. Der halbierte Spieleinsatz stellt die Gewinnsumme dar, welche sich auf 9 Gewinnklassen aufteilen lässt. Zusätzlich können die Lotterien Spiel 77 und SUPER 6 sowie die GlücksSpirale im Lotto-Schein ausgewählt werden. Ein Tippfeld im Lotto 6 aus 49 kostet 1,0€ zzgl. Bearbeitungsgebühren. Die Ziehungen finden wöchentlich mittwochs um 18:25 Uhr und samstags um 19:25 Uhr unter www.lotto.de statt [vgl.@toto-lotto_lotto_2019]. Die Wahrscheinlichkeit, zwei konkrete Zahlen im Lotto zu ziehen beträgt $1:((\frac{49}{6})*(\frac{48}{5}))\approx0.01276$[vgl.@lottozahlen.com_6_2019].</p>
 
 ## 1.1. Forschungsfrage
 <p>Betrachtet man die bereits genannten Fibonacci Zahlen im Lotto 6 aus 49 und die Konvergenz gegen den Goldenen Schnitt, lässt sich die Forschungsfrage wie folgt ableiten:</p><p>*Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?*</p>
@@ -81,8 +77,6 @@ In Form eines Punktschätzers kann H1 wie folgt mathematisch formuliert werden:
 
 ## 1.2. Ziel der Studie/Analyse 
 Das Untersuchungsziel der Studie ist deskriptiv ausgerichtet mit der Anforderung an exakte Ergebnisse und eine repräsentative Stichprobe sowie der Beschreibung der Grundgesamtheit mit ihren wesentlichen Merkmalen.[vgl.@kus_marktforschung:_2012, S.15] Ziel der Studie soll sein, herauszufinden, ob Fibonacci-Zahlenpaare, die dividiert den Goldenen Schnitt ergeben im Lotto 6 aus 49 häufiger zusammen gezogen werden als Fibonacci-Zahlenpaare ohne den Goldenen Schnitt Proportionen. Hierzu sollen nur die Gewinnzahlen ohne Superzahl in Betracht gezogen wereden, da die Superzahlziehung eine abweichende Wahrscheinlichkeit von $\frac{1}{10}$ aufweist. Es werden die Häufigkeiten der Fibonacci-Zahlen, sowie jeglicher Fibonaccipaar-Ziehungen unter allen Lotto-Ziehungen von 1955 bis Ende Juni 2019 betrachtet. Sollte sich herausstellen, dass Zahlenpaare aus dieser Auswahl am häufigsten zusammen auftreten, so werden diese mit Hilfe der Inferenzstatistik genauer betrachtet um einen Einfluss des Goldenen Schnittes auf diese Zahlenpaare ausfindig machen zu können.
-
-\newpage
 
 #2. Methodik
 Um die Methodik festlegen zu können, wird auf das Studiendesign, sowie die Datenerhebung und die angewandten statistsichen Methoden genauer Bezug genommen [vgl.@kus_marktforschung:_2012, S.13].
@@ -99,7 +93,6 @@ Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 a
 ## 2.2 Angewandte statistische Methoden
 Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt mittels der zweiseitigen Fragestellung [vgl.@hellbruck_angewandte_2009, S.73-76]. Um den Datensatz auf Linearität zu überprüfen wird anschließend eine lineare Regression durchgeführt [vgl.@hellbruck_angewandte_2009, S.250]. Für die Ergebnisse der statistischen Methoden wird die Programmiersprache R mit den Bibliotheken mosaic, dplyr, knittr, gridExtra, grid, ggplot2, lattice und citr verwendet. Diese ermöglicht den Einsatz moderner Verfahren der Datenanalyse und ist reproduzierbar, automatisierbar, quelloffen, kostenlos und grafisch abbildbar. [vgl.@sauer_moderne_2018, S.16 f.] Für den Datensatz wurden die Ereignisse der Lotto-Ziehungen aus den Quellen  Westdeutsche Lotterie GmbH & Co. oHG sowie den Beobachtungen durch Gustav Zygmund in einem Datensatz zusammengeführt und auf die Gewinnzahlen, sowie den Wochentag reduziert. Diese Datenaufbereitung fand manuell mittles dem Office Programm Excel statt. 
 
-\newpage 
 # 3. Ergebnisse 
 Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (sogenannten Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
 
@@ -654,7 +647,7 @@ Aus den Grafiken geht hervor, dass sowohl H1 als auch H2 verworfen werden könne
 
 
 ### 3.4.2 Permutation
-Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen. Der hypothetische Wert wird ebenso in einem zweiten Schritt zu Hypothesentestung verwendet.
+Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen.
 
 
 ```{r Permutation, include=FALSE, echo=FALSE}
@@ -763,25 +756,22 @@ p21_34b_sa <- c(Permutation_Fibo_21_34$Ziehungen_Samstag)
 
 ```
 
-Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
-
-```{r Permut_1_2, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 29,54\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% nicht verworfen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
+```{r Permut_1_2, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 29,54\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H1 kann daher zum Signifikanzniveau von 5\\% nicht verworfen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
 plot(Permutvtlg_1_2, title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2")
 ```
 
-Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
-```{r Permut_21_34, fig.cap ="Die Wahrscheinlichkeit, dass der Wert der Teststatistik (63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34) unter H0 (Permutation) vorkommt, liegt bei 14,3\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
+```{r Permut_21_34, fig.cap ="Die Wahrscheinlichkeit, dass der Wert der Teststatistik (63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34) unter H0 (Permutation) vorkommt, liegt bei 14,3\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H1 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 21\\&34 zu verwerfen.", echo=FALSE}
 plot(Permutvertlg_21_34,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34")
 ```
 
-Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Permut_1_2sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 37,61\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
+
+```{r Permut_1_2sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 37,61\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H2 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H2 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
 plot(Permutvertlg_1_2sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_21_34sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (38 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 36,88\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
+```{r Permut_21_34sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (38 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 36,88\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H2 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H2 hinsichtlich der Fibonaccizahlen 21\\&34 zu verwerfen.", echo=FALSE}
 plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
 ```
 
@@ -1039,7 +1029,7 @@ Betrachtet man die Ergebnisse im Kontext zu bereits veröffentlichten Erkenntnis
 
 # 5. Schlussfolgerungen
 
-<p>"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung." - Joseph Joubert [@zitate.net_joseph_2019]</p>
+>"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung." [@roschk_zufallzitate_2019, zitiert nach Joseph Joubert]
 
 Der Goldene Schnitt hat auf Basis dieser Studie keinen Einfluss auf die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49. Die Studie spiegelt demnach wieder, dass es sich im Lotto 6 aus 49 um ein Glücksspiel handelt, dessen Ereignisse trotz umfangreicher Analyse nicht prophezeit werden können. Der Goldene Schnitt vermag in der Architektur, dem Tierreich und der Natur ein Phänomen darstellen, nicht jedoch in der beliebtesten Lotterie der Deutschen.[vgl.@whitewall_goldene_2019]
 Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Bereich des Glücksspieles - speziell der Lotterie in Deutschland. Hier können Ergebnisse nur auf das Glücksspiel Lotto 6 aus 49 übertragen werden und nicht allgemein für Lotterien in Deutschland. Auch wurden in der Studie die Superzahlen nicht berücksichtig. Diese Merkmalsausprägungen wären für künftige Studien interessant und könnten die Forschungslücke schmälern. Eine Betrachtung des Verhaltens der Fibonacci-Zahlen im Goldenen-Schnitt Verhältnis im EuroJackpot wären für künstige Datenanalysen denkbar. 
@@ -1048,15 +1038,48 @@ Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Berei
 
 # Digitaler Anhang
 
-## CSV-Dateien: Verwendeter Datensatz (data_lotto_date.csv)
+## Anhang 1: Verwendeter Datensatz
 
-## R-Skript Nr.1: Fibonacci-Sortierung (_01_Sort_by_Fibo.R)
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Verwendeter_Datensatz.pdf}
+\end{center}
 
-## R-Skript Nr.2: Anteilsberechnung Fibonaccizahlen (_02_Check_Fibo.R)
+## Anhang 2: Fibonacci-Sortierung mittels R
 
-## R-Skript Nr.3: Bootstrap Lottoziehungen & Anteilsberechnungen Fibonaccizahlen (_00_Batch_Bootstrap.R,_03_Bootstrap_Lotto_Gesamt.R)
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Fibonacci_Sortierung.pdf}
+\end{center}
 
-## R-Skript Nr.4: Permutation Lottoziehungen & Anteilsberechnungen Fibonaccizahlen (_00_Batch_Permutation.R,_04_Permutation_Lotto_Gesamt.R)
 
+## Anhang 3: Häufigkeitsverteilung Fibonacci-Zahlen mittels R
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Haeufigkeitsverteilung_Fibonacci.pdf}
+\end{center}
+
+
+## Anhang 3: Bootstrap Lottoziehungen & Anteilsberechnungen Fibonaccizahlen
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Bootstrap_Lotto.pdf}
+\end{center}
+
+## Anhang 4: Bootstrap-Batch
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Bootstrap_Batch.pdf}
+\end{center}
+
+## Anhang 5: Permutation Lottoziehungen & Anteilsberechnungen Fibonaccizahlen
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Permutation_Lotto.pdf}
+\end{center}
+
+## Anhang 6: Permutation-Batch
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Permutation_Batch.pdf}
+\end{center}
 
 # Literaturverzeichnis

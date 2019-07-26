@@ -18,9 +18,11 @@
 \contentsline {section}{4. Diskussion}{21}{section*.20}% 
 \contentsline {section}{5. Schlussfolgerungen}{22}{section*.21}% 
 \contentsline {section}{Digitaler Anhang}{23}{section*.22}% 
-\contentsline {subsection}{CSV-Dateien: Verwendete Datensätze}{23}{section*.23}% 
-\contentsline {subsection}{R-Skript Nr.1: Fibonacci-Sortierung}{23}{section*.24}% 
-\contentsline {subsection}{R-Skript Nr.2: Anteilsberechnung Fibonaccizahlen}{23}{section*.25}% 
-\contentsline {subsection}{R-Skript Nr.3: Bootstrap Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{23}{section*.26}% 
-\contentsline {subsection}{R-Skript Nr.4: Permutation Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{23}{section*.27}% 
-\contentsline {section}{Literaturverzeichnis}{23}{section*.28}% 
+\contentsline {subsection}{Anhang 1: Verwendeter Datensatz}{23}{section*.23}% 
+\contentsline {subsection}{Anhang 2: Fibonacci-Sortierung mittels R}{118}{section*.24}% 
+\contentsline {subsection}{Anhang 3: Häufigkeitsverteilung Fibonacci-Zahlen mittels R}{121}{section*.25}% 
+\contentsline {subsection}{Anhang 3: Bootstrap Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{124}{section*.26}% 
+\contentsline {subsection}{Anhang 4: Bootstrap-Batch}{130}{section*.27}% 
+\contentsline {subsection}{Anhang 5: Permutation Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{132}{section*.28}% 
+\contentsline {subsection}{Anhang 6: Permutation-Batch}{137}{section*.29}% 
+\contentsline {section}{Literaturverzeichnis}{139}{section*.30}% 
