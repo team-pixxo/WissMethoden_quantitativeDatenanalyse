@@ -1,28 +1,29 @@
 \select@language {german}
-\contentsline {section}{1. Einleitung}{5}{section*.4}% 
-\contentsline {subsection}{1.1. Forschungsfrage}{5}{section*.5}% 
-\contentsline {subsection}{1.2. Ziel der Studie/Analyse}{6}{section*.6}% 
-\contentsline {section}{2. Methodik}{7}{section*.7}% 
-\contentsline {subsection}{2.1. Studiendesign}{7}{section*.8}% 
-\contentsline {subsubsection}{2.1.1 Datenerhebung}{7}{section*.9}% 
-\contentsline {subsubsection}{2.1.2 Stichprobe}{7}{section*.10}% 
-\contentsline {subsection}{2.2 Angewandte statistische Methoden}{7}{section*.11}% 
-\contentsline {section}{3. Ergebnisse}{8}{section*.12}% 
-\contentsline {subsection}{3.1 Kennzahlen der Stichprobe}{8}{section*.13}% 
-\contentsline {subsection}{3.2 explorative Statistik}{8}{section*.14}% 
-\contentsline {subsection}{3.3 deskriptive Statistik}{10}{section*.15}% 
-\contentsline {subsection}{3.4 Inferenzstatistik}{14}{section*.16}% 
-\contentsline {subsubsection}{3.4.1 Bootstrap}{14}{section*.17}% 
-\contentsline {subsubsection}{3.4.2 Permutation}{16}{section*.18}% 
-\contentsline {subsubsection}{3.4.3 Lineare Regression}{18}{section*.19}% 
-\contentsline {section}{4. Diskussion}{21}{section*.20}% 
-\contentsline {section}{5. Schlussfolgerungen}{22}{section*.21}% 
-\contentsline {section}{Digitaler Anhang}{23}{section*.22}% 
-\contentsline {subsection}{Anhang 1: Verwendeter Datensatz}{23}{section*.23}% 
-\contentsline {subsection}{Anhang 2: Fibonacci-Sortierung mittels R}{118}{section*.24}% 
-\contentsline {subsection}{Anhang 3: Häufigkeitsverteilung Fibonacci-Zahlen mittels R}{121}{section*.25}% 
-\contentsline {subsection}{Anhang 3: Bootstrap Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{124}{section*.26}% 
-\contentsline {subsection}{Anhang 4: Bootstrap-Batch}{130}{section*.27}% 
-\contentsline {subsection}{Anhang 5: Permutation Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{132}{section*.28}% 
-\contentsline {subsection}{Anhang 6: Permutation-Batch}{137}{section*.29}% 
-\contentsline {section}{Literaturverzeichnis}{139}{section*.30}% 
+chapter
+\contentsline {section}{1. Einleitung}{4}{section*.4}% 
+\contentsline {subsection}{1.1. Forschungsfrage}{4}{section*.5}% 
+\contentsline {subsection}{1.2. Ziel der Studie/Analyse}{5}{section*.6}% 
+\contentsline {section}{2. Methodik}{5}{section*.7}% 
+\contentsline {subsection}{2.1. Studiendesign}{5}{section*.8}% 
+\contentsline {subsubsection}{2.1.1 Datenerhebung}{5}{section*.9}% 
+\contentsline {subsubsection}{2.1.2 Stichprobe}{5}{section*.10}% 
+\contentsline {subsection}{2.2 Angewandte statistische Methoden}{5}{section*.11}% 
+\contentsline {section}{3. Ergebnisse}{6}{section*.12}% 
+\contentsline {subsection}{3.1 Kennzahlen der Stichprobe}{6}{section*.13}% 
+\contentsline {subsection}{3.2 explorative Statistik}{7}{section*.14}% 
+\contentsline {subsection}{3.3 deskriptive Statistik}{8}{section*.15}% 
+\contentsline {subsection}{3.4 Inferenzstatistik}{12}{section*.16}% 
+\contentsline {subsubsection}{3.4.1 Bootstrap}{12}{section*.17}% 
+\contentsline {subsubsection}{3.4.2 Permutation}{14}{section*.18}% 
+\contentsline {subsubsection}{3.4.3 Lineare Regression}{16}{section*.19}% 
+\contentsline {section}{4. Diskussion}{19}{section*.20}% 
+\contentsline {section}{5. Schlussfolgerungen}{20}{section*.21}% 
+\contentsline {section}{Digitaler Anhang}{21}{section*.22}% 
+\contentsline {subsection}{Anhang 1: Verwendeter Datensatz}{21}{section*.23}% 
+\contentsline {subsection}{Anhang 2: Fibonacci-Sortierung mittels R}{116}{section*.24}% 
+\contentsline {subsection}{Anhang 3: Häufigkeitsverteilung Fibonacci-Zahlen mittels R}{119}{section*.25}% 
+\contentsline {subsection}{Anhang 3: Bootstrap Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{122}{section*.26}% 
+\contentsline {subsection}{Anhang 4: Bootstrap-Batch}{128}{section*.27}% 
+\contentsline {subsection}{Anhang 5: Permutation Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{130}{section*.28}% 
+\contentsline {subsection}{Anhang 6: Permutation-Batch}{135}{section*.29}% 
+\contentsline {section}{Literaturverzeichnis}{137}{section*.30}% 

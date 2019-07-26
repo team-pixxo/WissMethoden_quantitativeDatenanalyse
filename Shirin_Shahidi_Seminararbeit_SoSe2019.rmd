@@ -42,11 +42,14 @@ require(mosaic) # Das Paket mosaic wird geladen
 ```{r Library, echo=FALSE, include=FALSE}
 library(mosaic)
 library(dplyr)
-#install.packages("citr")
+install.packages("citr")
 library(citr)
 ```
+
+
 \newpage
 \listoffigures
+
 
 \newpage
 \listoftables
