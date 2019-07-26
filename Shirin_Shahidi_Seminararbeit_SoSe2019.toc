@@ -1,21 +1,26 @@
 \select@language {german}
-\contentsline {section}{1. Einleitung}{4}{section*.4}% 
-\contentsline {subsection}{1.1. Forschungsfrage}{4}{section*.5}% 
-\contentsline {subsection}{1.2. Ziel der Studie/Analyse}{5}{section*.6}% 
-\contentsline {section}{2. Methodik}{6}{section*.7}% 
-\contentsline {subsection}{2.1. Studiendesign}{6}{section*.8}% 
-\contentsline {subsubsection}{2.1.1 Datenerhebung}{6}{section*.9}% 
-\contentsline {subsubsection}{2.1.2 Stichprobe}{6}{section*.10}% 
-\contentsline {subsection}{2.2 Angewandte statistische Methoden}{6}{section*.11}% 
-\contentsline {section}{3. Ergebnisse}{7}{section*.12}% 
-\contentsline {subsection}{3.1 Kennzahlen der Stichprobe}{7}{section*.13}% 
-\contentsline {subsection}{3.2 explorative Statistik}{7}{section*.14}% 
-\contentsline {subsection}{3.3 deskriptive Statistik}{9}{section*.15}% 
-\contentsline {subsection}{3.4 Inferenzstatistik}{13}{section*.16}% 
-\contentsline {subsubsection}{3.4.1 Bootstrap}{13}{section*.17}% 
-\contentsline {subsubsection}{3.4.2 Permutation}{15}{section*.18}% 
-\contentsline {subsubsection}{3.4.3 Lineare Regression}{17}{section*.19}% 
-\contentsline {section}{4. Diskussion}{20}{section*.20}% 
-\contentsline {section}{5. Schlussfolgerungen}{21}{section*.21}% 
-\contentsline {section}{Anhang I: R-Skript Nr. 1 - Fibonacci Sortierung}{22}{section*.22}% 
-\contentsline {section}{Literaturverzeichnis}{22}{section*.23}% 
+\contentsline {section}{1. Einleitung}{5}{section*.4}% 
+\contentsline {subsection}{1.1. Forschungsfrage}{5}{section*.5}% 
+\contentsline {subsection}{1.2. Ziel der Studie/Analyse}{6}{section*.6}% 
+\contentsline {section}{2. Methodik}{7}{section*.7}% 
+\contentsline {subsection}{2.1. Studiendesign}{7}{section*.8}% 
+\contentsline {subsubsection}{2.1.1 Datenerhebung}{7}{section*.9}% 
+\contentsline {subsubsection}{2.1.2 Stichprobe}{7}{section*.10}% 
+\contentsline {subsection}{2.2 Angewandte statistische Methoden}{7}{section*.11}% 
+\contentsline {section}{3. Ergebnisse}{8}{section*.12}% 
+\contentsline {subsection}{3.1 Kennzahlen der Stichprobe}{8}{section*.13}% 
+\contentsline {subsection}{3.2 explorative Statistik}{8}{section*.14}% 
+\contentsline {subsection}{3.3 deskriptive Statistik}{10}{section*.15}% 
+\contentsline {subsection}{3.4 Inferenzstatistik}{14}{section*.16}% 
+\contentsline {subsubsection}{3.4.1 Bootstrap}{14}{section*.17}% 
+\contentsline {subsubsection}{3.4.2 Permutation}{16}{section*.18}% 
+\contentsline {subsubsection}{3.4.3 Lineare Regression}{18}{section*.19}% 
+\contentsline {section}{4. Diskussion}{21}{section*.20}% 
+\contentsline {section}{5. Schlussfolgerungen}{22}{section*.21}% 
+\contentsline {section}{Digitaler Anhang}{23}{section*.22}% 
+\contentsline {subsection}{CSV-Dateien: Verwendete Datensätze}{23}{section*.23}% 
+\contentsline {subsection}{R-Skript Nr.1: Fibonacci-Sortierung}{23}{section*.24}% 
+\contentsline {subsection}{R-Skript Nr.2: Anteilsberechnung Fibonaccizahlen}{23}{section*.25}% 
+\contentsline {subsection}{R-Skript Nr.3: Bootstrap Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{23}{section*.26}% 
+\contentsline {subsection}{R-Skript Nr.4: Permutation Lottoziehungen \& Anteilsberechnungen Fibonaccizahlen}{23}{section*.27}% 
+\contentsline {section}{Literaturverzeichnis}{23}{section*.28}% 

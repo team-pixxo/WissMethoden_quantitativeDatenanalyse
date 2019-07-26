@@ -765,23 +765,23 @@ p21_34b_sa <- c(Permutation_Fibo_21_34$Ziehungen_Samstag)
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_1_2, fig.cap =  "Der p-Wert der Teststatistik mit 59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 stellt unter H0 einen Wert von 0.2954 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_1_2, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 29,54\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% nicht verworfen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
 plot(Permutvtlg_1_2, title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
-```{r Permut_21_34, fig.cap ="Der p-Wert der Teststatistik mit 63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 stellt unter H0 einen Wert von 0.143 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_21_34, fig.cap ="Die Wahrscheinlichkeit, dass der Wert der Teststatistik (63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34) unter H0 (Permutation) vorkommt, liegt bei 14,3\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
 plot(Permutvertlg_21_34,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
-```{r Permut_1_2sa, fig.cap =  "Der p-Wert der Teststatistik mit 40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen stellt unter H0 einen Wert von 0.3761 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_1_2sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 37,61\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
 plot(Permutvertlg_1_2sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
 ```
 
 Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
 
-```{r Permut_21_34sa, fig.cap =  "Der p-Wert der Teststatistik mit 38 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen stellt unter H0 einen Wert von 0.3688 dar. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese wird demnach zum Signifikanzniveau von 5\\% angenommen.", echo=FALSE}
+```{r Permut_21_34sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (38 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 36,88\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese kann daher zum Signifikanzniveau von 5\\% angenommen werden.", echo=FALSE}
 plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
 ```
 
@@ -1046,15 +1046,17 @@ Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Berei
 
 \newpage
 
-# Anhang I: R-Skript Nr. 1 - Fibonacci Sortierung 
-```{r Anhang_1, echo = TRUE, include = FALSE}
-"
+# Digitaler Anhang
 
+## CSV-Dateien: Verwendeter Datensatz (data_lotto_date.csv)
 
+## R-Skript Nr.1: Fibonacci-Sortierung (_01_Sort_by_Fibo.R)
 
-"
-```
+## R-Skript Nr.2: Anteilsberechnung Fibonaccizahlen (_02_Check_Fibo.R)
 
+## R-Skript Nr.3: Bootstrap Lottoziehungen & Anteilsberechnungen Fibonaccizahlen (_00_Batch_Bootstrap.R,_03_Bootstrap_Lotto_Gesamt.R)
+
+## R-Skript Nr.4: Permutation Lottoziehungen & Anteilsberechnungen Fibonaccizahlen (_00_Batch_Permutation.R,_04_Permutation_Lotto_Gesamt.R)
 
 
 # Literaturverzeichnis
