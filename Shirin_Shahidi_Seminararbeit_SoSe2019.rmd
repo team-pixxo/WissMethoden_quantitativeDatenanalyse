@@ -1,0 +1,1156 @@
+---
+title: "Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?"
+author: "Shirin Shahidi, Matrikelnummer 455612"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    fig_caption: true
+    latex_engine: xelatex
+    fig_height: 2
+    fig_width: 5
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+  documentclass: article
+  classoption: a4paper
+  word_document:
+    toc: yes
+lang: de
+editor_options:
+  chunk_output_type: console
+bibliography: WM-QDA_Seminararbeit.bib
+csl: harvard.fh.sb.csl
+header-includes:
+ \usepackage{pdfpages}
+ \usepackage{float}
+ \floatplacement{figure}{H}
+---
+
+
+
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(echo = TRUE)
+
+knitr::opts_chunk$set(fig.path = 'Abbildung/', echo = FALSE, warning = FALSE, message = FALSE, fig.align ="left")
+
+require(mosaic) # Das Paket mosaic wird geladen
+
+
+```
+
+```{r Library, echo=FALSE, include=FALSE}
+library(mosaic)
+library(dplyr)
+#install.packages("citr")
+library(citr)
+```
+\newpage
+\listoffigures
+
+\newpage
+\listoftables
+
+\newpage
+# 1. Einleitung
+>"Das, wobei unsere Berechnungen versagen, nennen wir Zufall."[@roschk_zufallzitate_2019, zitiert nach Albert Einstein]
+
+<p>Im deutschen Lotto 6 aus 49 lassen sich Erfolgswahrscheinlichkeiten errechnen, nicht jedoch künftige Ziehungen vorhersagen.
+Tendenzen, dass spezifische Ereignisse eintreten, können auf Basis bereits vergangener Ziehungen statistisch ermittelt werden [vgl.@ute_sproesser_et_al._daten_2014, S.33].</p>
+
+>"Etwas hat Gestalt, weil  es auf Zahlen beruht[...]" [@jonak_essays_2018, S.136].
+
+<p>Die menschliche Gestaltwahrnehmung bevorzugt Vollkommenheit, Symmetrie und bestimmte Proportionen wie etwa den Goldenen Schnitt. Diese Wahrnehmungspräferenzen von Gestalten lassen sich auch im Tierreich beobachten, bei dem Gestaltwahrnehmung instinktiv zu einer Reaktion führt. [vgl.@oerter_mensch_2014, S.252]</p>   
+
+<p>Auf Basis dieser Tatsachen stellt sich die Frage, ob die Gestalt der Lottoziehungen bestimmte Proportionen bevorzugt oder ob Ziehungen bestimmter Zahlenkombinationen rein zufällig erfolgen. Konzentriert man sich auf die Proportion des Goldenen Schnittes, so wird dieser gemäß aktuellem Forschungsstand durch die Formel $\frac{\sqrt{5} + 1}{2}\approx1,618$ errechnet [vgl.@kohn_mathematik_2019, S. 160]. Leonardo of Pisa, auch unter dem Namen Fibonacci bekannt, veröffentlichte 1202 das Werk *Liber Abbaci* [vgl.@hannah_false_2007]. In diesem führt er zur Fibonacci-Sequenz hin, welche im Tierreich die Vermehrung von Hasen in Zahlen beschreibt [vgl.@fibonacci_introduction:_1987, S.18]. Im Lotto 6 aus 49 sind die ersten acht Fibonacci-Zahlen (1, 2, 3, 5, 8, 13, 21, 34) enthalten [vgl.@kohn_mathematik_2019, S.159]. Dividiert man zwei aufeinander folgende Fibonacci-Zahlen, so konvergieren diese gegen den Goldenen Schnitt [vgl.@knebl_algorithmen_2019, S.29].</p> 
+
+<p>Um zur Forschungsfrage hinführen zu können, wird im Folgenden auf die beliebteste Lotterie "Lotto 6 aus 49" unter den Einwohnern Deutschlands eingegangen [vgl.@toto-lotto_lotto_2019]. Spielberechtigt sind dabei erwachsene Personen ab 18 Jahren, da gemäß Jugendschutzgesetz § 6 Spielhallen, Glücksspiele Minderjährigen das Glücksspiel mit Chance auf hohe Geldbeträge untersagt ist [vgl.@bundesamt_fur_justiz_juschg_2019]. Ziel eines Lottospieles ist es 6 zufällig gezogene Gewinnzahlen aus 1-49 vorgegeben Ziffern vorherzusagen. Dazu wird ein Lotto-Schein mit 12 möglichen Tippfeldern und jeweils 49 Zahlen ausgefüllt. Pro Tippfeld werden 6 Zahlen angekreuzt. Jeder Lotto-Schein enthält eine Spielscheinnummer, deren letzte Ziffer die Superzahl darstellt. Diese Superzahl wird neben den 6 Gewinnzahlen zufällig aus den Ziffern 0-9 ermittelt. Es müssen minimal 2 Ziffern und eine Superzahl korrekt prophezeit werden um einen Gewinn zu erzielen. Der maximale Gewinn stellt 6 richtige Gewinnzahlen und die korrekte Superzahl dar. Der halbierte Spieleinsatz stellt die Gewinnsumme dar, welche sich auf 9 Gewinnklassen aufteilen lässt. Zusätzlich können die Lotterien "Spiel 77" und "SUPER 6" sowie die "GlücksSpirale" im Lotto-Schein ausgewählt werden. Ein Tippfeld im Lotto 6 aus 49 kostet 1,0€ zzgl. Bearbeitungsgebühren. Die Ziehungen finden wöchentlich mittwochs um 18:25 Uhr und samstags um 19:25 Uhr unter www.lotto.de statt [vgl.@toto-lotto_lotto_2019]. Die Wahrscheinlichkeit, zwei bestimmte Zahlen im Lotto zu ziehen beträgt $1:((\frac{49}{6})*(\frac{48}{5}))\approx0.01276$[vgl.@lottozahlen.com_6_2019].</p>
+
+## 1.1. Forschungsfrage
+<p>Betrachtet man die bereits genannten Fibonacci Zahlen im Lotto 6 aus 49 und die Konvergenz gegen den Goldenen Schnitt, lässt sich die Forschungsfrage wie folgt ableiten:</p><p>*Wie beeinflusst der Goldene Schnitt die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49?*</p>
+<p>In einer ersten Hypothese soll geprüft werden, ob eine Fibonacci Zahl unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mit ihrer Goldenen Schnitt Zahl gezogen wird. Im Anschluss daran soll geprüft werden, ob eine Fibonacci Zahl unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mittwochs mit ihrer Goldenen Schnitt Zahl gezogen wird. Dieser Tag wird mit den Samstagsziehungen und den davon abweichenden Wochentagen verglichen.
+Die Hypothesen lassen sich wie folgt formulieren:</p>
+<p>*H1: Die Fibonacci-Zahlen 1, 2, 21 und 34 werden unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten mit ihren Goldenen Schnitt Zahlen gezogen*</p>
+H1 kann mathematisch durch den p-Wert als Wahrscheinlichkeitswert der Ziehung zweier Fibonacci-Zahlen in der Teststatistik und des hypothetischen Wertes zweier Zahlenziehungen wie folgt ausgegeben werden:
+<p> *H1: p > 0.01276* </p>
+<p>*H2: Fibonacci-Zahlen 1,2,21, und 34 werden unter allen Fibonacci-Zahlen im Lotto 6 aus 49 am häufigsten samstags mit ihrer Goldenen Schnitt Zahl gezogen.*</p>
+H2 kann mathematisch durch den p-Wert als Wahrscheinlichkeitswert der Ziehung zweier Fibonacci-Zahlen unter Berücksichtigung der Wochentage unter H0 wie folgt definiert werden:
+<p> *H2: p(Samstag) > p(Mittwoch) & p(Samstag) > p(andere Wochentage)*</p>
+
+## 1.2. Ziel der Studie/Analyse 
+Das Untersuchungsziel der Studie ist deskriptiv ausgerichtet mit der Anforderung an exakte Ergebnisse und eine repräsentative Stichprobe sowie der Beschreibung der Grundgesamtheit mit ihren wesentlichen Merkmalen [vgl.@kus_marktforschung:_2012, S.15]. Ziel der Studie soll sein, herauszufinden, ob Fibonacci-Zahlenpaare, die dividiert den Goldenen Schnitt ergeben im Lotto 6 aus 49 häufiger zusammen gezogen werden als zwei Fibonacci-Zahlenpaare ohne den Goldenen Schnitt Proportionen. Hierzu sollen nur die Gewinnzahlen ohne Superzahl in Betracht gezogen wereden, da die Ziehung einer Superzahl eine Wahrscheinlichkeit von $\frac{1}{10}$ aufweist. Es werden die Häufigkeiten der Fibonacci-Zahlen, sowie jeglicher Fibonaccizahlpaarziehungen unter allen Lotto-Ziehungen von 1955 bis Ende Juni 2019 betrachtet. Sollte sich herausstellen, dass Zahlenpaare aus zwei Fibonaccizahlen am häufigsten zusammen im Goldenen Schnitt auftreten, so werden diese mit Hilfe der Inferenzstatistik genauer betrachtet um einen Einfluss des Goldenen Schnittes auf diese Zahlenpaare ausfindig machen zu können.
+
+#2. Methodik
+Um die Methodik festlegen zu können, wird auf das Studiendesign, sowie die Datenerhebung und die angewandten statistsichen Methoden genauer Bezug genommen. [vgl.@kus_marktforschung:_2012, S.13]
+
+##2.1. Studiendesign
+Das Studiendesign wird definiert durch die Art der Datenerhebung und Ziehung der Stichprobe. Die vorliegende Studie basiert auf den Sekundärforschungen der Westdeutsche Lotterie GmbH & Co. oHG, sowie den Datenerhebungen unter www.lottozahlenonline.de durch Gustav Zygmund. [vgl.@kus_marktforschung:_2012, S.15]
+
+### 2.1.1 Datenerhebung
+Da es sich um die Beschreibung der Veränderungen der Lotto-Ziehungen im Zeitablauf von 1955 bis Ende Juni im Jahr 2019 handelt, wurden die in der Studie verwendeten Sekundärdaten anhand von Längsschnitt-Untersuchungen beobachtet. Da das Forschungsproblem auf Basis von Sekundärdaten bearbeitbar ist, wird in dieser Studie auf die Erhebung von Primärdaten verzichtet. Die bereits vorhandenen Daten in Form von Beobachtungen im Zeitablauf werden für die Studie neu aufbereitet und analysiert, woraus sich Anhang 1 ergibt. [vgl.@kus_marktforschung:_2012, S.16] 
+
+### 2.1.2 Stichprobe
+Die erhobenen Sekundärdaten stellen alle Ziehungen seit Anbeginn des Lottos 6 aus 49 von 1955 bis zum Zeitpunkt der Studienanalyse tabellarisch dar. Werden potenzielle Ungenauigkeiten wie etwa Tipp- oder Eingabefehler in den bereits vorhandenen Sekundärdaten vernachlässigt, kann von einer Totalerhebung der Daten ausgegangen werden. Dies führt dazu, dass Stichprobenfehler die Aussagekraft nicht einschränken. [vgl.@kus_marktforschung:_2012, S.43 f.]
+
+## 2.2 Angewandte statistische Methoden
+Um die Daten hinsichtlich ihrer Eignung für statistische Methoden zu überprüfen, wird eine explorative Datenanalyse zur Verdichtung der Daten durchgeführt. Da es sich um Häufigkeitsbeobachtungen der Fibonacci-Zahlenpaare in der Stichprobe handelt, werden Schätzverfahren angewandt, um Annahmen über entsprechende Wahrscheinlichkeitsverteilungen in der Grundgesamtheit treffen zu können [vgl.@kus_marktforschung:_2012, S.193 f.]. Eine Annahme oder Ablehnung der Hypothesen erfolgt mittels der zweiseitigen Fragestellung [vgl.@hellbruck_angewandte_2009, S.73-76]. Um den Datensatz auf Linearität zu überprüfen wird nach vorheriger Exploration eine lineare Regression durchgeführt [vgl.@hellbruck_angewandte_2009, S.250]. Für die Ergebnisse der statistischen Methoden wird die Programmiersprache R mit den Bibliotheken mosaic, dplyr, knittr, gridExtra, grid, ggplot2, lattice und citr verwendet. Diese Programmiersprache ermöglicht den Einsatz moderner Verfahren der Datenanalyse. Sie ist reproduzierbar, automatisierbar, quelloffen, kostenlos und ermöglicht die Erstellung grafischer Abbildungen. [vgl.@sauer_moderne_2018, S.16 f.] Für den Datensatz wurden die Ereignisse der Lotto-Ziehungen aus den Online-Quellen Westdeutsche Lotterie GmbH & Co. oHG sowie den Beobachtungen durch Gustav Zygmund in einem Datensatz zusammengeführt und auf die Gewinnzahlen, sowie den Wochentag reduziert. Diese Datenaufbereitung fand manuell mittles dem Office Programm Excel statt und dient der Vorbereitung der Daten zu Analysezwecken. 
+
+# 3. Ergebnisse 
+Um zu den Ergebnissen der Studie hinführen zu können werden die bereits genannten statistischen Methoden im Folgenden anhand von R-Syntax-Abschnitten (sogenannten Chunks) erklärt, sowie grafisch veranschaulicht [vgl.@sauer_moderne_2018, S.26]. 
+
+## 3.1 Kennzahlen der Stichprobe
+Um einen Überblick über die Kennzahlen der Stichprobe zu erhalten, wird die Bibliothek "mosaic" geladen und der R-Befehl "inspect" ausgeführt:
+```{r Kennzahlen, echo=FALSE, include=TRUE}
+#install.packages('tinytex')
+# Dateipfad festlegen
+setwd("/Users/shisha/Desktop/WissMethoden_quantitativeDatenanalyse")
+
+#Bibliotheken laden
+library("mosaic")
+library(dplyr)
+library(knitr)
+
+# CSV-Datei laden & Spaltennamen vergeben
+data_lotto_orig <- read.csv2("data_lotto_date.csv")
+colnames(data_lotto_orig) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+
+# Kennzahlen ausspielen lassen
+inspect(data_lotto_orig)
+```
+
+Die Stichprobe des Datensatzes Lotto 6 aus 49 von 1955 bis 2019 enthält 6 numerisch diskrete und eine kategoriale Variable. Insgesamt enthält die Stichprobe 4295 Beobachtungen. Die numerischen Variablen stellen die Gewinnzahlen kategorisiert nach Ziehungsvorgang dar. Das Minimum liegt bei der Ziffer 1 und das Maximum bei Ziffer 49. Die kategoriale Variable nennt den Wochentag, an dem die Beobachtungen aufgezeichnet wurden. Die Lagemaße und Streumaße sind unterschiedlich ausgeprägt, wie anhand der Werte von Quantil 1 und 3 sowie der Mittelwerte und dem Median zu erkennen ist. Die Standardabweichung der Gewinnzahlen differiert. Die Variablennamen werden wie folgt ausgegeben: `r names(data_lotto_orig)`. Insgesamt weist der Datensatz keine fehlenden Angaben auf. Einen Überblick über die letzten 6 Beobachtungen des Datensatzes verschafft der Befehl "tail":
+
+```{r, echo=FALSE, include=TRUE}
+tail(data_lotto_orig)
+```
+
+## 3.2 explorative Statistik
+<p>Anhand der explorativen Statistik sollen Häufigkeitsverteilungen der Fibonacci-Zahlen betrachtet werden. Hierzu wird der Datensatz nach Fibonacci-Zahlen mittels R-Skript (siehe Anhang 2, Fibonacci-Sortierung mittels R-Skript) sortiert und gefiltert. Die daraus gewonnen Daten werden auf Fibonacci-Zahlenpaare sowie deren Häufigkeitsverteilung überprüft und nach Häufigkeitsortiert. Dadurch zeigt sich, welche Fibonacci-Zahlen mit welchen Fibonacci-Zahlen am häufigsten gemeinsam in einer Ziehung auftreten (siehe Tabelle 1).</p>
+
+```{r Häufigkeitsverteilung Fibonacci Zahlen - Vorbereitung,echo=FALSE, include=FALSE}
+#Sortierte Daten einlesen
+Fibo1 <- read.csv2("1_Sort_by_Fibo.csv")
+rbind(Fibo1)
+Fibo2 <- read.csv2("2_Sort_by_Fibo.csv")
+rbind(Fibo2)
+Fibo3 <- read.csv2("3_Sort_by_Fibo.csv")
+rbind(Fibo3)
+Fibo5 <- read.csv2("5_Sort_by_Fibo.csv")
+rbind(Fibo5)
+Fibo8 <- read.csv2("8_Sort_by_Fibo.csv")
+rbind(Fibo8)
+Fibo13 <- read.csv2("13_Sort_by_Fibo.csv")
+rbind(Fibo13)
+Fibo21 <- read.csv2("21_Sort_by_Fibo.csv")
+rbind(Fibo21)
+Fibo34 <- read.csv2("34_Sort_by_Fibo.csv")
+rbind(Fibo34)
+
+#Spaltenüberschriften zuweisen
+colnames(Fibo1) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo2) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo3) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo5) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo8) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo13) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo21) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+colnames(Fibo34) <- c("GewZahl_1", "GewZahl_2","GewZahl_3","GewZahl_4","GewZahl_5","GewZahl_6","Wochentag")
+
+datalength <- nrow(data_lotto_orig)
+
+#Anteile von am häufigsten gemeinsam gezogenen Fibozahlen bestimmen in Form einer Funktion
+quota <- function(data1,data2,data3,data4,data5,data6,data7,data8,quelle) {
+  #Fibo x mit y [1]
+  total_row <- nrow(quelle)
+  test1 <- rbind(data1,data2)
+  result1 <- which(duplicated(test1))
+  length1 <- length(result1)
+  quota1 <- (length1)/(total_row)
+  #Fibo x mit y [2]
+  test2 <- rbind(data1,data3)
+  result2 <- which(duplicated(test2))
+  length2 <- length(result2)
+  quota2 <- (length2)/(total_row)
+  #Fibo x mit y [3]
+  test3 <- rbind(data1,data4)
+  result3 <- which(duplicated(test3))
+  length3 <- length(result3)
+  quota3 <- (length3)/(total_row)
+  #Fibo x mit y [4]
+  test4 <- rbind(data1,data5)
+  result4 <- which(duplicated(test4))
+  length4 <- length(result4)
+  quota4 <- (length4)/(total_row)
+  #Fibo x mit y [5]
+  test5 <- rbind(data1,data6)
+  result5 <- which(duplicated(test5))
+  length5 <- length(result5)
+  quota5 <- (length5)/(total_row)
+  #Fibo x mit y [6]
+  test6 <- rbind(data1,data7)
+  result6 <- which(duplicated(test6))
+  length6 <- length(result6)
+  quota6 <- (length6)/(total_row)
+  #Fibo x mit y [7]
+  test7 <- rbind(data1,data8)
+  result7 <- which(duplicated(test7))
+  length7 <- length(result7)
+  quota7 <- (length7)/(total_row)
+  total_data <- data.frame(quota1,quota2,quota3,quota4,quota5,quota6,quota7)
+  colnames(total_data) <- c("data1+2","data1+3","data1+4","data1+5","data1+6","data1+7","data1+8")
+  leng <- data.frame(length1,length2,length3,length4, length5, length6, length7)
+  colnames(leng) <- c("data1+2","data1+3","data1+4","data1+5","data1+6","data1+7","data1+8")
+  #Fibo <<- sort(total_data)
+  print(sort(total_data))
+  print(sort(leng))
+}
+
+#Inhalte an Funktion übermitteln
+Fibo_1 <- quota(Fibo1,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_1
+colnames(Fibo_1) <- c("1&13","1&34","1&8","1&5","1&21","1&3","1&2")
+
+Fibo_2 <- quota(Fibo2,Fibo1,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_2
+colnames(Fibo_2) <- c("2&13","2&5","2&21","2&3","2&8","2&34","2&1")
+
+Fibo_3 <- quota(Fibo3,Fibo1,Fibo2,Fibo5,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_3
+colnames(Fibo_3) <- c("3&8","3&34","3&5","3&2","3&13","3&1","3&21")
+
+Fibo_5 <- quota(Fibo5,Fibo2,Fibo3,Fibo1,Fibo8,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_5
+colnames(Fibo_5) <- c("5&34","5&3","2&2","5&1","5&21","5&8","5&13")
+
+Fibo_8 <- quota(Fibo8,Fibo2,Fibo3,Fibo5,Fibo1,Fibo13, Fibo21, Fibo34,data_lotto_orig)
+Fibo_8
+colnames(Fibo_8) <- c("8&13","8&21","8&1","8&3","8&5","8&2","8&34")
+
+Fibo_13 <- quota(Fibo13,Fibo2,Fibo3,Fibo5,Fibo8,Fibo1, Fibo21, Fibo34,data_lotto_orig)
+Fibo_13
+colnames(Fibo_13) <- c("13&8","13&2","13&1","13&34","13&3","13&21","13&5")
+
+Fibo_21 <- quota(Fibo21,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo1, Fibo34,data_lotto_orig)
+Fibo_21
+colnames(Fibo_21) <- c("21&8","21&2","21&5","21&13","21&1","21&3","21&34")
+ 
+Fibo_34 <- quota(Fibo34,Fibo2,Fibo3,Fibo5,Fibo8,Fibo13, Fibo21, Fibo1,data_lotto_orig)
+Fibo_34
+colnames(Fibo_34) <- c("34&5","34&1","34&13","34&3","34&8","34&2","34&21")
+```
+
+```{r Fibonacci-Zahlen Verteilung nach Rang,echo=FALSE, include=FALSE}
+Fibo_1 #Fibonacci Zahl 1
+Fibo_2 #Fibonacci Zahl 2
+Fibo_3 #Fibonacci Zahl 3
+Fibo_5 #Fibonacci Zahl 5
+Fibo_8 #Fibonaci Zahl 8
+Fibo_13 #Fibonacci Zahl 13
+Fibo_21 #Fibonaci Zahl 21
+Fibo_34 #Fibonacci Zahl 34
+```
+
+
+```{r Table1, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left",fig.pos="H"}
+table1 <- "
+
+|                                               | Fibonacci Zahl 1 | Fibonacci Zahl 2 | Fibonacci Zahl 3 | Fibonacci Zahl 5 | Fibonacci Zahl 8 | Fibonacci Zahl 13 | Fibonacci Zahl 21 | Fibonacci Zahl 34 |
+| :-------------------------------------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- | :--------------- |
+|Fibonacci Zahl 1| |**59**|57|54|47|44|56|45|
+|Fibonacci Zahl 2|**59**| |55|53|57|42|54|58|
+|Fibonacci Zahl 3|57|55| |52|48|56|**57**|49|
+|Fibonacci Zahl 5|54|53|52||55|**57**|54|45|
+|Fibonacci Zahl 8|47|57|48|55||38|41|**57**|
+|Fibonacci Zahl 13|44|42|56|**57**|38||56|47|
+|Fibonacci Zahl 21|56|54|57|54|41|56||**63**|
+|Fibonacci Zahl 34|45|58|49|45|57|47|**63**||
+
+Table: Die Tabelle zeigt zeilenweise, welche Fibonacci-Zahlen im Lotto 6 aus 49 seit 1955 bis 2019 mit welchen Fibonacci-Zahlen (Spalten) wie häufig (in Ziehungen) gemeinsam gezogen wurden. Die häufigsten Beobachtungen wurden fett markiert. Es wird ersichtlich, dass die 1, 2, 21 und 34 am häufigsten mit ihren Goldenen Schnitt Zahlen gezogen wurden. Heraus ergibt sich die erste Hypothese.
+"
+cat(table1)
+```
+
+<p>Aus Tabelle 1 geht die erste Hypothese hervor. Für die folgenden Analysen werden die gefilterten Daten nach Fibonacci-Zahlen 1, 2, 21 und 34 im verwendet.</p>
+
+<p>Die Verteilung der Wochentage im Lotto lässt sich anhand Abbildung 1 veranschaulichen. Betrachtet man die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 hinsichtlich der Wochentage ergibt sich Abbildung 2. Tabelle 2 fasst die ermittelten Häufigkeiten zusammen.</p>
+
+```{r fig.align="left",fig.cap="Die Lotto-Ziehungen von 1955 bis 2019 fanden am häufigsten samstags statt.",default= NULL,fig.height=3, fig.width=8}
+gf_bar(~ Wochentag, data=data_lotto_orig, ncol=2, title="Lottoziehungen sortiert nach Wochentag")
+```
+
+```{r Häufigkeit Wochentage, echo=FALSE, include=FALSE}
+library(gridExtra)
+library(grid)
+library(ggplot2)
+library(lattice)
+library
+
+Fibo1_2 <- rbind(Fibo1,Fibo2)
+Fibo1_2 <- Fibo1_2[(which(duplicated(Fibo1_2))),]
+nrow(Fibo1_2)
+plot1 <- gf_bar(~ Wochentag, data = Fibo1_2, title = "Fibonaccizahlen 1 & 2 in derselben Ziehung\n- Wochentagssortierung")
+
+Fibo21_34 <- rbind(Fibo21,Fibo34)
+Fibo21_34 <- Fibo21_34[(which(duplicated(Fibo21_34))),]
+nrow(Fibo21_34)
+plot2 <- gf_bar(~ Wochentag, data = Fibo21_34, title = "Fibonaccizahlen 21 & 34 \nin derselben Ziehung \n- Wochentagssortierung")
+```
+
+```{r fig.align="left", fig.cap="Die Fibonacci Zahlen 1, 2, 21 und 34 werden samstags am häufigsten mit ihren Goldenen Schnitt Zahlen gezogen.", default= NULL,fig.height=3, fig.width=8}
+grid.arrange(plot1,plot2,ncol=2)
+```
+ 
+
+```{r relative Häufigkeiten, echo=FALSE, include=FALSE}
+#relative Häufigkeit Ziehungen Fibonacci-Zahlenpaar 1&2 in Prozent
+(59/4295)*100
+#relative Häufigkeit Ziehungen Fibonacci-Zahlenpaar 21&34 in Prozent
+(63/4295)*100
+#absolute Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags
+Fibo1_2sa <- Fibo1_2%>%filter(Wochentag=="Samstag")
+nrow(Fibo1_2sa)
+#absolute Anzahl Ziehungen Fibonacci-Zahlenpaar 21&34 samstags
+Fibo21_34sa <- Fibo21_34%>%filter(Wochentag=="Samstag")
+nrow(Fibo21_34sa)
+#absolute Anzahl Ziehungen samstags
+Lotto_sa <- data_lotto_orig %>% filter(Wochentag=="Samstag")
+nrow(Lotto_sa)
+(nrow(Lotto_sa)/nrow(data_lotto_orig))*100
+#relative Anzahl Ziehungen Fibonacci-Zahlenpaar 1&2 samstags in Prozent
+(nrow(Fibo1_2sa)/nrow(Lotto_sa))*100
+#relative Anzahl Ziehungen Fibonacci-Zahlenpaar 21&34 samstags in Prozent
+(nrow(Fibo21_34sa)/nrow(Lotto_sa))*100
+
+```
+
+```{r Table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="c", }
+table2 <- "
+
+| Ereignis                                      | absolute Häufigkeit (Ziehungsanzahl) | relative Häufigkeit (in %) |
+| :-------------------------------------------- | :----------------------------------- | :------------------------- |
+| Samstagziehungen Gesamt                       | 2805                                 | 65.3085 %                  | 
+| Fibonacci Zahlenpaar 1&2                      | 59                                   | 1.37369 %                  |
+| Fibonacci Zahlenpaar 21&34                    | 63                                   | 1.466822 %                 | 
+| Samstagziehungen Fibonacci Zahlenpaar 1&2     | 40                                   | 1.426025 %                 | 
+| Samstagziehungen Fibonacci Zahlenpaar 21&34   | 38                                   | 1.354724 %                 | 
+Table: Die Samstagsziehungen machen ca. 65% der Lottoziehungen aus. Das Fibonacci Zahlenpaar 21&34 wird um 4 zusätzliche Ziehungen häufiger als das Zahlenpaar 1&2 gezogen. Samstags wird das Zahlenpaar 1&2 um 2 Ziehugen häufiger als das Zahlenpaar 21&34 gezogen. Fibonacci-Zahlenpaare im Goldenen Schnitt werden mit <1,5% relativ selten im Lotto 6 aus 49 gezogen.  
+"
+cat(table2)
+```
+
+Aus diesen Beobachtungen lässt sich die Hyothese ableiten, dass die Fibonacci Zahlen 1,2,21 und 34 samstags am häufigsten mit ihren Goldenen Schnitt Zahlen gezogen werden.
+
+
+## 3.3 deskriptive Statistik
+
+Die deskriptive Statistik beschäftig sich mit den Lage- und Streuparametern des Datensatzes. Die Lagemaße spiegeln die Verteiung der Daten wieder, wohingegen die Streuungsmaße die Unterschiedlichkeiten in den Daten wiedergeben. [vgl.@sauer_moderne_2018, S.104-105] Die Lagemaße der Fibonacci Zahlenpaare 1&2 sowie 21&34 werden durch die folgenden Boxplots in Abbildung 3 und 4 grafisch dargestellt. Tabelle 3 und 4 veranschaulicht die Mittelwerte der Gewinnzahlen je Fibonacci-Zahlenpaar. Im Anschluss werden die häufigsten Werte (Modi) der Gewinnzahlen je Paar tabellarisch visualisiert.
+
+```{r,echo=FALSE, include=FALSE}
+
+#favstats(~ GewZahl_1, data = Fibo1_2)
+#favstats(~ GewZahl_2, data = Fibo1_2)
+#favstats(~ GewZahl_3, data = Fibo1_2)
+#favstats(~ GewZahl_4, data = Fibo1_2)
+#favstats(~ GewZahl_5, data = Fibo1_2)
+#favstats(~ GewZahl_6, data = Fibo1_2)
+library("mosaic")
+library(citr)
+b1 <- gf_boxplot(~ GewZahl_1, data=Fibo1_2)
+b2 <- gf_boxplot(~ GewZahl_2, data=Fibo1_2)
+b3 <- gf_boxplot(~ GewZahl_3, data=Fibo1_2)
+b4 <- gf_boxplot(~ GewZahl_4, data=Fibo1_2)
+b5 <- gf_boxplot(~ GewZahl_5, data=Fibo1_2)
+b6 <- gf_boxplot(~ GewZahl_6, data=Fibo1_2)
+
+quantile(Fibo1_2$GewZahl_1)
+quantile(Fibo1_2$GewZahl_2)
+quantile(Fibo1_2$GewZahl_3)
+quantile(Fibo1_2$GewZahl_4)
+quantile(Fibo1_2$GewZahl_5)
+quantile(Fibo1_2$GewZahl_6)
+
+
+median(Fibo1_2$GewZahl_1)
+median(Fibo1_2$GewZahl_2)
+median(Fibo1_2$GewZahl_3)
+median(Fibo1_2$GewZahl_4)
+median(Fibo1_2$GewZahl_5)
+median(Fibo1_2$GewZahl_6)
+
+IQR(Fibo1_2$GewZahl_1)
+IQR(Fibo1_2$GewZahl_2)
+IQR(Fibo1_2$GewZahl_3)
+IQR(Fibo1_2$GewZahl_4)
+IQR(Fibo1_2$GewZahl_5)
+IQR(Fibo1_2$GewZahl_6)
+
+```
+
+```{r a,fig.height=4, fig.width=8, fig.cap="Betrachtet man die Gewinnzahlen der Fbonacci Zahlen 1\\&2, so lässt sich veranschaulichen, dass die Werte je nach gezogener Zahl variieren. 25\\% der Gewinnzahlen sind (bis auf Gewinnzahl 3) kleiner als die Fibonacci-Zahlen 2. 25\\% der Zahlen sind bei Gewinnzahl 3 kleiner als 4,5. Die Mediane variieren in ihren Werten von 9 bis 25. Gewinnzahl 6 weist den neidrigsten Median, Gewinnzahl 3 den höchsten Median auf. Es sind keine extremen Ausreißer zu beobachten. Der Interquartilsabstand variiert von 24,5 bis 35.5, wobei Gewinnzahl 6 den niedrigsten und Gewinnzahl 1 den höchsten Wert aufweist.", echo=FALSE,default= NULL}
+grid.arrange(b1,b2,b3,b4,b5,b6,ncol=3)
+```
+
+
+```{r Mittelwerte, echo=FALSE, include=FALSE}
+mean(~ GewZahl_1, data = Fibo1_2)
+mean(~ GewZahl_2, data = Fibo1_2)
+mean(~ GewZahl_3, data = Fibo1_2)
+mean(~ GewZahl_4, data = Fibo1_2)
+mean(~ GewZahl_5, data = Fibo1_2)
+mean(~ GewZahl_6, data = Fibo1_2)
+```
+ 
+```{r Table3, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="c",default= NULL }
+table3 <- "
+
+| Gewinnzahl   | Mittelwert |
+| :----------- | :--------- | 
+|Gewinnzahl 1|19.20339|
+|Gewinnzahl 2|16.89831|
+|Gewinnzahl 3|22.08475|
+|Gewinnzahl 4|17.83051|
+|Gewinnzahl 5|17.94915|
+|Gewinnzahl 6|15.69492|
+Table: Die Gewinnzahlen der Fibonacci-Ziehungspaare 1&2 unterscheiden sich in ihren Mittelwerten. Gewinnzahl 3 weist den größten Mittelwert mit 22.08475 auf, Gewinnzahl 6 den niedrigsten mit 15.69492.  
+"
+cat(table3)
+```
+
+```{r box,echo=FALSE, include=FALSE}
+
+#favstats(~ GewZahl_1, data = Fibo1_2)
+#favstats(~ GewZahl_2, data = Fibo1_2)
+#favstats(~ GewZahl_3, data = Fibo1_2)
+#favstats(~ GewZahl_4, data = Fibo1_2)
+#favstats(~ GewZahl_5, data = Fibo1_2)
+#favstats(~ GewZahl_6, data = Fibo1_2)
+library("mosaic")
+library(citr)
+b7 <- gf_boxplot(~ GewZahl_1, data=Fibo21_34)
+b8 <- gf_boxplot(~ GewZahl_2, data=Fibo21_34)
+b9 <- gf_boxplot(~ GewZahl_3, data=Fibo21_34)
+b10 <- gf_boxplot(~ GewZahl_4, data=Fibo21_34)
+b11 <- gf_boxplot(~ GewZahl_5, data=Fibo21_34)
+b12 <- gf_boxplot(~ GewZahl_6, data=Fibo21_34)
+
+quantile(Fibo21_34$GewZahl_1)
+quantile(Fibo21_34$GewZahl_2)
+quantile(Fibo21_34$GewZahl_3)
+quantile(Fibo21_34$GewZahl_4)
+quantile(Fibo21_34$GewZahl_5)
+quantile(Fibo21_34$GewZahl_6)
+
+median(Fibo21_34$GewZahl_1)
+median(Fibo21_34$GewZahl_2)
+median(Fibo21_34$GewZahl_3)
+median(Fibo21_34$GewZahl_4)
+median(Fibo21_34$GewZahl_5)
+median(Fibo21_34$GewZahl_6)
+
+IQR(Fibo21_34$GewZahl_1)
+IQR(Fibo21_34$GewZahl_2)
+IQR(Fibo21_34$GewZahl_3)
+IQR(Fibo21_34$GewZahl_4)
+IQR(Fibo21_34$GewZahl_5)
+IQR(Fibo21_34$GewZahl_6)
+```
+
+```{r c,fig.height=4, fig.width=8, fig.cap="Betrachtet man die Gewinnzahlen der Fbonacci Zahlen 21\\&34, so lässt sich veranschaulichen, dass die Werte je nach gezogener Zahl variieren. 75\\% der Gewinnzahlen sind (bis auf Gewinnzahl 5) kleiner als 34. 75\\% der Zahlen von Gewinnzahl 5 sind kleiner als 39. Die Mediane variieren in ihren Werten von 21 bis 34. Die Gewinnzahlen 1\\&3 weisen den neidrigsten Median, Gewinnzahl 5 den höchsten Median auf. Es sind keine extremen Ausreißer zu beobachten. Der Interquartilsabstand variiert von 13 bis 19, wobei Gewinnzahl 4 den niedrigsten und Gewinnzahl 3 den höchsten Wert aufweist.", echo=FALSE,default= NULL}
+grid.arrange(b7,b8,b9,b10,b11,b12,ncol=3)
+```
+
+```{r Mittelwerte2, echo=FALSE, include=FALSE}
+mean(~ GewZahl_1, data = Fibo21_34)
+mean(~ GewZahl_2, data = Fibo21_34)
+mean(~ GewZahl_3, data = Fibo21_34)
+mean(~ GewZahl_4, data = Fibo21_34)
+mean(~ GewZahl_5, data = Fibo21_34)
+mean(~ GewZahl_6, data = Fibo21_34)
+
+
+```
+ 
+```{r Table4, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="c",default= NULL,fig.pos="H"}
+table3 <- "
+
+| Gewinnzahl   | Mittelwert |
+| :----------- | :--------- | 
+|Gewinnzahl 1|24.95238|
+|Gewinnzahl 2|25.55556|
+|Gewinnzahl 3|24.01587|
+|Gewinnzahl 4|27.39683|
+|Gewinnzahl 5|29.77778|
+|Gewinnzahl 6|26.42857|
+Table: Die Gewinnzahlen der Fibonacci-Ziehungspaare 21\\&34 unterscheiden sich in ihren Mittelwerten. Gewinnzahl 5 weist den größten Mittelwert mit 29.77778 auf, Gewinnzahl 3 den niedrigsten mit 24.01587.  
+"
+cat(table3)
+```
+
+```{r Modus1&2, echo=FALSE, include=FALSE}
+count(Fibo1_2, GewZahl_1) %>% arrange(-n) %>% top_n(1)
+count(Fibo1_2, GewZahl_2) %>% arrange(-n) %>% top_n(1)
+count(Fibo1_2, GewZahl_3) %>% arrange(-n) %>% top_n(1)
+count(Fibo1_2, GewZahl_4) %>% arrange(-n) %>% top_n(1)
+count(Fibo1_2, GewZahl_5) %>% arrange(-n) %>% top_n(1)
+count(Fibo1_2, GewZahl_6) %>% arrange(-n) %>% top_n(1)
+```
+
+```{r Table5, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left",default= NULL }
+table5 <- "
+
+| Gewinnzahl   | Am häufigsten gezogene Zahl | Anzahl der Ziehungen |
+| :----------- | :-------------------------- | :------------------- |
+|Gewinnzahl 1|2|12x|
+|Gewinnzahl 2|1\\&2|je 11x|
+|Gewinnzahl 3|1\\&2|je 7x|
+|Gewinnzahl 4|2|11x|
+|Gewinnzahl 5|1|13x|
+|Gewinnzahl 6|1|11x|
+Table: Die Modi der Gewinnzahlen der Fibonacci-Ziehungspaare 1\\&2 unterscheiden sich in ihren Ziehungshäufigkeiten. Es wird ersichtlich, dass die Ziffern 1 und/oder 2 in jeder Gewinnzahl am häufigsten auftreten.  
+"
+cat(table5)
+```
+
+
+```{r Modus21&34, echo=FALSE, include=FALSE}
+count(Fibo21_34, GewZahl_1) %>% arrange(-n) %>% top_n(1)
+count(Fibo21_34, GewZahl_2) %>% arrange(-n) %>% top_n(1)
+count(Fibo21_34, GewZahl_3) %>% arrange(-n) %>% top_n(1)
+count(Fibo21_34, GewZahl_4) %>% arrange(-n) %>% top_n(1)
+count(Fibo21_34, GewZahl_5) %>% arrange(-n) %>% top_n(1)
+count(Fibo21_34, GewZahl_6) %>% arrange(-n) %>% top_n(1)
+```
+
+```{r Table6, echo=FALSE, message=FALSE, warnings=FALSE, results='asis', fig.align="left",default= NULL }
+table6 <- "
+
+| Gewinnzahl   | Am häufigsten gezogene Zahl | Anzahl der Ziehungen |
+| :----------- | :-------------------------- | :------------------- |
+|Gewinnzahl 1|21|15x|
+|Gewinnzahl 2|34|12x|
+|Gewinnzahl 3|21|11x|
+|Gewinnzahl 4|34|11x|
+|Gewinnzahl 5|34|9x|
+|Gewinnzahl 6|34|14x|
+Table: Die Modi der Gewinnzahlen der Fibonacci-Ziehungspaare 1\\&2 unterscheiden sich in ihren Ziehungshäufigkeiten. Es wird ersichtlich, dass die Ziffern 21 oder 34 in jeder Ziehung am häufigsten auftreten.  
+"
+cat(table6)
+```
+
+Um zu prüfen, ob die Gewinnzahlen der Fibonacci-Zahlenpaare 1&2 korrelieren wird vorab eine grafische Übersicht mittels des R-Befehls "gf_point" angewandt um Tendenzen des Zusammenhangs zu erkennen.
+
+```{r Korrelation, include = FALSE, echo = FALSE}
+kor1 <- gf_point(GewZahl_2~ GewZahl_1, data = Fibo1_2)
+kor2 <- gf_point(GewZahl_3~ GewZahl_2, data = Fibo1_2)
+kor3 <- gf_point(GewZahl_4~ GewZahl_3, data = Fibo1_2)
+kor4 <- gf_point(GewZahl_5~ GewZahl_4, data = Fibo1_2)
+kor5 <- gf_point(GewZahl_6~ GewZahl_5, data = Fibo1_2)
+```
+
+```{r Korrelation_1,fig.height=4, fig.width=8, fig.cap="Die Gewinnzahlen hängen nicht von ihren vorheringen Gewinnzahlen ab, da kein Muster zu erkennen ist. Somit besteht aus grafischer Sicht kein Zusammenhang zwischen den einzelnen Gewinnzahlen. Mit Hilfe einer linearen Regression kann diese überprüft werden.", echo=FALSE,default= NULL}
+grid.arrange(kor1, kor2, kor3, kor4, kor5)
+```
+
+Die Korrelationskoeffizienten der Fibonaccizahlen 1&2 sowie 21&34 sollen in den folgenden Tabellen die Erkenntnisse aus Abbildung 3 und 4 verdeutlichen. [vgl. @sauer_moderne_2018, S.112]. 
+
+```{r Cor, echo=FALSE, include = FALSE}
+cor1 <- cor(GewZahl_2~ GewZahl_1, data = Fibo1_2)
+cor2 <- cor(GewZahl_3~ GewZahl_2, data = Fibo1_2)
+cor3 <- cor(GewZahl_4~ GewZahl_3, data = Fibo1_2)
+cor4 <- cor(GewZahl_5~ GewZahl_4, data = Fibo1_2)
+cor5 <- cor(GewZahl_6~ GewZahl_5, data = Fibo1_2)
+```
+
+```{r Table7, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+table7 <- "
+
+| Unabhängige Variable   | Abhängige Variable | Korrelationskoeffizient |
+| :--------------------- | :----------------- | :---------------------- |
+|Gewinnzahl 1|Gewinnzahl 2|*-0.21260081*|
+|Gewinnzahl 2|Gewinnzahl 3|-0.03212074|
+|Gewinnzahl 3|Gewinnzahl 4|*-0.2106801*|
+|Gewinnzahl 4|Gewinnzahl 5| -0.07762|
+|Gewinnzahl 5|Gewinnzahl 6|-0.05135401|
+
+Table: Die Korrelationskoeffizienten der Gewinnzahlen aus den Fibonacci-Zahlen 1\\&2 liegen nahe bei Null. Es besteht kein Zusammenhang unter den Gewinnzahlen 3\\&2, 5\\&4 sowie 6\\&5. Die Gewinnzahlen 2\\&1 sowie 4\\&3 weisen einen schwachen negativen Zusammenhang    auf.[vgl.@kosfeld_deskriptive_2016, S.212]  
+"
+cat(table7)
+```
+
+
+```{r Cor_21_34, echo=FALSE, include = FALSE}
+cor(GewZahl_2~ GewZahl_1, data = Fibo21_34)
+cor(GewZahl_3~ GewZahl_2, data = Fibo21_34)
+cor(GewZahl_4~ GewZahl_3, data = Fibo21_34)
+cor(GewZahl_5~ GewZahl_4, data = Fibo21_34)
+cor(GewZahl_6~ GewZahl_5, data = Fibo21_34)
+```
+
+
+```{r Table8, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+table8 <- "
+
+| Unabhängige Variable   | Abhängige Variable | Korrelationskoeffizient |
+| :--------------------- | :----------------- | :---------------------- |
+|Gewinnzahl 1|Gewinnzahl 2|-0.05215993|
+|Gewinnzahl 2|Gewinnzahl 3| *-0.1519212*|
+|Gewinnzahl 3|Gewinnzahl 4|*0.3239309*|
+|Gewinnzahl 4|Gewinnzahl 5|0.01616997|
+|Gewinnzahl 5|Gewinnzahl 6| -0.0928845|
+
+Table: Die Korrelationskoeffizienten der Gewinnzahlen aus den Fibonacci-Zahlen 21\\&34 weisen unterschiedliche Zusammenhänge auf. Es besteht kein Zusammenhang unter den Gewinnzahlen 2\\&1, 5\\&4 sowie 6\\&5. Die Gewinnzahlen 3\\&2 weisen einen schwachen negativen Zusammenhang auf. Die Gewinnzahlen 4\\&3 weisen einen mittleren positiven Zusammenhang auf. [vgl.@kosfeld_deskriptive_2016, S.212]  
+"
+cat(table8)
+```
+
+Für die lineare Regression 
+
+
+## 3.4 Inferenzstatistik 
+Da sich die bisherige Datenanlyse auf eine einzige Stichprobe bezieht, ist fraglich, wie aussagekräftig die Stichprobe für das Verhalten der Fibonacci-Zahlen im Goldenen Schnitt Verhältnis im Lotto 6 aus 49 ist. [vgl.@sauer_moderne_2018, S.268]
+Mittels der simualtionsbasierten Inferenz und dem Resampling ist es möglich, die Genauigkeit des geschätzten Wertes mittels Bootstrapping und einem Konfidenzintervall zu quantifizieren.[vgl.@sauer_moderne_2018, S.310]
+Zum Testen der Hypothesen wird die Nullhypothese durch den hypothetischen Wert (siehe Einleitung) sowie durch das Resamplingverfahren mittels Permutation abgebildet. [vgl.@siebertz_statistische_2017, S.384]
+Mittels linearen Regression soll anschließen überprüft werden, ob Werte mittels einer Geraden prophezeit werden können.[vgl.@sauer_moderne_2018, S.322]  
+
+### 3.4.1 Bootstrap
+Um die Hypothese prüfen zu können wird im ersten Schritt aus der bereits vorhanden Stichprobe eine Stichprobenverteilung vom Umfang n = 10.000 Stichproben erstellt. Hierzu wird mittels R-Skript "_03_Bootstrap_Lotto_Gesamt.R" die vorhandene Stichprobe mit 4295 Ziehungen mit Zurücklegen zufällig neu gezogen. Die neu gezogene Stichprobe wird danach auf die Häufigkeitsverteilung der Fibonacci-Zahlenpaare 1&2 sowie 21&34 untersucht. Dieser Vorgang wird 10.000 Mal wiederholt. Dabei werden auch die Wochentage berücksichtigt. In Form von Balkendiagrammen werden die Verteilungshäufigkeiten grafisch dargestellt.
+
+
+
+```{r Bootstrap, include=FALSE, echo=FALSE}
+
+# Quotenverteilung der Originalstichprobe
+
+Lotto_Fibo_1_2 <- read.csv2("Lotto_Quota_Fibo_1_2.csv", header = FALSE)
+colnames(Lotto_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
+Lotto_Fibo_21_34 <- read.csv2("Lotto_Quota_Fibo_21_34.csv",header = FALSE)
+colnames(Lotto_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen Mittwoch","Ziehungen Samstag","Ziehungen andere Tage")
+
+# Quotenverteilung der Bootstrap-Stichproben
+
+Bootstrap_Fibo_1_2 <- read.csv2("Bootstrap_Quota_Fibo_1_2.csv")
+colnames(Bootstrap_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+Bootstrap_Fibo_21_34 <- read.csv2("Bootstrap_Quota_Fibo_21_34.csv")
+colnames(Bootstrap_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+sd(Bootstrap_Fibo_1_2$Ziehungsanzahl)
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2 <- Lotto_Fibo_1_2[,2]
+draw1_2
+q1_2 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
+q1_2 <- as.data.frame(q1_2)
+q1_2a <- q1_2[1,1]
+q1_2b <-q1_2[2,1]
+q1_2
+Bootsvertlg_1_2 <- gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_1_2,title = "Bootstrap Verteilung Fibonacci 1&2") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2a,q1_2b,draw1_2))
+mean(Bootstrap_Fibo_1_2$Ziehungsanzahl)
+
+# Anteilswert auf häufigsten Anteil testen
+Anteil_Boot_1_2 <- gf_bar(~ Anteil, data = Bootstrap_Fibo_1_2, binwidth = 8)%>% gf_vline(colour=c("red"), xintercept =c(0.0118742724097788))
+Anteil_Boot_1_2
+as.numeric(Bootstrap_Fibo_1_2$Anteil)
+sort(tally(Bootstrap_Fibo_1_2$Anteil))
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR hinsichtlich samstagsziehung anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2a <- Lotto_Fibo_1_2[,4]
+draw1_2a
+q1_2a <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Bootstrap_Fibo_1_2)
+q1_2a <- as.data.frame(q1_2a)
+q1_2a
+q1_2c <- q1_2a[1,1]
+q1_2d <-q1_2a[2,1]
+Bootsvertlg_1_2sa <- gf_bar(~Ziehungen_Samstag, data = Bootstrap_Fibo_1_2, title = "Bootstrap Verteilung Fibonacci 1&2 - Samstagsziehungen") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2c,q1_2d,draw1_2a))
+Bootsvertlg_1_2sa
+mean(Bootstrap_Fibo_1_2$Ziehungen_Samstag)
+
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR anzeigen lassen.
+Lotto_Fibo_21_34
+draw21_34 <- Lotto_Fibo_21_34[,2]
+draw21_34
+q21_34 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Bootstrap_Fibo_21_34)
+q21_34 <- as.data.frame(q21_34)
+q21_34
+q21_34a <- q21_34[1,1]
+q21_34b <-q21_34[2,1]
+Bootsvertlg_21_34 <- gf_bar(~Ziehungsanzahl, data = Bootstrap_Fibo_21_34,title = "Bootsverteilung der Fibonacci Zahlenpaare 21 und 34") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q21_34a,q21_34b,draw21_34))
+Bootsvertlg_21_34
+mean(Bootstrap_Fibo_21_34$Ziehungsanzahl)
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR hinsichtlich samstagsziehung anzeigen lassen.
+Lotto_Fibo_21_34
+draw1_2b <- Lotto_Fibo_21_34[,4]
+draw1_2b
+q1_2b <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Bootstrap_Fibo_21_34)
+q1_2b <- as.data.frame(q1_2b)
+q1_2b
+q1_2e <- q1_2b[1,1]
+q1_2f <-q1_2b[2,1]
+Bootsvertlg_21_34sa <- gf_bar(~Ziehungen_Samstag, data = Bootstrap_Fibo_21_34, title = "Bootstrap Verteilung Fibonacci 21&34 - Samstagsziehungen") %>% gf_vline(colour=c("black","black", "red"), xintercept =c(q1_2f,q1_2e,draw1_2b))
+Bootsvertlg_21_34sa
+mean(Bootstrap_Fibo_21_34$Ziehungen_Samstag)
+```
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 kann anhand Abbildung XY visualisiert werden.
+
+```{r Bootstrap_1_2, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 40 Mal gezogen und in 75\\% der Stichprobenverteilungen 68 Mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 59 auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar.", echo=FALSE}
+plot(Bootsvertlg_1_2, title = "Bootsverteilung der Fibonacci Zahlenpaare 1 und 2")
+```
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 kann anhand Abbildung XY visualisiert werden.
+```{r Bootstrap_21_34, fig.cap ="In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21\\&34 37 Mal gezogen und in 75\\% der Stichprobenverteilungen 64 Mal (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 63 auf (rote Linie) Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar.", echo=FALSE}
+plot(Bootsvertlg_21_34,title = "Bootsverteilung der Fibonacci Zahlenpaare 21 und 34")
+```
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 1 und 2 samstags kann anhand Abbildung XY visualisiert werden.
+```{r Bootstrap_1_2sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 1\\&2 samstags 24 Mal und in 75\\% der Stichprobenverteilungen 47 Mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 40 Samstagsziehungen auf (rote Linie). Dieser Wert liegt innerhalb der Quantile und stellt somit einen plausiblen Wert dar.", echo=FALSE}
+plot(Bootsvertlg_1_2sa,title = "Bootsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
+```
+
+Die Bootstrapverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
+```{r Bootstrap_21_34sa, fig.cap =  "In 25\\% der Stichprobenverteilungen des Bootstrap Resamplings wurden die Fibonacci-Zahlen 21 und 34 samstags 22 Mal und in 75\\% der Stichprobenverteilungen 44 Mal gezogen (schwarze Linien). Der p-Wert der Originalstichprobe weist eine Ziehungsanzahl von 38 Samstagsziehungen auf (rote Linie). Dieser Wert liegt noch innerhalb der Quantile und stellt somit einen plausiblen Wert dar.", echo=FALSE}
+plot(Bootsvertlg_21_34sa,title = "Bootsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
+```
+
+Aus den Grafiken geht hervor, dass sowohl H1 als auch H2 verworfen werden können.
+
+
+### 3.4.2 Permutation
+Mittels der Permutation wird die Nullhypothese simuliert. Hierzu werden zufällig 6 Ziffern aus den vorgegebenen Ziffern 1-49 ohne Zurücklegen gezogen. Die Wochentage werden ebenso ohne Effekt zufällig ohne Zurücklegen gezogen.
+
+
+```{r Permutation, include=FALSE, echo=FALSE}
+
+# Quotenverteilung der Permutations-Stichproben
+
+Permutation_Fibo_1_2 <- read.csv2("Permutation_Quota_Fibo_1_2.csv")
+colnames(Permutation_Fibo_1_2) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+
+
+Permutation_Fibo_21_34 <- read.csv2("Permutation_Quota_Fibo_21_34.csv")
+colnames(Permutation_Fibo_21_34) <- c("Anteil","Ziehungsanzahl","Ziehungen_Mittwoch","Ziehungen_Samstag","Ziehungen_andere_Tage")
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2 <- Lotto_Fibo_1_2[,2]
+draw1_2
+pq1_2 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Permutation_Fibo_1_2)
+pq1_2 <- as.data.frame(pq1_2)
+pq1_2h <- pq1_2[1,1]
+pq1_2b <-pq1_2[2,1]
+pq1_2
+Permutvtlg_1_2 <- gf_bar(~Ziehungsanzahl, data = Permutation_Fibo_1_2,title = "Permutationsverteilung Fibonacci 1&2") %>% gf_vline(colour=c("red"), xintercept =c(draw1_2))
+Permutvtlg_1_2
+mean(Permutation_Fibo_1_2$Ziehungsanzahl)
+
+# Anteilswert auf häufigsten Anteil testen
+Anteil_Boot_1_2 <- gf_bar(~ Anteil, data = Bootstrap_Fibo_1_2, binwidth = 8)%>% gf_vline(colour=c("red"), xintercept =c(0.0118742724097788))
+Anteil_Boot_1_2
+as.numeric(Bootstrap_Fibo_1_2$Anteil)
+sort(tally(Bootstrap_Fibo_1_2$Anteil))
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 1&2 inkl. IQR hinsichtlich samstagsziehung anzeigen lassen.
+Lotto_Fibo_1_2
+draw1_2a <- Lotto_Fibo_1_2[,4]
+draw1_2a
+pq1_2a <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Permutation_Fibo_1_2)
+pq1_2a <- as.data.frame(pq1_2a)
+pq1_2a
+pq1_2c <- pq1_2a[1,1]
+pq1_2d <-pq1_2a[2,1]
+Permutvertlg_1_2sa <- gf_bar(~Ziehungen_Samstag, data = Permutation_Fibo_1_2, title = "Permutationsverteilung Fibonacci 1&2 - Samstagsziehungen") %>% gf_vline(colour=c("red"), xintercept =c(draw1_2a))
+Permutvertlg_1_2sa
+mean(Permutation_Fibo_1_2$Ziehungen_Samstag)
+
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR anzeigen lassen.
+Lotto_Fibo_21_34
+draw21_34 <- Lotto_Fibo_21_34[,2]
+draw21_34
+pq21_34 <- quantile( ~ Ziehungsanzahl, probs = c(0.025, 0.975), data = Permutation_Fibo_21_34)
+pq21_34 <- as.data.frame(pq21_34)
+pq21_34
+pq21_34a <- pq21_34[1,1]
+pq21_34b <-pq21_34[2,1]
+Permutvertlg_21_34 <- gf_bar(~Ziehungsanzahl, data = Permutation_Fibo_21_34,title = "Permutationsverteilung Fibonacci 21&34") %>% gf_vline(colour=c("red"), xintercept =c(draw21_34))
+Permutvertlg_21_34
+mean(Permutation_Fibo_21_34$Ziehungsanzahl)
+
+# Grafik der Verteilungshäufigkeiten Fibonacci 21&34 inkl. IQR hinsichtlich Samstagsziehung anzeigen lassen.
+Lotto_Fibo_21_34
+draw21_34b <- Lotto_Fibo_21_34[,4]
+draw21_34b
+pq21_34b <- quantile( ~ Ziehungen_Samstag, probs = c(0.025, 0.975), data = Permutation_Fibo_21_34)
+pq21_34b <- as.data.frame(pq21_34b)
+pq21_34b
+pq21_34e <- pq21_34b[1,1]
+pq21_34f <-pq21_34b[2,1]
+Permutvertlg_21_34sa <- gf_bar(~Ziehungen_Samstag, data = Permutation_Fibo_21_34, title = "Permutationsverteilung Fibonacci 21&34 - Samstagsziehungen") %>% gf_vline(colour=c("red"), xintercept =c(draw21_34b))
+Permutvertlg_21_34sa
+mean(Permutation_Fibo_21_34$Ziehungen_Samstag)
+
+
+# p-Wert 1&2
+v1 <- max(Permutation_Fibo_1_2$Ziehungsanzahl)
+v2 <- Lotto_Fibo_1_2[,2]
+p1_2a <- c(v2:v1)
+p1_2b <- c(Permutation_Fibo_1_2$Ziehungsanzahl)
+p1_2b %in% p1_2a
+(count(p1_2b %in% p1_2a))/nrow(Permutation_Fibo_1_2)
+
+# p-Wert 1&2 sa
+v7 <- max(Permutation_Fibo_1_2$Ziehungen_Samstag)
+v8 <- Lotto_Fibo_21_34[,4]
+p1_2a_sa <- c(v8:v7)
+p1_2b_sa <- c(Permutation_Fibo_1_2$Ziehungen_Samstag)
+(count(p1_2b_sa %in% p1_2a_sa))/nrow(Permutation_Fibo_1_2)
+
+
+# p-Wert 21&34
+v3 <- max(Permutation_Fibo_21_34$Ziehungsanzahl)
+v4 <- Lotto_Fibo_21_34[,2]
+p21_34a <- c(v4:v3)
+p21_34b <- c(Permutation_Fibo_21_34$Ziehungsanzahl)
+(count(p21_34b %in% p21_34a))/nrow(Permutation_Fibo_21_34)
+
+# p-Wert 21&34 sa
+v5 <- max(Permutation_Fibo_21_34$Ziehungen_Samstag)
+v6 <- Lotto_Fibo_21_34[,4]
+p21_34a_sa <- c(v6:v5)
+p21_34b_sa <- c(Permutation_Fibo_21_34$Ziehungen_Samstag)
+(count(p21_34b_sa %in% p21_34a_sa))/nrow(Permutation_Fibo_21_34)
+
+
+
+
+```
+
+```{r Permut_1_2, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (59 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 29,54\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H1 kann daher zum Signifikanzniveau von 5\\% nicht verworfen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
+plot(Permutvtlg_1_2, title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2")
+```
+
+```{r Permut_21_34, fig.cap ="Die Wahrscheinlichkeit, dass der Wert der Teststatistik (63 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34) unter H0 (Permutation) vorkommt, liegt bei 14,3\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H1 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H1 hinsichtlich der Fibonaccizahlen 21\\&34 zu verwerfen.", echo=FALSE}
+plot(Permutvertlg_21_34,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34")
+```
+
+
+```{r Permut_1_2sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (40 Häufigkeitsbeobachtungen der Fibonaccizahlen 1\\&2 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 37,61\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H2 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H2 hinsichtlich der Fibonaccizahlen 1\\&2 zu verwerfen.", echo=FALSE}
+plot(Permutvertlg_1_2sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 1&2 - Samstag")
+```
+
+Die Permutationsverteilung der Fibonacci-Zahlenpaare 21 und 34 samstags kann anhand Abbildung XY visualisiert werden.
+
+```{r Permut_21_34sa, fig.cap =  "Die Wahrscheinlichkeit, dass der Wert der Teststatistik (38 Häufigkeitsbeobachtungen der Fibonaccizahlen 21\\&34 an Samstagen) unter H0 (Permutation) vorkommt, liegt bei 36,88\\%. Dieser Wert ist größer als das Signifikanzniveau von 5\\%. Die Nullhypothese von H2 kann daher zum Signifikanzniveau von 5\\% angenommen werden. Somit ist H2 hinsichtlich der Fibonaccizahlen 21\\&34 zu verwerfen.", echo=FALSE}
+plot(Permutvertlg_21_34sa,title = "Permutationsverteilung der Fibonacci Zahlenpaare 21&34 - Samstag")
+```
+
+
+
+### 3.4.3 Lineare Regression
+
+Anhand der linearen Regression kann erklärt werden, dass die Gewinnzahlen nicht durch die vorherige Gewinnzahl erklärt werden kann. Weder in der selektierten Liste, noch im Gesamtlotto.   
+
+```{r lineare_Regression_Fibo_1&2, echo = FALSE, include = FALSE}
+# Residuenanalyse [Hier erkennbar, dass Ausgabe der Linearen Regression feherhaft, da kein
+#linearer Zusammenhang] 
+
+# Zusammenhang der Gewinnzahlen 2&1
+Regress1 <- lm(GewZahl_2 ~ GewZahl_1, data = Fibo1_2)
+Regress1co <- lm(GewZahl_2 ~ GewZahl_1 + GewZahl_3 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo1_2)
+Regress1coges <- lm(GewZahl_2 ~ GewZahl_1 + GewZahl_3 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = data_lotto_orig)
+Regress1ges <- lm(GewZahl_2 ~ GewZahl_1, data = data_lotto_orig)
+
+
+summary(Regress1)
+summary(Regress1co)
+summary(Regress1ges)
+
+par(mfrow = c(2,2))
+Regress1PLot <- ggplot(data = Regress1, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + ggtitle("Lineare Regression \nGewinnzahl 1&2 \n- Fibonacci 1&2\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress1PLot
+Regress1PLotges <- ggplot(data = Regress1ges, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + ggtitle("Lineare Regression \nGewinnzahl 1&2 \n- Gesamtlotto\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress1PLotco <- ggplot(data = Regress1co, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + ggtitle("Lineare Regression \nGewinnzahl 1&2 \n- Fibonacci 1&2 \nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+grid.arrange(Regress1PLot,Regress1PLotco,Regress1PLotges, ncol=3)
+
+# Zusammenhang der Gewinnzahlen 3&2
+Regress2 <- lm(GewZahl_3 ~ GewZahl_2, data = Fibo1_2)
+Regress2co <- lm(GewZahl_3 ~ GewZahl_2 + GewZahl_1 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo1_2)
+Regress2ges <- lm(GewZahl_3 ~ GewZahl_2, data = data_lotto_orig)
+
+summary(Regress2)
+summary(Regress2co)
+summary(Regress2ges)
+
+Regress2PLot <- ggplot(data = Regress2, mapping = aes(x = GewZahl_2, y = GewZahl_3))+ ggtitle("Lineare Regression \nGewinnzahl 2&3 \n- Fibonacci 1&2\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress2PLot
+Regress2PLotco <- ggplot(data = Regress2co, mapping = aes(x = GewZahl_2, y = GewZahl_3))+ ggtitle("Lineare Regression \nGewinnzahl 2&3 \n- Fibonacci 1&2\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress2PLotco
+Regress2PLotges <- ggplot(data = Regress2ges, mapping = aes(x = GewZahl_2, y = GewZahl_3))+ ggtitle("Lineare Regression \nGewinnzahl 2&3 \n- Gesamtlotto\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress2PLot
+grid.arrange(Regress2PLot,Regress2PLotco,Regress2PLotges, ncol=3)
+
+# Zusammenhang der Gewinnzahlen 4&3
+Regress3 <- lm(GewZahl_4 ~ GewZahl_3, data = Fibo1_2)
+Regress3co <- lm(GewZahl_4 ~ GewZahl_3 + GewZahl_1 + GewZahl_2 + GewZahl_5 + GewZahl_6, data = Fibo1_2)
+Regress3ges <- lm(GewZahl_4 ~ GewZahl_3, data = data_lotto_orig)
+summary(Regress3)
+summary(Regress3co)
+summary(Regress3ges)
+
+Regress3PLot <- ggplot(data = Regress3, mapping = aes(x = GewZahl_3, y = GewZahl_4))+ ggtitle("Lineare Regression \nGewinnzahl 4&3 \n- Fibonacci 1&2\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress3PLot
+Regress3PLotco <- ggplot(data = Regress3co, mapping = aes(x = GewZahl_3, y = GewZahl_4))+ ggtitle("Lineare Regression \nGewinnzahl 4&3 \n- Fibonacci 1&2\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress3PLotco
+Regress3PLotges <- ggplot(data = Regress3ges, mapping = aes(x = GewZahl_3, y = GewZahl_4))+ ggtitle("Lineare Regression \nGewinnzahl 4&3 \n- Gesamtlotto\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress3PLotges
+
+
+
+# Zusammenhang der Gewinnzahlen 5&4
+Regress4 <- lm(GewZahl_5 ~ GewZahl_4, data = Fibo1_2)
+Regress4co <- lm(GewZahl_5 ~ GewZahl_4 + GewZahl_1 + GewZahl_2 + GewZahl_3 + GewZahl_4, data = Fibo1_2)
+Regress4ges <- lm(GewZahl_5 ~ GewZahl_4, data = data_lotto_orig)
+summary(Regress4)
+summary(Regress4co)
+summary(Regress4ges)
+
+Regress4PLot <- ggplot(data = Regress4, mapping = aes(x = GewZahl_4, y = GewZahl_5))+ ggtitle("Lineare Regression \nGewinnzahl 5&4 \nFibonacci 1&2\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress4PLot
+Regress4PLotco <- ggplot(data = Regress4co, mapping = aes(x = GewZahl_4, y = GewZahl_5))+ ggtitle("Lineare Regression \nGewinnzahl 5&4 \n- Fibonacci 1&2\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress4PLotco
+Regress4PLotges <- ggplot(data = Regress4ges, mapping = aes(x = GewZahl_4, y = GewZahl_5))+ ggtitle("Lineare Regression \nGewinnzahl 5&4 \n- Gesamtlotto\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress4PLotges
+
+# Zusammenhang der Gewinnzahlen 6&5
+Regress5 <- lm(GewZahl_6 ~ GewZahl_5, data = Fibo1_2)
+Regress5co <- lm(GewZahl_6 ~ GewZahl_5 + GewZahl_1 + GewZahl_2 + GewZahl_3 + GewZahl_4, data = Fibo1_2)
+Regress5ges <- lm(GewZahl_6 ~ GewZahl_5, data = data_lotto_orig)
+
+summary(Regress5)
+summary(Regress5co)
+summary(Regress5ges)
+
+Regress5PLot <- ggplot(data = Regress5, mapping = aes(x = GewZahl_5, y = GewZahl_6))+ ggtitle("Lineare Regression \nGewinnzahl 6&5 \n- Fibonacci 1&2\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress5PLot
+Regress5PLotco <- ggplot(data = Regress5co, mapping = aes(x = GewZahl_5, y = GewZahl_6))+ ggtitle("Lineare Regression \nGewinnzahl 6&5 \n- Fibonacci 1&2\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress5PLotco
+Regress5PLotges <- ggplot(data = Regress5ges, mapping = aes(x = GewZahl_5, y = GewZahl_6))+ ggtitle("Lineare Regression \nGewinnzahl 6&5 \n- Gesamtlotto\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress5PLotges
+
+
+
+# p-Wert > alpha -> hoch (kein Zusammenhang), R2 sehr klein (schlechtes Modell) --> es erfolgt durch GewZahl2 keine Erklärung von GewZahl1
+```
+
+
+
+```{r ergebnis_linear, fig.cap="Lineares Modell zeigt, dass keine Erklärung einer Gewinnzahl durch ihre vorherige Gewinnzahl erfolgt. Die Regressionsgerade verläuft im Gesamtlotto-Modell horizontal. In der nach Fibonaccizahlen 1\\&2 sortierten Ansicht verläuft die Gerade mit geringer negativer Steigung. Dies wird bedingt durch die geringe Anzahl an Ziehungen. Hinsichtlich der Streuung kann kein Zusammenhang erklärt werden und keine Vorhersage über den Verlauf der Gewinnzahlen getroffen werden. Die Covariablen der Gewinnzahlen haben keinen Einfluss auf den R-squared Wert, da auch hier die Regressionsgerade annähernd horizontal verläuft.",fig.height=10, fig.width=8}
+grid.arrange(Regress1PLot,Regress1PLotco,Regress1PLotges,Regress2PLot,Regress2PLotco,Regress2PLotges,Regress3PLot,Regress3PLotco,Regress3PLotges,Regress4PLot,Regress4PLotco,Regress4PLotges,Regress5PLot,Regress5PLotco,Regress5PLotges,ncol=3, nrow=5)
+```
+
+Für die Gewinnzahlen 21 und 34 wird ebenfalls ein lineares Modell erstellt. Aus diesem geht hervor, dass kein linearer Zusammenhang der Gewinnzahlen besteht.
+
+```{r linear_21_34,echo=FALSE, include=FALSE}
+# Residuenanalyse [Hier erkennbar, dass Ausgabe der Linearen Regression feherhaft, da kein
+#linearer Zusammenhang] 
+
+# Zusammenhang der Gewinnzahlen 2&1
+Regress1_ <- lm(GewZahl_2 ~ GewZahl_1, data = Fibo21_34)
+Regress1co_ <- lm(GewZahl_2 ~ GewZahl_1 + GewZahl_3 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo21_34)
+
+summary(Regress1_)
+summary(Regress1co_)
+
+Regress1PLot_ <- ggplot(data = Regress1_, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + ggtitle("Lineare Regression \nGewinnzahl 1&2 \n- Fibonacci 21&34\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress1PLotco_ <- ggplot(data = Regress1co_, mapping = aes(x = GewZahl_1, y = GewZahl_2)) + ggtitle("Lineare Regression \nGewinnzahl 1&2 \n- Fibonacci 21&34 \nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+
+# Zusammenhang der Gewinnzahlen 3&2
+Regress2_ <- lm(GewZahl_3 ~ GewZahl_2, data = Fibo21_34)
+Regress2co_ <- lm(GewZahl_3 ~ GewZahl_2 + GewZahl_1 + GewZahl_4 + GewZahl_5 + GewZahl_6 , data = Fibo21_34)
+
+summary(Regress2_)
+summary(Regress2co_)
+
+Regress2PLot_ <- ggplot(data = Regress2_, mapping = aes(x = GewZahl_2, y = GewZahl_3))+ ggtitle("Lineare Regression \nGewinnzahl 2&3 \n- Fibonacci 21&34\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress2PLotco_ <- ggplot(data = Regress2co_, mapping = aes(x = GewZahl_2, y = GewZahl_3))+ ggtitle("Lineare Regression \nGewinnzahl 2&3 \n- Fibonacci 21&34\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+
+
+# Zusammenhang der Gewinnzahlen 4&3
+Regress3_ <- lm(GewZahl_4 ~ GewZahl_3, data = Fibo21_34)
+Regress3co_ <- lm(GewZahl_4 ~ GewZahl_3 + GewZahl_1 + GewZahl_2 + GewZahl_5 + GewZahl_6, data = Fibo21_34)
+
+summary(Regress3_)
+summary(Regress3co_)
+
+Regress3PLot_ <- ggplot(data = Regress3_, mapping = aes(x = GewZahl_3, y = GewZahl_4))+ ggtitle("Lineare Regression \nGewinnzahl 4&3 \n- Fibonacci 21&34\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress3PLotco_ <- ggplot(data = Regress3co_, mapping = aes(x = GewZahl_3, y = GewZahl_4))+ ggtitle("Lineare Regression \nGewinnzahl 4&3 \n- Fibonacci 21&34\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+
+
+# Zusammenhang der Gewinnzahlen 5&4
+Regress4_ <- lm(GewZahl_5 ~ GewZahl_4, data = Fibo21_34)
+Regress4co_ <- lm(GewZahl_5 ~ GewZahl_4 + GewZahl_1 + GewZahl_2 + GewZahl_3 + GewZahl_4, data = Fibo21_34)
+
+summary(Regress4_)
+summary(Regress4co_)
+
+Regress4PLot_ <- ggplot(data = Regress4_, mapping = aes(x = GewZahl_4, y = GewZahl_5))+ ggtitle("Lineare Regression \nGewinnzahl 5&4 \nFibonacci 21&34\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress4PLotco_ <- ggplot(data = Regress4co_, mapping = aes(x = GewZahl_4, y = GewZahl_5))+ ggtitle("Lineare Regression \nGewinnzahl 5&4 \n- Fibonacci 21&34\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+
+# Zusammenhang der Gewinnzahlen 6&5
+Regress5_ <- lm(GewZahl_6 ~ GewZahl_5, data = Fibo21_34)
+Regress5co_ <- lm(GewZahl_6 ~ GewZahl_5 + GewZahl_1 + GewZahl_2 + GewZahl_3 + GewZahl_4, data = Fibo21_34)
+
+summary(Regress5_)
+summary(Regress5co_)
+
+Regress5PLot_ <- ggplot(data = Regress5_, mapping = aes(x = GewZahl_5, y = GewZahl_6))+ ggtitle("Lineare Regression \nGewinnzahl 6&5 \n- Fibonacci 21&34\n") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+Regress5PLotco_ <- ggplot(data = Regress5co_, mapping = aes(x = GewZahl_5, y = GewZahl_6))+ ggtitle("Lineare Regression \nGewinnzahl 6&5 \n- Fibonacci 21&34\nCovariablen") + geom_point() + geom_smooth(method = "lm", se = FALSE, color = "darkmagenta")
+
+
+# p-Wert > alpha -> hoch (kein Zusammenhang), R2 sehr klein (schlechtes Modell) --> es erfolgt durch GewZahl2 keine Erklärung von GewZahl1
+```
+
+```{r ergebnis_linear_2, fig.cap="Die linearen Geraden zeigen kaum einen linearen Zusammenhang, da diese relativ horizontal verlaufen. Lediglich die Gewinnzahlen 3 und 4 zeigen eine positive Steigung der Geraden auf. Die Covariablen der Gewinnzahlen haben keinen Einfluss auf den R-squared Wert, da auch hier die Regressionsgerade annähernd horizontal verläuft. Es ist kein linearer Zusammenhang der Gewinnzahlen in den Fibonaccizahlenpaaren 21 nd 34 zu erkennen.",fig.height=10, fig.width=8}
+grid.arrange(Regress1PLot_,Regress1PLotco_,Regress2PLot_,Regress2PLotco_,Regress3PLot_,Regress3PLotco_,Regress4PLot_,Regress4PLotco_,Regress5PLot_,Regress5PLotco_,ncol=4, nrow=5)
+```
+
+Es ist zu diskutieren, in wie weit die abweichenden Steigungen der Geraden in den beschriebenen Gewinnzahlen aussagekräftig sind. Hierzu werden im Folgenden zwei Tabellen mit den R-squared Werten, sowie den entsprechenden p-Werten aufgezeigt, unterteilt in die Fibonacci-Zahlenpaare 1&2 sowie 21&34.\newline\newline\newline
+
+```{r Table9, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+
+table9 <- "
+
+| Unabhängige Variable   | Abhängige Variable | Multiple R-squared | Adjusted R-squared | p-Wert |
+| :--------------------- | :----------------- | :----------------- | :----------------- | :----- |
+|Gewinnzahl 1|Gewinnzahl 2| 0.0452|0.02845 |0.106
+|Gewinnzahl 2|Gewinnzahl 3|0.001032|-0.01649 |0.8092
+|Gewinnzahl 3|Gewinnzahl 4|0.04439| 0.02762|0.1092
+|Gewinnzahl 4|Gewinnzahl 5|0.006025|-0.01141| 0.559 
+|Gewinnzahl 5|Gewinnzahl 6|0.002637|-0.01486 |0.6993
+
+Table: Dargestellt sind die Bestimmtheitsmaße und p-Werte der Fibonacci-Zahlenpaare 1&2. Die Bestimmtheitsmaße (multiple als auch adjusted) weisen niedrige Werte auf, sodass nur schwache Effekte zwischen den Gewinnzahlen erkennbar sind. Hohe p-Werte bestätigen diese Tatsache. Die Gewinnzahlen in den Ziehungen mit den Fibonaccizahlenpaaren 1 und 2 lassen sich somit nicht durch ihre vorherigen Gewinnzahlen erklären.  
+"
+cat(table9)
+```
+
+```{r Table10, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+table10 <- "
+
+| Unabhängige Variable   | Abhängige Variable | Multiple R-squared | Adjusted R-squared | p-Wert |
+| :--------------------- | :----------------- | :----------------- | :----------------- | :----- |
+|Gewinnzahl 1|Gewinnzahl 2| 0.002721-0.01363 |0.6847
+|Gewinnzahl 2|Gewinnzahl 3|0.02308|0.007065|0.2346
+|Gewinnzahl 3|Gewinnzahl 4|0.1049|  0.09026|0.009601
+|Gewinnzahl 4|Gewinnzahl 5|0.0002615|-0.01613| 0.8999
+|Gewinnzahl 5|Gewinnzahl 6|0.008628|-0.007624 |0.469
+
+Table: Dargestellt sind die Bestimmtheitsmaße und p-Werte der Fibonacci-Zahlenpaare 21\\&34. Die Bestimmtheitsmaße (multiple als auch adjusted) weisen niedrige Werte auf, sodass nur schwache Effekte zwischen den Gewinnzahlen erkennbar sind. Hohe p-Werte bestätigen diese Tatsache. Die Gewinnzahlen in den Ziehungen mit den Fibonaccizahlenpaaren 1 und 2 lassen sich somit nicht durch ihre vorherigen Gewinnzahlen erklären. Kritisch zu betrachten ist jedoch Gewinnzahl 3 und 4. Hier ist ein relativ hohes Bestimmtheitsmaß zu erkennen und ein relativ niedriger p-Wert. Auf Basis der bisherigen Analysen, kann jedoch davon ausgegangen werden, dass es sich hierbei trotz der Werte um einen schwachen Effekt handelt.   
+"
+cat(table10)
+```
+
+Aus den Grafiken und Tabellen zeigt das Ergebnis, dass die Gewinnzahlen in keinem Zusammenhang zu ihren vorherigen Gewinnzahlen stehen.
+
+# 4. Diskussion
+Zusammenfassend lässt sich festhalten, dass sowohl H1, als auch H2 abgelehnt werden können.
+Dies kann durch die Ergebnisse der Inferenzstatistik, als auch anhand der mathematischen Wertanalyse in Tabelle XX festgehalten werden.
+
+```{r Mathematisch, echo= FALSE, include=FALSE}
+#Anteil 0.0137369033760186
+Lotto_Fibo_1_2[1,1]
+
+# Anteil =  0.0118742724097788
+as.numeric(Bootstrap_Fibo_1_2$Anteil)
+sort(tally(Bootstrap_Fibo_1_2$Anteil))
+
+# Anteil =  0.0125727590221187
+as.numeric(Permutation_Fibo_1_2$Anteil)
+sort(tally(Permutation_Fibo_1_2$Anteil))
+
+#Anteil 0.0146682188591385
+Lotto_Fibo_21_34[1,1]
+
+# Anteil =  0.0116414435389988 
+as.numeric(Bootstrap_Fibo_21_34$Anteil)
+sort(tally(Bootstrap_Fibo_21_34$Anteil))
+
+# Anteil =  0.0123399301513388 
+as.numeric(Permutation_Fibo_21_34$Anteil)
+sort(tally(Permutation_Fibo_21_34$Anteil))
+```
+
+```{r Table11, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+table11 <- "
+
+| Fibonacci-Zahlenpaare | p-Wert (p) | Signifikanzniveau (α) | Hypothesenprüfung |
+| :-------------------- | :--------- | :-------------------- | :---------------- |
+|1\\&2|0.2954|0,05|p>α (H0 wird angenommen)
+|1\\&2, samstags|0.3761|0,05|p>α (H0 wird angenommen)
+|21\\&34| 0.143|0,05|p>α (H0 wird angenommen)
+|21\\&34, samstags|0.36887|0,05|p>α (H0 wird angenommen)
+
+Table: Dargestellt sind die p-Werte der Teststatistik, welche in jedem betrachteten Ereignis größer als das Signifikanznievau sind. H0 wird sowohl bei der ersten Hypothese, als auch bei der zweiten Hypothese angenommen.    
+"
+cat(table11)
+```
+
+Betrachtet man die Ergebnisse im Kontext zu bereits veröffentlichten Erkenntnissen, zeigt sich, dass die Fibonacci Zahlen auch in Wettsystemen häufig Gebrauch finden.[vgl.@mr_green_fibonacci_2019] Dass die Fibonacci Zahlen mit ihrem Goldene Schnitt keinen Einfluss im Wettsystem haben, untermauern die Ergebnisse der analysierten Studie. [vgl.@pinnacle_untersuchung_2019] Im Fibonacci-Roulette System beispielsweise können Fibonacci-Zahlen zwar zum Erfolg führen, dies unterliegt jedoch ebenso dem Zufall. [vgl.@banks_fibonacci_2014] Da zum jetzigen Zeitpunkt keine Studien zum bearbeiteten Themengebiet veröffentlich wurden, kann nur diskutiert werden, ob die Häufigkeit bestimmter Zahlen im Lotto 6 aus 49 einem gewissen Einfluss unterliegt. Hierzu zeigt sich, dass die Ziffern 6, 32, 49, 26, 38 und 33 im Lotto 6 aus 49 unter allen Lottozahlen am häufigsten gezogen werden. [@lottoland_gluckszahlen_2019] Im Zeitraum der Datenanalyse wurden am 29. Juni 2019 in einer Ziehung drei Fibonacci Ziffern gezogen. Eine Diskussion zur Häufigkeit aller        
+
+# 5. Schlussfolgerungen
+
+>"Es steckt oft mehr Geist und Scharfsinn in einem Irrtum als in einer Entdeckung." [@roschk_zufallzitate_2019, zitiert nach Joseph Joubert]
+
+Der Goldene Schnitt hat auf Basis dieser Studie keinen Einfluss auf die Ziehungswahrscheinlichkeit unter zwei Fibonacci-Zahlen im Lotto 6 aus 49. Die Studie spiegelt demnach wieder, dass es sich im Lotto 6 aus 49 um ein Glücksspiel handelt, dessen Ereignisse trotz umfangreicher Analyse nicht prophezeit werden können. Der Goldene Schnitt vermag in der Architektur, dem Tierreich und der Natur ein Phänomen darstellen, nicht jedoch in der beliebtesten Lotterie der Deutschen.[vgl.@whitewall_goldene_2019]
+Trotz umfangreicher Stichprobe findet die Datensatzanalyse ihre Grenzen im Bereich des Glücksspieles - speziell der Lotterie in Deutschland. Hier können Ergebnisse nur auf das Glücksspiel Lotto 6 aus 49 übertragen werden und nicht allgemein für Lotterien in Deutschland. Auch wurden in der Studie die Superzahlen nicht berücksichtig. Diese Merkmalsausprägungen wären für künftige Studien interessant und könnten die Forschungslücke schmälern. Eine Betrachtung des Verhaltens der Fibonacci-Zahlen im Goldenen-Schnitt Verhältnis im EuroJackpot wären für künstige Datenanalysen denkbar. 
+
+\newpage
+
+# Digitaler Anhang
+
+## Anhang 1: Verwendeter Datensatz
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Verwendeter_Datensatz.pdf}
+\end{center}
+
+## Anhang 2: Fibonacci-Sortierung mittels R
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Fibonacci_Sortierung.pdf}
+\end{center}
+
+
+## Anhang 3: Häufigkeitsverteilung Fibonacci-Zahlen mittels R
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Haeufigkeitsverteilung_Fibonacci.pdf}
+\end{center}
+
+
+## Anhang 3: Bootstrap Lottoziehungen & Anteilsberechnungen Fibonaccizahlen
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Bootstrap_Lotto.pdf}
+\end{center}
+
+## Anhang 4: Bootstrap-Batch
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Bootstrap_Batch.pdf}
+\end{center}
+
+## Anhang 5: Permutation Lottoziehungen & Anteilsberechnungen Fibonaccizahlen
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Permutation_Lotto.pdf}
+\end{center}
+
+## Anhang 6: Permutation-Batch
+
+\begin{center}
+\includepdf[pages=-,nup=1,pagecommand={}]{Permutation_Batch.pdf}
+\end{center}
+
+# Literaturverzeichnis

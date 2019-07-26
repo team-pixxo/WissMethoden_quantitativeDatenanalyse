@@ -1,4 +1,4 @@
 #Dateipfad festlegen
-setwd("/Users/shirin/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
+setwd("/Users/shirin/Desktop/Semi")
 
-do(10000)*source("_06_Permutation_Lotto_Gesamt.R")
+do(10000)*source("_04_Permutation_Lotto_Gesamt.R")

@@ -1,5 +1,5 @@
 # Dateipfad festlegen
-setwd("/Users/shisha/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
+setwd("/Users/shirin/Dropbox/FOM/Semester_4/WissMethoden_quantitativeDatenanalyse")
 #setwd("H:/R")
 
 # CSV Datei auswählen
